@@ -1,0 +1,3052 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="基于mkdocs+GitHub Pages的个人站点">
+      
+      
+      
+      
+        <link rel="prev" href="../10.1%20CSS%E5%9F%BA%E7%A1%80%E8%AE%A4%E7%9F%A5%EF%BC%8C%E4%BB%8E%E9%9B%B6%E5%AD%A6%E5%89%8D%E7%AB%AFCSS%E5%85%A5%E9%97%A8%E7%AC%AC%E4%B8%80%E8%AF%BE/">
+      
+      
+        <link rel="next" href="../11.1%20%E5%89%8D%E7%AB%AF%E5%85%A5%E9%97%A8%E4%B9%8BCSS%E5%AD%97%E4%BD%93%E5%B1%9E%E6%80%A7%E8%AF%A6%E8%A7%A3/">
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.32">
+    
+    
+      
+        <title>10.2 CSS基础选择器详解 - 我的个人网站</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.3cba04c6.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#css" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="我的个人网站" class="md-header__button md-logo" aria-label="我的个人网站" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            我的个人网站
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              10.2 CSS基础选择器详解
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="我的个人网站" class="md-nav__button md-logo" aria-label="我的个人网站" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    我的个人网站
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    首页
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../about/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    关于我
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    技术笔记
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            技术笔记
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_1" id="__nav_3_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    1
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_1">
+            <span class="md-nav__icon md-icon"></span>
+            1
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../1.1%20%E8%AE%A4%E7%9F%A5%E5%A4%A7%E5%89%8D%E7%AB%AF%E4%B9%8B%E8%AE%A4%E7%9F%A5%E5%89%8D%E7%AB%AF%E5%92%8C%E4%BA%92%E8%81%94%E7%BD%91%E8%A1%8C%E4%B8%9A%EF%BC%8C%E4%BB%8E%E5%AE%8F%E8%A7%82%E5%88%B0%E5%BE%AE%E8%A7%82%E5%85%A8%E9%9D%A2%E7%86%9F%E6%82%89%E5%89%8D%E7%AB%AF%E5%B2%97%E4%BD%8D/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1.1 认知大前端之认知前端和互联网行业，从宏观到微观全面熟悉前端岗位
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../1.2%20%E5%89%8D%E7%AB%AF%E5%AD%A6%E4%B9%A0%E8%B7%AF%E7%BA%BF%E4%B9%8B%E8%AE%A4%E7%9F%A5%E5%89%8D%E7%AB%AF%E5%B2%97%E4%BD%8D%E5%92%8C%E4%BA%92%E8%81%94%E7%BD%91%E5%B2%97%E4%BD%8D/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1.2 前端学习路线之认知前端岗位和互联网岗位
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../1.3%20%E5%89%8D%E7%AB%AF%E5%AD%A6%E4%B9%A0%E6%8C%87%E5%8D%97%E4%B9%8B%E5%89%8D%E7%AB%AF%E5%AD%A6%E4%B9%A0%E6%96%B9%E6%B3%95%E8%AE%BA%E4%B8%8E%E5%89%8D%E7%AB%AF%E5%AD%A6%E4%B9%A0%E6%8C%87%E5%8D%97/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1.3 前端学习指南之前端学习方法论与前端学习指南
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    2
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            2
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2.1%20%E5%89%8D%E7%AB%AF%E5%85%A5%E9%97%A8%E4%B9%8B%E5%89%8D%EF%BC%8C%E5%BF%85%E9%A1%BB%E6%90%9E%E6%87%82%E4%BA%92%E8%81%94%E7%BD%91%E5%9F%BA%E7%A1%80%E5%8E%9F%E7%90%86/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2.1 前端入门之前，必须搞懂互联网基础原理
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2.2%20%E5%89%8D%E7%AB%AF%E5%85%A5%E9%97%A8%E4%B9%8B%E4%BB%80%E4%B9%88%E6%98%AFhtml%EF%BC%8Chtmll%E7%9A%84%E6%A0%87%E7%AD%BE%E5%92%8C%E4%B9%A6%E5%86%99%E8%A7%84%E5%88%99/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2.2 前端入门之什么是html，htmll的标签和书写规则
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    3
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            3
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../3.1%20%E5%89%8D%E7%AB%AF%E5%85%A5%E9%97%A8%E4%B9%8Bhtml%E6%A0%87%E7%AD%BE%E5%92%8C%E5%B1%9E%E6%80%A7%E4%B9%8B%E6%A0%87%E9%A2%98%E5%92%8C%E6%AE%B5%E8%90%BD%E6%A0%87%E7%AD%BE%E3%80%81div%E6%A0%87%E7%AD%BE%E4%BB%A5%E5%8F%8Ahtml5%E7%89%B9%E6%80%A7%E8%AF%A6%E8%A7%A3/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3.1 前端入门之html标签和属性之标题和段落标签、div标签以及html5特性详解
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../3.2%20%E5%89%8D%E7%AB%AF%E5%85%A5%E9%97%A8%E4%B9%8Bhtml%E6%A0%87%E7%AD%BE%E5%92%8C%E5%B1%9E%E6%80%A7%E4%B9%8B%E8%AE%A4%E8%AF%86html5%E6%A1%86%E6%9E%B6/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3.2 前端入门之html标签和属性之认识html5框架
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_4" id="__nav_3_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    4
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_4">
+            <span class="md-nav__icon md-icon"></span>
+            4
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../4.1%20%E5%89%8D%E7%AB%AF%E5%85%A5%E9%97%A8html%E6%A0%87%E7%AD%BE%E5%B1%9E%E6%80%A7%E4%B9%8B%E5%88%97%E8%A1%A8%E6%A0%87%E7%AD%BE%E8%AF%A6%E8%A7%A3/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    4.1 前端入门html标签属性之列表标签详解
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../4.2%20%E5%89%8D%E7%AB%AF%E5%85%A5%E9%97%A8html%E6%A0%87%E7%AD%BE%E4%B9%8B%E5%A4%9A%E5%AA%92%E4%BD%93%E6%A0%87%E7%AD%BE%E8%AF%A6%E8%A7%A3/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    4.2 前端入门html标签之多媒体标签详解
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_5" id="__nav_3_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    5
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_5">
+            <span class="md-nav__icon md-icon"></span>
+            5
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../5.1%20%E5%89%8D%E7%AB%AF%E5%85%A5%E9%97%A8html%E6%A0%87%E7%AD%BE%E5%B1%9E%E6%80%A7%E4%B9%8B%E9%9F%B3%E8%A7%86%E9%A2%91%E6%A0%87%E7%AD%BE%E5%B1%9E%E6%80%A7%E8%AE%B2%E8%A7%A3/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    5.1 前端入门html标签属性之音视频标签属性讲解
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../5.2%20%E5%89%8D%E7%AB%AF%E5%85%A5%E9%97%A8%E5%85%A8%E9%9B%86%E4%B9%8Bhtml5%E5%8C%BA%E5%9D%97%E5%8C%96%E6%A0%87%E7%AD%BE/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    5.2 前端入门全集之html5区块化标签
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_6" id="__nav_3_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    6
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_6">
+            <span class="md-nav__icon md-icon"></span>
+            6
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../6.1%20HTML%E6%A0%87%E7%AD%BE%E5%B1%9E%E6%80%A7%E4%B9%8B%E8%A1%A8%E5%8D%95%E6%A0%87%E7%AD%BE%E8%AF%A6%E8%A7%A3/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    6.1 HTML标签属性之表单标签详解
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../6.2%20%E5%89%8D%E7%AB%AF%E5%85%A5%E9%97%A8%E4%B9%8BHTML5%E6%96%B0%E5%A2%9E%E8%A1%A8%E5%8D%95%E6%8E%A7%E4%BB%B6/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    6.2 前端入门之HTML5新增表单控件
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../6.3%20HTML%E7%BB%BC%E5%90%88%E5%BA%94%E7%94%A8%E4%BB%A5%E5%8F%8A%E5%A4%8D%E4%B9%A0%E6%B1%87%E6%80%BB/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    6.3 HTML综合应用以及复习汇总
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_7" id="__nav_3_7_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    7
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_7">
+            <span class="md-nav__icon md-icon"></span>
+            7
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../7.1%20%E5%89%8D%E7%AB%AF%E7%AC%94%E8%AE%B0%E7%A5%9E%E5%99%A8Markdown%E6%96%87%E6%A1%A3%E4%B8%8A%E6%89%8B%E6%8C%87%E5%8D%97%E5%92%8C%E8%AF%AD%E6%B3%95%E8%AE%B2%E8%A7%A3/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    7.1 前端笔记神器Markdown文档上手指南和语法讲解
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../7.2%20Markdown%E6%96%87%E6%A1%A3%E8%AF%AD%E6%B3%95%E8%AF%A6%E8%A7%A3/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    7.2 Markdown文档语法详解
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../7.3%20Markdown%E9%AB%98%E9%98%B6%E8%AF%AD%E6%B3%95%E5%BA%94%E7%94%A8/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    7.3 Markdown高阶语法应用
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../7.4%20Markdown%E6%96%87%E6%A1%A3%EF%BC%8C%E4%B8%AA%E6%80%A7%E5%8C%96%E8%AE%BE%E7%BD%AEtypora/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    7.4 Markdown文档，个性化设置typora
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_8" id="__nav_3_8_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    8
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_8">
+            <span class="md-nav__icon md-icon"></span>
+            8
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../8.1%20%E6%9C%80%E5%85%A8%E7%9A%84%E5%89%8D%E7%AB%AFGit%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B%E4%B9%8Bgit%E5%85%A5%E9%97%A8/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    8.1 最全的前端Git使用教程之git入门
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../8.2%20%E6%9C%80%E5%85%A8%E7%9A%84%E5%89%8D%E7%AB%AFGit%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B%E4%B9%8B%E6%89%8B%E6%8A%8A%E6%89%8B%E5%B8%A6%E4%BD%A0%E4%B8%8A%E6%89%8BGit%E5%AE%9E%E6%88%98/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    8.2 最全的前端Git使用教程之手把手带你上手Git实战
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_9" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_9" id="__nav_3_9_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    9
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_9">
+            <span class="md-nav__icon md-icon"></span>
+            9
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../9.1%20Web%E5%89%8D%E7%AB%AF%E5%AD%A6%E4%B9%A0%E7%AD%94%E7%96%91/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    9.1 Web前端学习答疑
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_10" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3_10" id="__nav_3_10_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    10
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_10_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3_10">
+            <span class="md-nav__icon md-icon"></span>
+            10
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../10.1%20CSS%E5%9F%BA%E7%A1%80%E8%AE%A4%E7%9F%A5%EF%BC%8C%E4%BB%8E%E9%9B%B6%E5%AD%A6%E5%89%8D%E7%AB%AFCSS%E5%85%A5%E9%97%A8%E7%AC%AC%E4%B8%80%E8%AF%BE/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    10.1 CSS基础认知，从零学前端CSS入门第一课
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    10.2 CSS基础选择器详解
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    10.2 CSS基础选择器详解
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      1、什么是选择器及作用
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      2、选择器分类
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      3、标签选择器
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4id" class="md-nav__link">
+    <span class="md-ellipsis">
+      4、id选择器
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5class" class="md-nav__link">
+    <span class="md-ellipsis">
+      5、class选择器
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5、class选择器">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51class" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.1、class选择器用法
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#52" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.2、原子类
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#53id-class" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.3、id 和 class 的命名规则
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6" class="md-nav__link">
+    <span class="md-ellipsis">
+      6、* 通配符选择器
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7" class="md-nav__link">
+    <span class="md-ellipsis">
+      7、基础选择器的权重优先级
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8" class="md-nav__link">
+    <span class="md-ellipsis">
+      8、测试题
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9css" class="md-nav__link">
+    <span class="md-ellipsis">
+      9、总结：CSS基础选择器
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10" class="md-nav__link">
+    <span class="md-ellipsis">
+      10、后代选择器
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_11" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_11" id="__nav_3_11_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    11
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_11_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_11">
+            <span class="md-nav__icon md-icon"></span>
+            11
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../11.1%20%E5%89%8D%E7%AB%AF%E5%85%A5%E9%97%A8%E4%B9%8BCSS%E5%AD%97%E4%BD%93%E5%B1%9E%E6%80%A7%E8%AF%A6%E8%A7%A3/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    11.1 前端入门之CSS字体属性详解
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../11.2%20%E5%89%8D%E7%AB%AF%E5%85%A5%E9%97%A8%E4%B9%8BCSS%E6%96%87%E6%9C%AC%E5%B1%9E%E6%80%A7%E8%AF%A6%E8%A7%A3/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    11.2 前端入门之CSS文本属性详解
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../11.3%20%E5%89%8D%E7%AB%AF%E5%85%A5%E9%97%A8%E4%B9%8BCSS%E5%88%97%E8%A1%A8%E6%A0%B7%E5%BC%8F%E8%AF%A6%E8%A7%A3/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    11.3 前端入门之CSS列表样式详解
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_12" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_12" id="__nav_3_12_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    12
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_12_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_12">
+            <span class="md-nav__icon md-icon"></span>
+            12
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../12.1%20%E5%89%8D%E7%AB%AF%E5%85%A5%E9%97%A8%E4%B9%8BCSS%E7%9B%92%E5%AD%90%E6%A8%A1%E5%9E%8B%E8%AF%A6%E7%BB%86%E8%AE%B2%E8%A7%A3%E4%B8%8A%E9%9B%86/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    12.1 前端入门之CSS盒子模型详细讲解上集
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../12.2%20%E5%89%8D%E7%AB%AF%E5%85%A5%E9%97%A8%E4%B9%8BCSS%E7%9B%92%E5%AD%90%E6%A8%A1%E5%9E%8B%E8%AF%A6%E7%BB%86%E8%AE%B2%E8%A7%A3%E4%B8%8B%E9%9B%86/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    12.2 前端入门之CSS盒子模型详细讲解下集
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_13" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_13" id="__nav_3_13_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    13
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_13_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_13">
+            <span class="md-nav__icon md-icon"></span>
+            13
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../13.1%20%E5%89%8D%E7%AB%AF%E5%85%A5%E9%97%A8%E4%B9%8BCSS%20display%E5%B1%9E%E6%80%A7%E8%AF%A6%E8%A7%A3/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    13.1 前端入门之CSS display属性详解
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../13.2%20%E5%89%8D%E7%AB%AF%E5%85%A5%E9%97%A8%E6%95%99%E7%A8%8B%E4%B9%8BCSS%20background%E8%83%8C%E6%99%AF%E5%B1%9E%E6%80%A7%20%E4%B8%8A/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    13.2 前端入门教程之CSS background背景属性 上
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_14" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_14" id="__nav_3_14_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    14
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_14_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_14">
+            <span class="md-nav__icon md-icon"></span>
+            14
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../14.1%E5%89%8D%E7%AB%AF%E5%85%A5%E9%97%A8%E6%95%99%E7%A8%8B%E4%B9%8BCSS%20background%E8%83%8C%E6%99%AF%E5%B1%9E%E6%80%A7%20%E4%B8%8B/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    14.1前端入门教程之CSS background背景属性 下
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../14.2%20%E5%89%8D%E7%AB%AF%E5%85%A5%E9%97%A8CSS%E5%85%B6%E4%BB%96%E7%9A%84%E5%B8%B8%E7%94%A8%E5%B1%9E%E6%80%A7%E8%AF%A6%E8%A7%A3/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    14.2 前端入门CSS其他的常用属性详解
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_15" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_15" id="__nav_3_15_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    15
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_15_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_15">
+            <span class="md-nav__icon md-icon"></span>
+            15
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../15.1%20%E5%89%8D%E7%AB%AF%E5%85%A5%E9%97%A8%E4%B9%8BCSS%E5%A4%8D%E5%90%88%E9%80%89%E6%8B%A9%E5%99%A8%20%E4%B8%8A%E9%9B%86/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    15.1 前端入门之CSS复合选择器 上集
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../15.2%20%E5%89%8D%E7%AB%AF%E5%85%A5%E9%97%A8%E4%B9%8BCSS%E5%A4%8D%E5%90%88%E9%80%89%E6%8B%A9%E5%99%A8%20%E4%B8%8B%E9%9B%86/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    15.2 前端入门之CSS复合选择器 下集
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_16" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_16" id="__nav_3_16_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    16
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_16_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_16">
+            <span class="md-nav__icon md-icon"></span>
+            16
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../16.1%20CSS%E7%BB%A7%E6%89%BF%E6%80%A7%E8%AF%A6%E8%A7%A3/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    16.1 CSS继承性详解
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../16.2%20CSS%E5%B1%82%E5%8F%A0%E6%80%A7%E8%AF%A6%E8%A7%A3/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    16.2 CSS层叠性详解
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../16.3%20CSS%E4%BC%98%E5%85%88%E7%BA%A7%E8%AE%B2%E8%A7%A3%E4%BB%A5%E5%8F%8A%E9%97%AE%E9%A2%98%E7%AD%94%E7%96%91/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    16.3 CSS优先级讲解以及问题答疑
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_17" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_17" id="__nav_3_17_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    17
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_17_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_17">
+            <span class="md-nav__icon md-icon"></span>
+            17
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../17.1%20%E5%89%8D%E7%AB%AFCSS%20Float%28%E6%B5%AE%E5%8A%A8%29%E8%AF%A6%E8%A7%A3/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    17.1 前端CSS Float(浮动)详解
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../17.2%20%E5%89%8D%E7%AB%AF%E5%85%A5%E9%97%A8%E4%B9%8BCSS%E6%95%99%E7%A8%8B%20BFC%E8%A7%84%E8%8C%83%E4%B8%8E%E6%B5%8F%E8%A7%88%E5%99%A8%E5%B7%AE%E5%BC%82/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    17.2 前端入门之CSS教程 BFC规范与浏览器差异
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../17.3%20%E5%89%8D%E7%AB%AF%E5%85%A5%E9%97%A8%E4%B9%8BCSS%E6%B8%85%E9%99%A4%E6%B5%AE%E5%8A%A8/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    17.3 前端入门之CSS清除浮动
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_18" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_18" id="__nav_3_18_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    18
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_18_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_18">
+            <span class="md-nav__icon md-icon"></span>
+            18
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../18.1%20%E5%89%8D%E7%AB%AF%E5%85%A5%E9%97%A8%E4%B9%8BCSS%E5%AE%9A%E4%BD%8D%E4%B9%8B%E7%9B%B8%E5%AF%B9%E5%AE%9A%E4%BD%8D%E5%92%8C%E7%BB%9D%E5%AF%B9%E5%AE%9A%E4%BD%8D/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    18.1 前端入门之CSS定位之相对定位和绝对定位
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../18.2%20%E5%89%8D%E7%AB%AF%E5%85%A5%E9%97%A8%E4%B9%8BCSS%E5%AE%9A%E4%BD%8D%EF%BC%9A%E7%B2%98%E6%80%A7%E5%AE%9A%E4%BD%8D%E5%92%8C%E5%9B%BA%E5%AE%9A%E5%AE%9A%E4%BD%8D%E7%AF%87/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    18.2 前端入门之CSS定位：粘性定位和固定定位篇
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_19" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_19" id="__nav_3_19_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    19
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_19_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_19">
+            <span class="md-nav__icon md-icon"></span>
+            19
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../19.1%20%E5%89%8D%E7%AB%AF%E5%85%A5%E9%97%A8%E6%95%99%E7%A8%8B%E4%B9%8BCSS%E5%B1%82%E5%8F%A0%E4%B8%8A%E4%B8%8B%E6%96%87/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    19.1 前端入门教程之CSS层叠上下文
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../19.2%20%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91%E5%BA%94%E8%AF%A5%E8%A6%81%E4%BA%86%E8%A7%A3%E7%9A%84%EF%BC%8C%E9%98%BF%E9%87%8Cicofont%E5%9B%BE%E6%A0%87%E5%BA%93%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    19.2 前端开发应该要了解的，阿里icofont图标库使用方法
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../19.3%20%E5%89%8D%E7%AB%AF%E5%85%A5%E9%97%A8%E4%B9%8BCSS%20margin%E4%B8%BA%E8%B4%9F%E5%80%BC%E8%AF%A6%E8%A7%A3/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    19.3 前端入门之CSS margin为负值详解
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_20" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_20" id="__nav_3_20_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    20
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_20_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_20">
+            <span class="md-nav__icon md-icon"></span>
+            20
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../20.1%20%E5%89%8D%E7%AB%AF%E5%85%A5%E9%97%A8CSS3%E5%9C%86%E8%A7%92%E9%98%B4%E5%BD%B1%E4%B8%8E%E7%9B%92%E5%AD%90%E9%98%B4%E5%BD%B1%E8%AF%A6%E8%A7%A3/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    20.1 前端入门CSS3圆角阴影与盒子阴影详解
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../20.2%20%E5%89%8D%E7%AB%AF%E5%85%A5%E9%97%A8CSS%E6%96%87%E6%9C%AC%E9%98%B4%E5%BD%B1%E3%80%81%E6%96%87%E6%9C%AC%E7%9C%81%E7%95%A5%E5%8F%B7%E3%80%81%E9%80%8F%E6%98%8E%E5%BA%A6%E3%80%81%E5%9B%BE%E7%89%87%E8%A3%81%E5%88%87%E5%B1%9E%E6%80%A7%E8%AE%B2%E8%A7%A3/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    20.2 前端入门CSS文本阴影、文本省略号、透明度、图片裁切属性讲解
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      1、什么是选择器及作用
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      2、选择器分类
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      3、标签选择器
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4id" class="md-nav__link">
+    <span class="md-ellipsis">
+      4、id选择器
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5class" class="md-nav__link">
+    <span class="md-ellipsis">
+      5、class选择器
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5、class选择器">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51class" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.1、class选择器用法
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#52" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.2、原子类
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#53id-class" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.3、id 和 class 的命名规则
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6" class="md-nav__link">
+    <span class="md-ellipsis">
+      6、* 通配符选择器
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7" class="md-nav__link">
+    <span class="md-ellipsis">
+      7、基础选择器的权重优先级
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8" class="md-nav__link">
+    <span class="md-ellipsis">
+      8、测试题
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9css" class="md-nav__link">
+    <span class="md-ellipsis">
+      9、总结：CSS基础选择器
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10" class="md-nav__link">
+    <span class="md-ellipsis">
+      10、后代选择器
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="css">二、CSS基础选择器<a class="headerlink" href="#css" title="Permanent link">&para;</a></h1>
+<p><strong>TIP</strong></p>
+<p>传统CSS2.1选择器和CSS3新增选择器</p>
+<h2 id="1">1、什么是选择器及作用<a class="headerlink" href="#1" title="Permanent link">&para;</a></h2>
+<p><strong>TIP</strong></p>
+<p>选择器主要是用来选中我们想要选中的元素，选中后，我们就可以为这个元素添加CSS样式了。</p>
+<p><strong>比如</strong>：要选中h1标签，为其添加样式</p>
+<div class="codehilite"><pre><span></span><code><span class="nt">&lt;h1&gt;</span>网站标题<span class="nt">&lt;/h1&gt;</span>
+</code></pre></div>
+
+<p>![[Pasted image 20260220155526.png]]</p>
+<h2 id="2">2、选择器分类<a class="headerlink" href="#2" title="Permanent link">&para;</a></h2>
+<p><strong>注：</strong></p>
+<ul>
+<li>
+<p>h1在这里称为标签选择器，他是根据标签的名字来选中元素。</p>
+</li>
+<li>
+<p>在css中，选中元素的方式有很多种，这些不同的方式就是不同的选择器。</p>
+</li>
+</ul>
+<p><strong>TIP</strong></p>
+<p>CSS选择器非常之多，主要分为：</p>
+<p><strong>①、基础选择器</strong></p>
+<ul>
+<li>
+<p>1、标签选择器</p>
+</li>
+<li>
+<p>2、id选择器</p>
+</li>
+<li>
+<p>3、class选择器</p>
+</li>
+<li>
+<p>4、通配符选择器</p>
+</li>
+</ul>
+<p><strong>②、复合选择器</strong></p>
+<ul>
+<li>
+<p>1、交集选择器</p>
+</li>
+<li>
+<p>2、并集（分组）选择器</p>
+</li>
+<li>
+<p>3、后代选择器</p>
+</li>
+<li>
+<p>4、子代选择器</p>
+</li>
+<li>
+<p>5、相邻兄弟选择器</p>
+</li>
+<li>
+<p>6、通用兄弟选择器（css3）</p>
+</li>
+<li>
+<p>7、伪类选择器</p>
+</li>
+<li>
+<p>8、伪元素选择器</p>
+</li>
+<li>
+<p>9、属性选择器</p>
+</li>
+<li>
+<p>10、:first-child 和:last-child 选择器</p>
+</li>
+<li>
+<p>11、:nth-child(n)和:nth-last-child(n)选择器</p>
+</li>
+<li>
+<p>12、:nth-of-type(n)和:nth-last-of-type(n)选择器</p>
+</li>
+<li>
+<p>13、:root 选择器</p>
+</li>
+<li>
+<p>14、:empty 选择器</p>
+</li>
+<li>
+<p>15、:only-child 选择器</p>
+</li>
+<li>
+<p>......等几十种。</p>
+</li>
+</ul>
+<p><strong>我们先来了解基础选择器，往后有了更多基础后，再来了解复合选择器</strong></p>
+<h2 id="3">3、标签选择器<a class="headerlink" href="#3" title="Permanent link">&para;</a></h2>
+<p><strong>TIP</strong></p>
+<p>标签选择器称之为：元素选择器、类型选择器</p>
+<ul>
+<li>
+<p>他直接使用元素的标签名当做选择器，将选择页面上所有该种标签</p>
+</li>
+<li>
+<p>标签选择器将选择页面上所有该种标签，无论标签所处位置的深浅</p>
+</li>
+</ul>
+<p><strong>语法</strong></p>
+<div class="codehilite"><pre><span></span><code>element {
+  /* ....样式声明..... */
+}
+</code></pre></div>
+
+<div class="codehilite"><pre><span></span><code>p {
+}
+div {
+}
+h3 {
+}
+...
+</code></pre></div>
+
+<p><strong>代码演示</strong></p>
+<div class="codehilite"><pre><span></span><code><span class="nt">&lt;html&gt;</span>
+<span class="nt">&lt;style&gt;</span>
+/*<span class="w"> </span>选中当前页面上所有的h2标签和p标签<span class="w"> </span>*/
+h2<span class="w"> </span>{
+<span class="w">  </span>color:<span class="w"> </span>red;<span class="w"> </span>/*<span class="w"> </span>文字颜色:红色<span class="w"> </span>*/
+}
+p<span class="w"> </span>{
+<span class="w">  </span>background-color:<span class="w"> </span>blue;<span class="w"> </span>/*<span class="w"> </span>背景:蓝色<span class="w"> </span>*/
+}
+<span class="nt">&lt;/style&gt;</span>
+<span class="nt">&lt;body&gt;</span>
+<span class="nt">&lt;h2&gt;</span>文字颜色:红色<span class="nt">&lt;/h2&gt;</span>
+<span class="nt">&lt;p&gt;</span>背景蓝色<span class="nt">&lt;/p&gt;</span>
+<span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</code></pre></div>
+
+<p><strong>渲染效果：</strong>
+![[Pasted image 20260220155819.png]]</p>
+<p><strong>TIP</strong></p>
+<p>标签选择器的作用：标签选择器的“覆盖面”非常大，通常用于标签样式的初始化</p>
+<div class="codehilite"><pre><span></span><code><span class="nt">ul</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="c">/*去掉所有无序列表的小圆点*/</span>
+<span class="w">  </span><span class="k">list-style</span><span class="p">:</span><span class="w"> </span><span class="kc">none</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nt">a</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="c">/*去掉所有超级链接的下划线*/</span>
+<span class="w">  </span><span class="k">text-decoration</span><span class="p">:</span><span class="w"> </span><span class="kc">none</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<h2 id="4id"><strong>4、id选择器</strong><a class="headerlink" href="#4id" title="Permanent link">&para;</a></h2>
+<p><strong>TIP</strong></p>
+<p>id选择器是使用HTML元素的id属性来选择特定元素</p>
+<ul>
+<li>
+<p>元素的id在页面中是唯一的，因此id选择器用于选择一个唯一的元素</p>
+</li>
+<li>
+<p>要选择具有特定id的元素，请写一个井号（#），后跟该元素的id。</p>
+</li>
+</ul>
+<p><strong>语法</strong></p>
+<p>CSS</p>
+<div class="codehilite"><pre><span></span><code><span class="gh">#</span>id {
+  /*...样式声明...*/ 
+}
+</code></pre></div>
+
+<div class="codehilite"><pre><span></span><code>#box {
+}
+#container {
+}
+#top {
+}
+</code></pre></div>
+
+<p><strong>案例</strong></p>
+<p>CSS</p>
+<div class="codehilite"><pre><span></span><code><span class="p">#</span><span class="nn">top</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">color</span><span class="p">:</span><span class="w"> </span><span class="kc">red</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="p">#</span><span class="nn">header</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">color</span><span class="p">:</span><span class="w"> </span><span class="kc">blue</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p>HTML</p>
+<div class="codehilite"><pre><span></span><code><span class="nt">&lt;body&gt;</span>
+<span class="w">  </span><span class="nt">&lt;div</span><span class="w"> </span><span class="na">id=</span><span class="s">&quot;top&quot;</span><span class="nt">&gt;</span>top为红色<span class="nt">&lt;/div&gt;</span>
+<span class="w">  </span><span class="nt">&lt;div</span><span class="w"> </span><span class="na">id=</span><span class="s">&quot;header&quot;</span><span class="nt">&gt;</span>header为蓝色<span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/body&gt;</span>
+</code></pre></div>
+
+<p>渲染效果：
+![[Pasted image 20260220160012.png]]</p>
+<h2 id="5class">5、class选择器<a class="headerlink" href="#5class" title="Permanent link">&para;</a></h2>
+<p><strong>TIP</strong></p>
+<ul>
+<li>
+<p>HTML元素以class属性来设置</p>
+</li>
+<li>
+<p>CSS中class选择器以“.”+class命名来定义。</p>
+</li>
+</ul>
+<p><strong>语法</strong></p>
+<p>CSS</p>
+<div class="codehilite"><pre><span></span><code><span class="k">.class</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="err">/*</span><span class="p">...</span><span class="err">样式声明</span><span class="p">...</span><span class="err">*/</span><span class="w"> </span>
+<span class="p">}</span>
+</code></pre></div>
+
+<div class="codehilite"><pre><span></span><code><span class="na">.box</span><span class="w"> </span><span class="p">{</span>
+<span class="err">}</span>
+<span class="na">.item</span><span class="w"> </span><span class="p">{</span>
+<span class="err">}</span>
+</code></pre></div>
+
+<p><strong>案例</strong></p>
+<div class="codehilite"><pre><span></span><code><span class="nt">&lt;html&gt;</span>
+<span class="nt">&lt;style</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;text/css&quot;</span><span class="nt">&gt;</span>
+.box<span class="w"> </span>{
+<span class="w">  </span>font-size:<span class="w"> </span>20px;<span class="w"> </span>/*<span class="w"> </span>字体大小<span class="w"> </span>20<span class="w"> </span>像素*/
+<span class="w">  </span>color:<span class="w"> </span>red;<span class="w"> </span>/*<span class="w"> </span>文字颜色:<span class="w"> </span>红色；*/
+}
+<span class="nt">&lt;/style&gt;</span>
+<span class="nt">&lt;body&gt;</span>
+<span class="w">  </span><span class="nt">&lt;div</span><span class="w"> </span><span class="na">class=</span><span class="s">&quot;box&quot;</span><span class="nt">&gt;</span>文本内容<span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/body&gt;</span>
+</code></pre></div>
+
+<h3 id="51class">5.1、class选择器用法<a class="headerlink" href="#51class" title="Permanent link">&para;</a></h3>
+<p>一个元素可以有多个class名，类命名间用空格隔开</p>
+<div class="codehilite"><pre><span></span><code><span class="nt">&lt;div</span><span class="w"> </span><span class="na">class=</span><span class="s">&quot;box1 box2&quot;</span><span class="nt">&gt;&lt;/div&gt;</span>
+</code></pre></div>
+
+<p>**注意事项</p>
+<ul>
+<li>多个标签可以定义相同的类名（注意和 id 选择器做区分：元素的 id 是唯一的，一个页面相同的 id 只有一个）</li>
+</ul>
+<div class="codehilite"><pre><span></span><code><span class="nt">&lt;div</span><span class="w"> </span><span class="na">class=</span><span class="s">&#39;box1 box2&#39;</span><span class="nt">&gt;&lt;/div&gt;</span>
+<span class="nt">&lt;p</span><span class="w"> </span><span class="na">class=</span><span class="s">&#39;box1&#39;</span><span class="nt">&gt;&lt;/p&gt;</span>
+<span class="nt">&lt;h3</span><span class="w"> </span><span class="na">class=</span><span class="s">&#39;box2&#39;</span><span class="nt">&gt;&lt;/h3&gt;</span>
+</code></pre></div>
+
+<ul>
+<li>不同标签的相同样式放在同一类名中，可以减少代码量</li>
+</ul>
+<div class="codehilite"><pre><span></span><code><span class="nt">&lt;html&gt;</span>
+<span class="nt">&lt;style&gt;</span>
+.box<span class="w"> </span>{
+<span class="w">  </span>width:<span class="w"> </span>100px;
+<span class="w">  </span>height:<span class="w"> </span>100px;
+}
+.bg-color1<span class="w"> </span>{
+<span class="w">  </span>background-color:<span class="w"> </span>red;
+}
+.bg-color2<span class="w"> </span>{
+<span class="w">  </span>background-color:<span class="w"> </span>yellow;
+}
+<span class="nt">&lt;/style&gt;</span>
+<span class="nt">&lt;body&gt;</span>
+<span class="w">  </span><span class="nt">&lt;div</span><span class="w"> </span><span class="na">class=</span><span class="s">&quot;box bg-color1&quot;</span><span class="nt">&gt;</span>box<span class="w"> </span>bg-color1<span class="nt">&lt;/div&gt;</span>
+<span class="w">  </span><span class="nt">&lt;div</span><span class="w"> </span><span class="na">class=</span><span class="s">&quot;box bg-color2&quot;</span><span class="nt">&gt;</span>box<span class="w"> </span>bg-color2<span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</code></pre></div>
+
+<p>渲染效果：
+![[Pasted image 20260220160236.png]]</p>
+<h3 id="52">5.2、原子类<a class="headerlink" href="#52" title="Permanent link">&para;</a></h3>
+<p><strong>TIP</strong></p>
+<p>在网页项目前，可以将所有的常用字号、文字颜色、行高、外边距、内边距等样式都设置为单独的类。</p>
+<p>HTML标签就可以“按需选择”它的类名，这样能够快速为元素添加常见的样式。</p>
+<p><strong>应用场景</strong>：组件化开发，目前比较经典的CSS框架是<strong>Tailwindcss</strong>。</p>
+<div class="codehilite"><pre><span></span><code><span class="nt">&lt;style&gt;</span>
+.fs12<span class="w"> </span>{<span class="w"> </span>font-size:<span class="w"> </span>12px;<span class="w"> </span>}
+.fs14<span class="w"> </span>{<span class="w"> </span>font-size:<span class="w"> </span>14px;<span class="w"> </span>}
+.fs16<span class="w"> </span>{<span class="w"> </span>font-size:<span class="w"> </span>16px;<span class="w"> </span>}
+.fs18<span class="w"> </span>{<span class="w"> </span>font-size:<span class="w"> </span>18px;<span class="w"> </span>}
+.fs20<span class="w"> </span>{<span class="w"> </span>font-size:<span class="w"> </span>20px;<span class="w"> </span>}
+.fs22<span class="w"> </span>{<span class="w"> </span>font-size:<span class="w"> </span>22px;<span class="w"> </span>}
+
+.color-red<span class="w"> </span>{<span class="w"> </span>color:<span class="w"> </span>red;<span class="w"> </span>}
+.color-black<span class="w"> </span>{<span class="w"> </span>color:<span class="w"> </span>black;<span class="w"> </span>}
+.color-green<span class="w"> </span>{<span class="w"> </span>color:<span class="w"> </span>green;<span class="w"> </span>}
+.color-blue<span class="w"> </span>{<span class="w"> </span>color:<span class="w"> </span>blue;<span class="w"> </span>}
+<span class="nt">&lt;/style&gt;</span>
+
+<span class="nt">&lt;body&gt;</span>
+<span class="nt">&lt;h2</span><span class="w"> </span><span class="na">class=</span><span class="s">&quot;fs22 color-red&quot;</span><span class="nt">&gt;</span>原子类<span class="nt">&lt;/h2&gt;</span>
+<span class="nt">&lt;p</span><span class="w"> </span><span class="na">class=</span><span class="s">&quot;fs18 color-green&quot;</span><span class="nt">&gt;</span>
+<span class="w">    </span>在网页项目前，可以将所有的常用字号、文字颜色、行高、外边距、内边距等样式都设置为单独的类。
+<span class="nt">&lt;/p&gt;</span>
+<span class="nt">&lt;p</span><span class="w"> </span><span class="na">class=</span><span class="s">&quot;fs14 color-blue&quot;</span><span class="nt">&gt;</span>
+<span class="w">    </span>HTML标签就可以“按需选择”它的类名，这样能够快速为元素添加常见的样式。
+<span class="nt">&lt;/p&gt;</span>
+<span class="nt">&lt;/body&gt;</span>
+</code></pre></div>
+
+<p>渲染效果：
+![[Pasted image 20260220160416.png]]</p>
+<h3 id="53id-class">5.3、id 和 class 的命名规则<a class="headerlink" href="#53id-class" title="Permanent link">&para;</a></h3>
+<ul>
+<li>只能由字母、数字、下划线、短横线构成</li>
+</ul>
+<div class="codehilite"><pre><span></span><code><span class="nt">&lt;div</span><span class="w"> </span><span class="na">id=</span><span class="s">&#39;a&#39;</span><span class="nt">&gt;&lt;/div&gt;</span>
+<span class="nt">&lt;div</span><span class="w"> </span><span class="na">id=</span><span class="s">&#39;a1&#39;</span><span class="nt">&gt;&lt;/div&gt;</span>
+<span class="nt">&lt;div</span><span class="w"> </span><span class="na">id=</span><span class="s">&#39;a-b_c&#39;</span><span class="nt">&gt;&lt;/div&gt;</span>
+<span class="cm">&lt;!-- 这些命名都可以，但都不是好的命名，因为通过名字没法知道这个div里的内容 --&gt;</span>
+</code></pre></div>
+
+<ul>
+<li>不能以数字开头</li>
+</ul>
+<div class="codehilite"><pre><span></span><code><span class="nt">&lt;div</span><span class="w"> </span><span class="na">id=</span><span class="s">&#39;1a&#39;</span><span class="nt">&gt;&lt;/div&gt;</span><span class="w"> </span><span class="cm">&lt;!-- 这个是错误的命名 --&gt;</span>
+</code></pre></div>
+
+<hr />
+<ul>
+<li>字母区分大小写，但习惯上一般为小写字母</li>
+</ul>
+<div class="codehilite"><pre><span></span><code><span class="nt">&lt;style&gt;</span>
+.box<span class="w"> </span>{
+<span class="w">  </span>color:<span class="w"> </span>red;
+}
+.Box<span class="w"> </span>{
+<span class="w">  </span>font-size:<span class="w"> </span>30px;<span class="w"> </span>/*<span class="w"> </span>这个样式并不会作用于<span class="w"> </span>class=&#39;box&#39;<span class="w"> </span>的标签上<span class="w"> </span>*/
+}
+<span class="nt">&lt;/style&gt;</span>
+<span class="nt">&lt;body&gt;</span>
+<span class="nt">&lt;div</span><span class="w"> </span><span class="na">class=</span><span class="s">&quot;box&quot;</span><span class="nt">&gt;</span>字体为红色<span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/body&gt;</span>
+</code></pre></div>
+
+<p>渲染效果：
+![[Pasted image 20260220160532.png]]</p>
+<ul>
+<li>名字最好见名知意，多个英文单词可以用-隔开</li>
+</ul>
+<div class="codehilite"><pre><span></span><code><span class="nt">&lt;div</span><span class="w"> </span><span class="na">class=</span><span class="s">&quot;menu&quot;</span><span class="nt">&gt;&lt;/div&gt;</span>
+<span class="nt">&lt;div</span><span class="w"> </span><span class="na">class=</span><span class="s">&quot;sidebar&quot;</span><span class="nt">&gt;&lt;/div&gt;</span>
+<span class="nt">&lt;div</span><span class="w"> </span><span class="na">id=</span><span class="s">&quot;top-nav&quot;</span><span class="nt">&gt;&lt;/div&gt;</span>
+</code></pre></div>
+
+<p><strong>命名规则和规范</strong></p>
+<p>详细查阅，CSS样式命名规则和规范</p>
+<h2 id="6">6、* 通配符选择器<a class="headerlink" href="#6" title="Permanent link">&para;</a></h2>
+<p><strong>TIP</strong></p>
+<ul>
+<li>
+<ul>
+<li>代表页面当中所有的元素</li>
+</ul>
+</li>
+<li>
+<p>基本不用，对性能消耗过大</p>
+</li>
+</ul>
+<p>CSS</p>
+<div class="codehilite"><pre><span></span><code><span class="o">*</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">color</span><span class="p">:</span><span class="w"> </span><span class="kc">red</span><span class="p">;</span>
+<span class="p">}</span><span class="w"> </span><span class="c">/* 页面当中所有元素的字体颜色为红色 */</span>
+</code></pre></div>
+
+<h2 id="7"><strong>7、基础选择器的权重优先级</strong><a class="headerlink" href="#7" title="Permanent link">&para;</a></h2>
+<ul>
+<li>权重从高到低依次是：行内样式 &gt; id选择器 &gt; 类选择器 &gt; 标签选择器 &gt; * 通配符</li>
+</ul>
+<div class="codehilite"><pre><span></span><code><span class="nt">&lt;html&gt;</span>
+<span class="nt">&lt;style&gt;</span>
+*<span class="w"> </span>{
+<span class="w">  </span>color:<span class="w"> </span>red;<span class="w"> </span>/*<span class="w"> </span>红色<span class="w"> </span>*/
+}
+div<span class="w"> </span>{
+<span class="w">  </span>color:<span class="w"> </span>skyblue;<span class="w"> </span>/*<span class="w"> </span>天蓝色<span class="w"> </span>*/
+}
+.box<span class="w"> </span>{
+<span class="w">  </span>color:<span class="w"> </span>green;<span class="w"> </span>/*<span class="w"> </span>绿色<span class="w"> </span>*/
+}
+#box<span class="w"> </span>{
+<span class="w">  </span>color:<span class="w"> </span>blue;<span class="w"> </span>/*<span class="w"> </span>蓝色<span class="w"> </span>*/
+}
+<span class="nt">&lt;/style&gt;</span>
+<span class="nt">&lt;body&gt;</span>
+<span class="nt">&lt;div</span><span class="w"> </span><span class="na">id=</span><span class="s">&quot;box&quot;</span><span class="w"> </span><span class="na">class=</span><span class="s">&quot;box&quot;</span><span class="nt">&gt;</span>id与class<span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;div</span><span class="w"> </span><span class="na">class=</span><span class="s">&quot;box&quot;</span><span class="nt">&gt;</span>class<span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;div&gt;</span>div本身<span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;p&gt;</span>p<span class="nt">&lt;/p&gt;</span>
+<span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</code></pre></div>
+
+<p><strong>渲染效果：</strong>
+![[Pasted image 20260220160756.png]]</p>
+<p><strong>如果选择器级别相同，后面的会覆盖前面的</strong></p>
+<div class="codehilite"><pre><span></span><code><span class="nt">&lt;html&gt;</span>
+<span class="nt">&lt;style&gt;</span>
+<span class="w">  </span>.wrap<span class="w"> </span>{
+<span class="w">    </span>background:<span class="w"> </span>red;
+<span class="w">  </span>}
+<span class="w">  </span>.wrap<span class="w"> </span>{
+<span class="w">    </span>background:<span class="w"> </span>yellow;
+<span class="w">  </span>}
+<span class="nt">&lt;/style&gt;</span>
+<span class="nt">&lt;body&gt;</span>
+<span class="w">  </span><span class="nt">&lt;div</span><span class="w"> </span><span class="na">class=</span><span class="s">&quot;wrap&quot;</span><span class="nt">&gt;</span>wrap<span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</code></pre></div>
+
+<p><strong>渲染效果：</strong>
+![[Pasted image 20260220160902.png]]</p>
+<h2 id="8">8、测试题<a class="headerlink" href="#8" title="Permanent link">&para;</a></h2>
+<p><strong>TIP</strong></p>
+<p>以下最终显示的 CSS 样式是？</p>
+<p><strong>做题步骤：</strong></p>
+<ol>
+<li>
+<p>首先，找到控制当前元素的所有 CSS 选择器。</p>
+</li>
+<li>
+<p>然后，从这些选择器中，找到优先级最高的选择器，最终显示的样式为这些选择器控制的样式。</p>
+</li>
+<li>
+<p>如果多个选择器的优先级一样，则按就近原则来判断，离元素最近的选择器样式最终为生效样式。</p>
+</li>
+</ol>
+<div class="codehilite"><pre><span></span><code><span class="cm">/* basic.css 文件 */</span>
+<span class="c1">#box {</span>
+<span class="w">  </span><span class="nl">color:</span><span class="w"> </span><span class="nf">orange</span><span class="c1">; /* 橘色 */</span>
+<span class="err">}</span>
+<span class="na">.col1</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nl">color:</span><span class="w"> </span><span class="nf">pink</span><span class="c1">; /* 粉色 */</span>
+<span class="err">}</span>
+</code></pre></div>
+
+<div class="codehilite"><pre><span></span><code><span class="nt">&lt;html&gt;</span>
+<span class="nt">&lt;head&gt;</span>
+<span class="nt">&lt;link</span><span class="w"> </span><span class="na">rel=</span><span class="s">&quot;stylesheet&quot;</span><span class="w"> </span><span class="na">href=</span><span class="s">&quot;basic.css&quot;</span><span class="nt">&gt;</span>
+<span class="nt">&lt;style&gt;</span>
+p<span class="w"> </span>{
+<span class="w">  </span>color:<span class="w"> </span>blue;<span class="w"> </span>/*<span class="w"> </span>蓝色<span class="w"> </span>*/
+}
+.col1<span class="w"> </span>{
+<span class="w">  </span>color:<span class="w"> </span>red;<span class="w"> </span>/*<span class="w"> </span>红色<span class="w"> </span>*/
+}
+.col2<span class="w"> </span>{
+<span class="w">  </span>color:<span class="w"> </span>green;<span class="w"> </span>/*<span class="w"> </span>绿色<span class="w"> </span>*/
+}
+<span class="nt">&lt;/style&gt;</span>
+<span class="nt">&lt;body&gt;</span>
+<span class="w">  </span><span class="nt">&lt;div</span><span class="w"> </span><span class="na">id=</span><span class="s">&quot;box&quot;</span><span class="w"> </span><span class="na">class=</span><span class="s">&quot;col1&quot;</span><span class="nt">&gt;</span>1<span class="nt">&lt;/div&gt;</span>
+<span class="w">  </span><span class="nt">&lt;p&gt;</span>2<span class="nt">&lt;/p&gt;</span>
+<span class="w">  </span><span class="nt">&lt;p</span><span class="w"> </span><span class="na">class=</span><span class="s">&quot;col2 col1&quot;</span><span class="nt">&gt;</span>3<span class="nt">&lt;/p&gt;</span>
+<span class="w">  </span><span class="nt">&lt;p</span><span class="w"> </span><span class="na">style=</span><span class="s">&quot;color: red&quot;</span><span class="w"> </span><span class="na">id=</span><span class="s">&quot;box&quot;</span><span class="nt">&gt;</span>4<span class="nt">&lt;/p&gt;</span>
+<span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</code></pre></div>
+
+<p>渲染效果：
+![[Pasted image 20260220161018.png]]</p>
+<h2 id="9css">9、总结：CSS基础选择器<a class="headerlink" href="#9css" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>选择器</th>
+<th>说明</th>
+<th>实例</th>
+<th>优先级排名</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>id选择器</td>
+<td>id是唯一的，一个页面相同的 id 只能有一个</td>
+<td><code>&lt;div id="box"&gt;&lt;/div&gt;</code></td>
+<td>1</td>
+</tr>
+<tr>
+<td>class选择器</td>
+<td>一个标签可以有多个 class 类，一个类可以应用多个标签</td>
+<td><code>&lt;div class="box"&gt;&lt;/div&gt;</code></td>
+<td>2</td>
+</tr>
+<tr>
+<td>标签选择器</td>
+<td>通过标签名来选中元素，不管元素多深，都能选择到</td>
+<td><code>div { ... }</code></td>
+<td>3</td>
+</tr>
+<tr>
+<td>*通配符选择器</td>
+<td>选择页面中所有元素，几乎不用</td>
+<td><code>* { ... }</code></td>
+<td>4</td>
+</tr>
+</tbody>
+</table>
+<h2 id="10">10、后代选择器<a class="headerlink" href="#10" title="Permanent link">&para;</a></h2>
+<p><strong>TIP</strong></p>
+<p>为什么我要在这里讲后代选择器呢？是因为后面的作业要用到</p>
+<ul>
+<li>
+<p>在 CSS 中，使用<strong>空格</strong>表示“后代”</p>
+</li>
+<li>
+<p>后代并不一定是“儿子”，子孙都可以</p>
+</li>
+<li>
+<p>后代选择器可以有很多空格，隔开好几代</p>
+</li>
+</ul>
+<p><strong>语法</strong></p>
+<p>CSS</p>
+<div class="codehilite"><pre><span></span><code>element element {
+  /* ...样式声明.....*/
+}
+</code></pre></div>
+
+<div class="codehilite"><pre><span></span><code>div p span {}
+div p {}
+div span {}
+</code></pre></div>
+
+<p>**案例</p>
+<div class="codehilite"><pre><span></span><code><span class="nt">&lt;html&gt;</span>
+<span class="nt">&lt;style&gt;</span>
+.box<span class="w"> </span>h3<span class="w"> </span>span<span class="w"> </span>{
+<span class="w">  </span>color:<span class="w"> </span>tomato;
+}
+.box<span class="w"> </span>p<span class="w"> </span>{
+<span class="w">  </span>color:<span class="w"> </span>#666;
+}
+.box<span class="w"> </span>p<span class="w"> </span>span<span class="w"> </span>{
+<span class="w">  </span>color:<span class="w"> </span>tomato;
+}
+<span class="nt">&lt;/style&gt;</span>
+<span class="nt">&lt;body&gt;</span>
+<span class="nt">&lt;div</span><span class="w"> </span><span class="na">class=</span><span class="s">&quot;box&quot;</span><span class="nt">&gt;</span>
+<span class="w">  </span><span class="nt">&lt;h3&gt;</span>什么是CSS选择器？<span class="nt">&lt;/h3&gt;</span>
+<span class="w">  </span><span class="nt">&lt;p&gt;</span>
+<span class="w">    </span><span class="nt">&lt;span&gt;</span>选择器：<span class="nt">&lt;/span&gt;</span>
+<span class="w">    </span>主要是用来选中我们想要选中的元素，选中后，我们就可以为这个元素添加CSS样式了。
+<span class="w">  </span><span class="nt">&lt;/p&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</code></pre></div>
+
+<p><strong>渲染效果：</strong></p>
+<p>![[Pasted image 20260220161243.png]]</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.471ce7a9.min.js"></script>
+      
+    
+  </body>
+</html>
