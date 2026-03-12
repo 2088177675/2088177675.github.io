@@ -10,6 +10,8 @@
       
       
       
+        <link rel="canonical" href="https://2088177675.github.io/12.2%20%E5%89%8D%E7%AB%AF%E5%85%A5%E9%97%A8%E4%B9%8BCSS%E7%9B%92%E5%AD%90%E6%A8%A1%E5%9E%8B%E8%AF%A6%E7%BB%86%E8%AE%B2%E8%A7%A3%E4%B8%8B%E9%9B%86/">
+      
       
         <link rel="prev" href="../12.1%20%E5%89%8D%E7%AB%AF%E5%85%A5%E9%97%A8%E4%B9%8BCSS%E7%9B%92%E5%AD%90%E6%A8%A1%E5%9E%8B%E8%AF%A6%E7%BB%86%E8%AE%B2%E8%A7%A3%E4%B8%8A%E9%9B%86/">
       
@@ -22,11 +24,14 @@
     
     
       
-        <title>12.2 前端入门之CSS盒子模型详细讲解下集 - 我的个人网站</title>
+        <title>CSS 盒子模型（下） - 我的个人网站</title>
       
     
     
       <link rel="stylesheet" href="../assets/stylesheets/main.3cba04c6.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
       
       
 
@@ -40,8 +45,8 @@
         
         
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
-        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans+SC:300,300i,400,400i,700,700i%7CJetBrains+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Noto Sans SC";--md-code-font:"JetBrains Mono"}</style>
       
     
     
@@ -55,7 +60,12 @@
   </head>
   
   
-    <body dir="ltr">
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="pink">
   
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
@@ -76,9 +86,7 @@
     
       
 
-  
-
-<header class="md-header md-header--shadow" data-md-component="header">
+<header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
     <a href=".." title="我的个人网站" class="md-header__button md-logo" aria-label="我的个人网站" data-md-component="logo">
       
@@ -100,15 +108,15 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              12.2 前端入门之CSS盒子模型详细讲解下集
+              CSS 盒子模型（下）
             
           </span>
         </div>
       </div>
     </div>
     
+      
     
-      <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
     
     
     
@@ -135,6 +143,8 @@
         </button>
       </nav>
       
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
     </form>
     <div class="md-search__output">
       <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
@@ -150,6 +160,18 @@
 </div>
     
     
+      <div class="md-header__source">
+        <a href="https://github.com/2088177675/2088177675.github.io" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    2088177675/2088177675.github.io
+  </div>
+</a>
+      </div>
+    
   </nav>
   
 </header>
@@ -158,6 +180,80 @@
       
       
         
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href=".." class="md-tabs__link">
+        
+  
+    
+  
+  首页
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../about/" class="md-tabs__link">
+        
+  
+    
+  
+  关于我
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+    
+  
+  
+    
+    
+      
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../1.1%20%E8%AE%A4%E7%9F%A5%E5%A4%A7%E5%89%8D%E7%AB%AF%E4%B9%8B%E8%AE%A4%E7%9F%A5%E5%89%8D%E7%AB%AF%E5%92%8C%E4%BA%92%E8%81%94%E7%BD%91%E8%A1%8C%E4%B8%9A%EF%BC%8C%E4%BB%8E%E5%AE%8F%E8%A7%82%E5%88%B0%E5%BE%AE%E8%A7%82%E5%85%A8%E9%9D%A2%E7%86%9F%E6%82%89%E5%89%8D%E7%AB%AF%E5%B2%97%E4%BD%8D/" class="md-tabs__link">
+          
+  
+  技术笔记
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
           
         
       
@@ -172,8 +268,10 @@
                     
 
 
+  
 
-<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
     <a href=".." title="我的个人网站" class="md-nav__button md-logo" aria-label="我的个人网站" data-md-component="logo">
       
@@ -183,6 +281,18 @@
     </a>
     我的个人网站
   </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/2088177675/2088177675.github.io" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    2088177675/2088177675.github.io
+  </div>
+</a>
+    </div>
   
   <ul class="md-nav__list" data-md-scrollfix>
     
@@ -237,15 +347,21 @@
     
     
     
+      
+        
+        
+      
+      
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
         
           
-          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
             
   
   <span class="md-ellipsis">
@@ -272,6 +388,9 @@
     
     
     
+      
+      
+    
     
     <li class="md-nav__item md-nav__item--nested">
       
@@ -284,7 +403,7 @@
             
   
   <span class="md-ellipsis">
-    1
+    HTML 基础
   </span>
   
 
@@ -294,7 +413,7 @@
         <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_3_1">
             <span class="md-nav__icon md-icon"></span>
-            1
+            HTML 基础
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -309,7 +428,7 @@
         
   
   <span class="md-ellipsis">
-    1.1 认知大前端之认知前端和互联网行业，从宏观到微观全面熟悉前端岗位
+    认知大前端与互联网行业
   </span>
   
 
@@ -330,7 +449,7 @@
         
   
   <span class="md-ellipsis">
-    1.2 前端学习路线之认知前端岗位和互联网岗位
+    前端学习路线与岗位认知
   </span>
   
 
@@ -351,7 +470,7 @@
         
   
   <span class="md-ellipsis">
-    1.3 前端学习指南之前端学习方法论与前端学习指南
+    前端学习方法论
   </span>
   
 
@@ -360,49 +479,6 @@
   
 
               
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    
-    
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
-        
-          
-          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
-            
-  
-  <span class="md-ellipsis">
-    2
-  </span>
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_3_2">
-            <span class="md-nav__icon md-icon"></span>
-            2
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
             
               
                 
@@ -415,7 +491,7 @@
         
   
   <span class="md-ellipsis">
-    2.1 前端入门之前，必须搞懂互联网基础原理
+    互联网基础原理
   </span>
   
 
@@ -436,7 +512,7 @@
         
   
   <span class="md-ellipsis">
-    2.2 前端入门之什么是html，htmll的标签和书写规则
+    HTML 基础与书写规则
   </span>
   
 
@@ -445,49 +521,6 @@
   
 
               
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    
-    
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" >
-        
-          
-          <label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
-            
-  
-  <span class="md-ellipsis">
-    3
-  </span>
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_3_3">
-            <span class="md-nav__icon md-icon"></span>
-            3
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
             
               
                 
@@ -500,7 +533,7 @@
         
   
   <span class="md-ellipsis">
-    3.1 前端入门之html标签和属性之标题和段落标签、div标签以及html5特性详解
+    HTML 标题/段落/div标签
   </span>
   
 
@@ -521,7 +554,7 @@
         
   
   <span class="md-ellipsis">
-    3.2 前端入门之html标签和属性之认识html5框架
+    HTML5 框架标签
   </span>
   
 
@@ -530,49 +563,6 @@
   
 
               
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    
-    
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_4" >
-        
-          
-          <label class="md-nav__link" for="__nav_3_4" id="__nav_3_4_label" tabindex="0">
-            
-  
-  <span class="md-ellipsis">
-    4
-  </span>
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_4_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_3_4">
-            <span class="md-nav__icon md-icon"></span>
-            4
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
             
               
                 
@@ -585,7 +575,7 @@
         
   
   <span class="md-ellipsis">
-    4.1 前端入门html标签属性之列表标签详解
+    HTML 列表标签
   </span>
   
 
@@ -606,7 +596,7 @@
         
   
   <span class="md-ellipsis">
-    4.2 前端入门html标签之多媒体标签详解
+    HTML 多媒体标签
   </span>
   
 
@@ -615,49 +605,6 @@
   
 
               
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    
-    
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_5" >
-        
-          
-          <label class="md-nav__link" for="__nav_3_5" id="__nav_3_5_label" tabindex="0">
-            
-  
-  <span class="md-ellipsis">
-    5
-  </span>
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_5_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_3_5">
-            <span class="md-nav__icon md-icon"></span>
-            5
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
             
               
                 
@@ -670,7 +617,7 @@
         
   
   <span class="md-ellipsis">
-    5.1 前端入门html标签属性之音视频标签属性讲解
+    HTML 音视频标签
   </span>
   
 
@@ -691,7 +638,7 @@
         
   
   <span class="md-ellipsis">
-    5.2 前端入门全集之html5区块化标签
+    HTML5 区块化标签
   </span>
   
 
@@ -700,49 +647,6 @@
   
 
               
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    
-    
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_6" >
-        
-          
-          <label class="md-nav__link" for="__nav_3_6" id="__nav_3_6_label" tabindex="0">
-            
-  
-  <span class="md-ellipsis">
-    6
-  </span>
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_6_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_3_6">
-            <span class="md-nav__icon md-icon"></span>
-            6
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
             
               
                 
@@ -755,7 +659,7 @@
         
   
   <span class="md-ellipsis">
-    6.1 HTML标签属性之表单标签详解
+    HTML 表单标签
   </span>
   
 
@@ -776,7 +680,7 @@
         
   
   <span class="md-ellipsis">
-    6.2 前端入门之HTML5新增表单控件
+    HTML5 新增表单控件
   </span>
   
 
@@ -797,7 +701,7 @@
         
   
   <span class="md-ellipsis">
-    6.3 HTML综合应用以及复习汇总
+    HTML 综合应用与复习
   </span>
   
 
@@ -824,29 +728,32 @@
     
     
     
+      
+      
+    
     
     <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_7" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
         
           
-          <label class="md-nav__link" for="__nav_3_7" id="__nav_3_7_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
             
   
   <span class="md-ellipsis">
-    7
+    Markdown 教程
   </span>
   
 
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_7_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_3_7">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
             <span class="md-nav__icon md-icon"></span>
-            7
+            Markdown 教程
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -861,7 +768,7 @@
         
   
   <span class="md-ellipsis">
-    7.1 前端笔记神器Markdown文档上手指南和语法讲解
+    Markdown 快速上手
   </span>
   
 
@@ -882,7 +789,7 @@
         
   
   <span class="md-ellipsis">
-    7.2 Markdown文档语法详解
+    Markdown 语法详解
   </span>
   
 
@@ -903,7 +810,7 @@
         
   
   <span class="md-ellipsis">
-    7.3 Markdown高阶语法应用
+    Markdown 高阶语法
   </span>
   
 
@@ -924,7 +831,7 @@
         
   
   <span class="md-ellipsis">
-    7.4 Markdown文档，个性化设置typora
+    Typora 个性化设置
   </span>
   
 
@@ -951,29 +858,32 @@
     
     
     
+      
+      
+    
     
     <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_8" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" >
         
           
-          <label class="md-nav__link" for="__nav_3_8" id="__nav_3_8_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
             
   
   <span class="md-ellipsis">
-    8
+    Git 教程
   </span>
   
 
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_8_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_3_8">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3">
             <span class="md-nav__icon md-icon"></span>
-            8
+            Git 教程
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -988,7 +898,7 @@
         
   
   <span class="md-ellipsis">
-    8.1 最全的前端Git使用教程之git入门
+    Git 入门基础
   </span>
   
 
@@ -1009,7 +919,7 @@
         
   
   <span class="md-ellipsis">
-    8.2 最全的前端Git使用教程之手把手带你上手Git实战
+    Git 实战操作
   </span>
   
 
@@ -1036,29 +946,32 @@
     
     
     
+      
+      
+    
     
     <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_9" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_4" >
         
           
-          <label class="md-nav__link" for="__nav_3_9" id="__nav_3_9_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_3_4" id="__nav_3_4_label" tabindex="0">
             
   
   <span class="md-ellipsis">
-    9
+    学习答疑
   </span>
   
 
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_9_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_3_9">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_4">
             <span class="md-nav__icon md-icon"></span>
-            9
+            学习答疑
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -1073,7 +986,7 @@
         
   
   <span class="md-ellipsis">
-    9.1 Web前端学习答疑
+    Web前端学习答疑
   </span>
   
 
@@ -1095,34 +1008,39 @@
                 
   
   
+    
   
   
+  
     
     
     
+      
+      
     
-    <li class="md-nav__item md-nav__item--nested">
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_10" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_5" checked>
         
           
-          <label class="md-nav__link" for="__nav_3_10" id="__nav_3_10_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_3_5" id="__nav_3_5_label" tabindex="0">
             
   
   <span class="md-ellipsis">
-    10
+    CSS 基础
   </span>
   
 
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_10_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_3_10">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3_5">
             <span class="md-nav__icon md-icon"></span>
-            10
+            CSS 基础
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -1137,7 +1055,7 @@
         
   
   <span class="md-ellipsis">
-    10.1 CSS基础认知，从零学前端CSS入门第一课
+    CSS 基础认知
   </span>
   
 
@@ -1158,7 +1076,7 @@
         
   
   <span class="md-ellipsis">
-    10.2 CSS基础选择器详解
+    CSS 基础选择器
   </span>
   
 
@@ -1167,49 +1085,6 @@
   
 
               
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    
-    
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_11" >
-        
-          
-          <label class="md-nav__link" for="__nav_3_11" id="__nav_3_11_label" tabindex="0">
-            
-  
-  <span class="md-ellipsis">
-    11
-  </span>
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_11_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_3_11">
-            <span class="md-nav__icon md-icon"></span>
-            11
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
             
               
                 
@@ -1222,7 +1097,7 @@
         
   
   <span class="md-ellipsis">
-    11.1 前端入门之CSS字体属性详解
+    CSS 字体属性
   </span>
   
 
@@ -1243,7 +1118,7 @@
         
   
   <span class="md-ellipsis">
-    11.2 前端入门之CSS文本属性详解
+    CSS 文本属性
   </span>
   
 
@@ -1264,7 +1139,7 @@
         
   
   <span class="md-ellipsis">
-    11.3 前端入门之CSS列表样式详解
+    CSS 列表样式
   </span>
   
 
@@ -1273,51 +1148,6 @@
   
 
               
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-    
-  
-  
-  
-    
-    
-    
-    
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_12" checked>
-        
-          
-          <label class="md-nav__link" for="__nav_3_12" id="__nav_3_12_label" tabindex="0">
-            
-  
-  <span class="md-ellipsis">
-    12
-  </span>
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_12_label" aria-expanded="true">
-          <label class="md-nav__title" for="__nav_3_12">
-            <span class="md-nav__icon md-icon"></span>
-            12
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
             
               
                 
@@ -1330,7 +1160,7 @@
         
   
   <span class="md-ellipsis">
-    12.1 前端入门之CSS盒子模型详细讲解上集
+    CSS 盒子模型（上）
   </span>
   
 
@@ -1358,7 +1188,7 @@
           
   
   <span class="md-ellipsis">
-    12.2 前端入门之CSS盒子模型详细讲解下集
+    CSS 盒子模型（下）
   </span>
   
 
@@ -1369,7 +1199,7 @@
         
   
   <span class="md-ellipsis">
-    12.2 前端入门之CSS盒子模型详细讲解下集
+    CSS 盒子模型（下）
   </span>
   
 
@@ -1598,49 +1428,6 @@
 
               
             
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    
-    
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_13" >
-        
-          
-          <label class="md-nav__link" for="__nav_3_13" id="__nav_3_13_label" tabindex="0">
-            
-  
-  <span class="md-ellipsis">
-    13
-  </span>
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_13_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_3_13">
-            <span class="md-nav__icon md-icon"></span>
-            13
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
               
                 
   
@@ -1652,7 +1439,7 @@
         
   
   <span class="md-ellipsis">
-    13.1 前端入门之CSS display属性详解
+    CSS display 属性
   </span>
   
 
@@ -1673,7 +1460,7 @@
         
   
   <span class="md-ellipsis">
-    13.2 前端入门教程之CSS background背景属性 上
+    CSS background 背景（上）
   </span>
   
 
@@ -1682,49 +1469,6 @@
   
 
               
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    
-    
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_14" >
-        
-          
-          <label class="md-nav__link" for="__nav_3_14" id="__nav_3_14_label" tabindex="0">
-            
-  
-  <span class="md-ellipsis">
-    14
-  </span>
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_14_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_3_14">
-            <span class="md-nav__icon md-icon"></span>
-            14
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
             
               
                 
@@ -1737,7 +1481,7 @@
         
   
   <span class="md-ellipsis">
-    14.1前端入门教程之CSS background背景属性 下
+    CSS background 背景（下）
   </span>
   
 
@@ -1758,7 +1502,7 @@
         
   
   <span class="md-ellipsis">
-    14.2 前端入门CSS其他的常用属性详解
+    CSS 其他常用属性
   </span>
   
 
@@ -1785,29 +1529,32 @@
     
     
     
+      
+      
+    
     
     <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_15" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_6" >
         
           
-          <label class="md-nav__link" for="__nav_3_15" id="__nav_3_15_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_3_6" id="__nav_3_6_label" tabindex="0">
             
   
   <span class="md-ellipsis">
-    15
+    CSS 进阶
   </span>
   
 
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_15_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_3_15">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_6">
             <span class="md-nav__icon md-icon"></span>
-            15
+            CSS 进阶
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -1822,7 +1569,7 @@
         
   
   <span class="md-ellipsis">
-    15.1 前端入门之CSS复合选择器 上集
+    CSS 复合选择器（上）
   </span>
   
 
@@ -1843,7 +1590,7 @@
         
   
   <span class="md-ellipsis">
-    15.2 前端入门之CSS复合选择器 下集
+    CSS 复合选择器（下）
   </span>
   
 
@@ -1852,49 +1599,6 @@
   
 
               
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    
-    
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_16" >
-        
-          
-          <label class="md-nav__link" for="__nav_3_16" id="__nav_3_16_label" tabindex="0">
-            
-  
-  <span class="md-ellipsis">
-    16
-  </span>
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_16_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_3_16">
-            <span class="md-nav__icon md-icon"></span>
-            16
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
             
               
                 
@@ -1907,7 +1611,7 @@
         
   
   <span class="md-ellipsis">
-    16.1 CSS继承性详解
+    CSS 继承性
   </span>
   
 
@@ -1928,7 +1632,7 @@
         
   
   <span class="md-ellipsis">
-    16.2 CSS层叠性详解
+    CSS 层叠性
   </span>
   
 
@@ -1949,7 +1653,7 @@
         
   
   <span class="md-ellipsis">
-    16.3 CSS优先级讲解以及问题答疑
+    CSS 优先级与答疑
   </span>
   
 
@@ -1958,49 +1662,6 @@
   
 
               
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    
-    
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_17" >
-        
-          
-          <label class="md-nav__link" for="__nav_3_17" id="__nav_3_17_label" tabindex="0">
-            
-  
-  <span class="md-ellipsis">
-    17
-  </span>
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_17_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_3_17">
-            <span class="md-nav__icon md-icon"></span>
-            17
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
             
               
                 
@@ -2013,7 +1674,7 @@
         
   
   <span class="md-ellipsis">
-    17.1 前端CSS Float(浮动)详解
+    CSS Float 浮动
   </span>
   
 
@@ -2034,7 +1695,7 @@
         
   
   <span class="md-ellipsis">
-    17.2 前端入门之CSS教程 BFC规范与浏览器差异
+    CSS BFC 规范与浏览器差异
   </span>
   
 
@@ -2055,7 +1716,7 @@
         
   
   <span class="md-ellipsis">
-    17.3 前端入门之CSS清除浮动
+    CSS 清除浮动
   </span>
   
 
@@ -2064,49 +1725,6 @@
   
 
               
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    
-    
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_18" >
-        
-          
-          <label class="md-nav__link" for="__nav_3_18" id="__nav_3_18_label" tabindex="0">
-            
-  
-  <span class="md-ellipsis">
-    18
-  </span>
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_18_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_3_18">
-            <span class="md-nav__icon md-icon"></span>
-            18
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
             
               
                 
@@ -2119,7 +1737,7 @@
         
   
   <span class="md-ellipsis">
-    18.1 前端入门之CSS定位之相对定位和绝对定位
+    CSS 相对/绝对定位
   </span>
   
 
@@ -2140,7 +1758,7 @@
         
   
   <span class="md-ellipsis">
-    18.2 前端入门之CSS定位：粘性定位和固定定位篇
+    CSS 粘性/固定定位
   </span>
   
 
@@ -2149,49 +1767,6 @@
   
 
               
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    
-    
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_19" >
-        
-          
-          <label class="md-nav__link" for="__nav_3_19" id="__nav_3_19_label" tabindex="0">
-            
-  
-  <span class="md-ellipsis">
-    19
-  </span>
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_19_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_3_19">
-            <span class="md-nav__icon md-icon"></span>
-            19
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
             
               
                 
@@ -2204,7 +1779,7 @@
         
   
   <span class="md-ellipsis">
-    19.1 前端入门教程之CSS层叠上下文
+    CSS 层叠上下文
   </span>
   
 
@@ -2225,7 +1800,7 @@
         
   
   <span class="md-ellipsis">
-    19.2 前端开发应该要了解的，阿里icofont图标库使用方法
+    阿里 Iconfont 图标库使用
   </span>
   
 
@@ -2246,7 +1821,7 @@
         
   
   <span class="md-ellipsis">
-    19.3 前端入门之CSS margin为负值详解
+    CSS margin 负值
   </span>
   
 
@@ -2255,49 +1830,6 @@
   
 
               
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    
-    
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_20" >
-        
-          
-          <label class="md-nav__link" for="__nav_3_20" id="__nav_3_20_label" tabindex="0">
-            
-  
-  <span class="md-ellipsis">
-    20
-  </span>
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_20_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_3_20">
-            <span class="md-nav__icon md-icon"></span>
-            20
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
             
               
                 
@@ -2310,7 +1842,7 @@
         
   
   <span class="md-ellipsis">
-    20.1 前端入门CSS3圆角阴影与盒子阴影详解
+    CSS3 圆角与盒子阴影
   </span>
   
 
@@ -2331,7 +1863,7 @@
         
   
   <span class="md-ellipsis">
-    20.2 前端入门CSS文本阴影、文本省略号、透明度、图片裁切属性讲解
+    CSS3 文本样式与透明度
   </span>
   
 
@@ -2595,6 +2127,9 @@
                 
                   
 
+  
+  
+
 
 <h2 id="5"><strong>5、去掉元素的默认样式</strong><a class="headerlink" href="#5" title="Permanent link">&para;</a></h2>
 <p><strong>TIP</strong></p>
@@ -2626,59 +2161,57 @@
 </ul>
 </li>
 </ul>
-<div class="codehilite"><pre><span></span><code><span class="c">/* 通配符选择器，表示选择所有元素 - 不推荐使用 */</span>
-<span class="o">*</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="k">margin</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
-<span class="w">  </span><span class="k">padding</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
-<span class="p">}</span>
+<pre><code>/* 通配符选择器，表示选择所有元素 - 不推荐使用 */
+* {
+  margin: 0;
+  padding: 0;
+}
 
-<span class="c">/* 通配符有效率问题，应该使用并集选择器 */</span>
-<span class="nt">body</span><span class="o">,</span>
-<span class="nt">ul</span><span class="o">,</span>
-<span class="nt">p</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="k">margin</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
-<span class="w">  </span><span class="k">padding</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
-<span class="p">}</span>
+/* 通配符有效率问题，应该使用并集选择器 */
+body,
+ul,
+p {
+  margin: 0;
+  padding: 0;
+}
 
-<span class="nt">a</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="c">/* 去掉下划线 */</span>
-<span class="w">  </span><span class="k">text-decoration</span><span class="p">:</span><span class="w"> </span><span class="kc">none</span><span class="p">;</span>
-<span class="w">  </span><span class="c">/* 颜色为黑色 */</span>
-<span class="w">  </span><span class="k">color</span><span class="p">:</span><span class="w"> </span><span class="mh">#000</span><span class="p">;</span>
-<span class="p">}</span>
+a {
+  /* 去掉下划线 */
+  text-decoration: none;
+  /* 颜色为黑色 */
+  color: #000;
+}
 
-<span class="nt">ul</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="c">/* 去掉圆点 */</span>
-<span class="w">  </span><span class="k">list-style</span><span class="p">:</span><span class="w"> </span><span class="kc">none</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre></div>
-
+ul {
+  /* 去掉圆点 */
+  list-style: none;
+}
+</code></pre>
 <h2 id="6"><strong>6、盒子模型占位计算</strong><a class="headerlink" href="#6" title="Permanent link">&para;</a></h2>
 <p><strong>TIP</strong></p>
 <p>盒模型的内容区大小，可视区大小，盒模型实际占位区大小</p>
 <h3 id="61"><strong>6.1、盒模型内容区大小</strong><a class="headerlink" href="#61" title="Permanent link">&para;</a></h3>
 <p><strong>在标准盒子模型中</strong></p>
 <p>盒模型内容区是指元素的 <code>width</code>和 <code>height</code>属性形成的矩形区域。</p>
-<div class="codehilite"><pre><span></span><code><span class="nt">&lt;style&gt;</span>
-<span class="w">  </span>div<span class="w"> </span>{
-<span class="w">    </span>width:<span class="w"> </span>200px;<span class="w"> </span>/*<span class="w"> </span>宽<span class="w"> </span>*/
-<span class="w">    </span>height:<span class="w"> </span>200px;<span class="w"> </span>/*<span class="w"> </span>高<span class="w"> </span>*/
-<span class="w">    </span>background-color:<span class="w"> </span>gold;
-<span class="w">    </span>/*<span class="w"> </span>边框<span class="w"> </span>*/
-<span class="w">    </span>border:<span class="w"> </span>20px<span class="w"> </span>solid<span class="w"> </span>skyblue;
-<span class="w">    </span>/*<span class="w"> </span>内边距<span class="w"> </span>*/
-<span class="w">    </span>padding:<span class="w"> </span>50px;
-<span class="w">    </span>/*<span class="w"> </span>外边距<span class="w"> </span>*/
-<span class="w">    </span>margin:<span class="w"> </span>30px;
-<span class="w">  </span>}
-<span class="nt">&lt;/style&gt;</span>
-<span class="nt">&lt;body&gt;</span>
-<span class="w">  </span><span class="nt">&lt;div</span><span class="w"> </span><span class="na">class=</span><span class="s">&quot;box&quot;</span><span class="nt">&gt;</span>
-<span class="w">    </span>内容区，内容区内容区，内容区内容区，内容区
-<span class="w">  </span><span class="nt">&lt;/div&gt;</span>
-<span class="nt">&lt;/body&gt;</span>
-</code></pre></div>
-
+<pre><code>&lt;style&gt;
+  div {
+    width: 200px; /* 宽 */
+    height: 200px; /* 高 */
+    background-color: gold;
+    /* 边框 */
+    border: 20px solid skyblue;
+    /* 内边距 */
+    padding: 50px;
+    /* 外边距 */
+    margin: 30px;
+  }
+&lt;/style&gt;
+&lt;body&gt;
+  &lt;div class=&quot;box&quot;&gt;
+    内容区，内容区内容区，内容区内容区，内容区
+  &lt;/div&gt;
+&lt;/body&gt;
+</code></pre>
 <p>下图中红色矩形区为内容区大小
 ![[Pasted image 20260225104529.png]]</p>
 <h3 id="62"><strong>6.2、盒模型可视区大小</strong><a class="headerlink" href="#62" title="Permanent link">&para;</a></h3>
@@ -2692,26 +2225,25 @@
 </li>
 </ul>
 <p>盒子模型可视区大小 = 可视区宽 和 可视区高形成的矩形区域大小</p>
-<div class="codehilite"><pre><span></span><code><span class="nt">&lt;style&gt;</span>
-<span class="w">  </span>div<span class="w"> </span>{
-<span class="w">    </span>width:<span class="w"> </span>200px;<span class="w"> </span>/*<span class="w"> </span>宽<span class="w"> </span>*/
-<span class="w">    </span>height:<span class="w"> </span>200px;<span class="w"> </span>/*<span class="w"> </span>高<span class="w"> </span>*/
-<span class="w">    </span>background-color:<span class="w"> </span>gold;
-<span class="w">    </span>/*<span class="w"> </span>边框<span class="w"> </span>*/
-<span class="w">    </span>border:<span class="w"> </span>20px<span class="w"> </span>solid<span class="w"> </span>skyblue;
-<span class="w">    </span>/*<span class="w"> </span>内边距<span class="w"> </span>*/
-<span class="w">    </span>padding:<span class="w"> </span>50px;
-<span class="w">    </span>/*<span class="w"> </span>外边距<span class="w"> </span>*/
-<span class="w">    </span>margin:<span class="w"> </span>30px;
-<span class="w">  </span>}
-<span class="nt">&lt;/style&gt;</span>
-<span class="nt">&lt;body&gt;</span>
-<span class="w">  </span><span class="nt">&lt;div</span><span class="w"> </span><span class="na">class=</span><span class="s">&quot;box&quot;</span><span class="nt">&gt;</span>
-<span class="w">    </span>内容区，内容区内容区，内容区内容区，内容区
-<span class="w">  </span><span class="nt">&lt;/div&gt;</span>
-<span class="nt">&lt;/body&gt;</span>
-</code></pre></div>
-
+<pre><code>&lt;style&gt;
+  div {
+    width: 200px; /* 宽 */
+    height: 200px; /* 高 */
+    background-color: gold;
+    /* 边框 */
+    border: 20px solid skyblue;
+    /* 内边距 */
+    padding: 50px;
+    /* 外边距 */
+    margin: 30px;
+  }
+&lt;/style&gt;
+&lt;body&gt;
+  &lt;div class=&quot;box&quot;&gt;
+    内容区，内容区内容区，内容区内容区，内容区
+  &lt;/div&gt;
+&lt;/body&gt;
+</code></pre>
 <p>下图中蓝色矩形区域为可视区大小
 ![[Pasted image 20260225104639.png]]</p>
 <h3 id="63"><strong>6.3、盒模型实际占位大小</strong><a class="headerlink" href="#63" title="Permanent link">&para;</a></h3>
@@ -2725,26 +2257,25 @@
 </li>
 </ul>
 <p>盒子模型实际占位大小 = 实际占位宽 和 实际占位高形成的矩形区域大小</p>
-<div class="codehilite"><pre><span></span><code><span class="nt">&lt;style&gt;</span>
-<span class="w">  </span>div<span class="w"> </span>{
-<span class="w">    </span>width:<span class="w"> </span>200px;<span class="w"> </span>/*<span class="w"> </span>宽<span class="w"> </span>*/
-<span class="w">    </span>height:<span class="w"> </span>200px;<span class="w"> </span>/*<span class="w"> </span>高<span class="w"> </span>*/
-<span class="w">    </span>background-color:<span class="w"> </span>gold;
-<span class="w">    </span>/*<span class="w"> </span>边框<span class="w"> </span>*/
-<span class="w">    </span>border:<span class="w"> </span>20px<span class="w"> </span>solid<span class="w"> </span>skyblue;
-<span class="w">    </span>/*<span class="w"> </span>内边距<span class="w"> </span>*/
-<span class="w">    </span>padding:<span class="w"> </span>50px;
-<span class="w">    </span>/*<span class="w"> </span>外边距<span class="w"> </span>*/
-<span class="w">    </span>margin:<span class="w"> </span>30px;
-<span class="w">  </span>}
-<span class="nt">&lt;/style&gt;</span>
-<span class="nt">&lt;body&gt;</span>
-<span class="w">  </span><span class="nt">&lt;div</span><span class="w"> </span><span class="na">class=</span><span class="s">&quot;box&quot;</span><span class="nt">&gt;</span>
-<span class="w">    </span>内容区，内容区内容区，内容区内容区，内容区
-<span class="w">  </span><span class="nt">&lt;/div&gt;</span>
-<span class="nt">&lt;/body&gt;</span>
-</code></pre></div>
-
+<pre><code>&lt;style&gt;
+  div {
+    width: 200px; /* 宽 */
+    height: 200px; /* 高 */
+    background-color: gold;
+    /* 边框 */
+    border: 20px solid skyblue;
+    /* 内边距 */
+    padding: 50px;
+    /* 外边距 */
+    margin: 30px;
+  }
+&lt;/style&gt;
+&lt;body&gt;
+  &lt;div class=&quot;box&quot;&gt;
+    内容区，内容区内容区，内容区内容区，内容区
+  &lt;/div&gt;
+&lt;/body&gt;
+</code></pre>
 <p>下图中黑色矩形区域为实际占位大小
 ![[Pasted image 20260225104756.png]]</p>
 <h3 id="64"><strong>6.4、三者的关系</strong><a class="headerlink" href="#64" title="Permanent link">&para;</a></h3>
@@ -2777,37 +2308,36 @@
 </ul>
 </li>
 </ul>
-<div class="codehilite"><pre><span></span><code><span class="nt">&lt;style&gt;</span>
-<span class="w">  </span>.box<span class="w"> </span>{
-<span class="w">    </span>/*<span class="w"> </span>内容区宽<span class="w"> </span>*/
-<span class="w">    </span>width:<span class="w"> </span>200px;
-<span class="w">    </span>/*<span class="w"> </span>内容区高<span class="w"> </span>*/
-<span class="w">    </span>height:<span class="w"> </span>250px;
-<span class="w">    </span>/*<span class="w"> </span>边框线<span class="w"> </span>*/
-<span class="w">    </span>border:<span class="w"> </span>2px<span class="w"> </span>dashed<span class="w"> </span>#333;
-<span class="w">    </span>/*<span class="w"> </span>内边距<span class="w"> </span>*/
-<span class="w">    </span>padding:<span class="w"> </span>10px;
-<span class="w">  </span>}
-<span class="w">  </span>.box1<span class="w"> </span>{
-<span class="w">    </span>/*<span class="w"> </span>内容区宽<span class="w"> </span>*/
-<span class="w">    </span>width:<span class="w"> </span>70px;
-<span class="w">    </span>/*<span class="w"> </span>内容区高<span class="w"> </span>*/
-<span class="w">    </span>height:<span class="w"> </span>120px;
-<span class="w">    </span>/*<span class="w"> </span>边框线<span class="w"> </span>*/
-<span class="w">    </span>border:<span class="w"> </span>5px<span class="w"> </span>solid<span class="w"> </span>skyblue;
-<span class="w">    </span>/*<span class="w"> </span>内边距<span class="w"> </span>*/
-<span class="w">    </span>padding:<span class="w"> </span>10px;
-<span class="w">    </span>/*<span class="w"> </span>背景色<span class="w"> </span>*/
-<span class="w">    </span>background-color:<span class="w"> </span>gold;
-<span class="w">  </span>}
-<span class="nt">&lt;/style&gt;</span>
-<span class="nt">&lt;body&gt;</span>
-<span class="w">  </span><span class="nt">&lt;div</span><span class="w"> </span><span class="na">class=</span><span class="s">&quot;box&quot;</span><span class="nt">&gt;</span>
-<span class="w">    </span><span class="nt">&lt;div</span><span class="w"> </span><span class="na">class=</span><span class="s">&quot;box1&quot;</span><span class="nt">&gt;&lt;/div&gt;</span>
-<span class="w">  </span><span class="nt">&lt;/div&gt;</span>
-<span class="nt">&lt;/body&gt;</span>
-</code></pre></div>
-
+<pre><code>&lt;style&gt;
+  .box {
+    /* 内容区宽 */
+    width: 200px;
+    /* 内容区高 */
+    height: 250px;
+    /* 边框线 */
+    border: 2px dashed #333;
+    /* 内边距 */
+    padding: 10px;
+  }
+  .box1 {
+    /* 内容区宽 */
+    width: 70px;
+    /* 内容区高 */
+    height: 120px;
+    /* 边框线 */
+    border: 5px solid skyblue;
+    /* 内边距 */
+    padding: 10px;
+    /* 背景色 */
+    background-color: gold;
+  }
+&lt;/style&gt;
+&lt;body&gt;
+  &lt;div class=&quot;box&quot;&gt;
+    &lt;div class=&quot;box1&quot;&gt;&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/body&gt;
+</code></pre>
 <p>![[Pasted image 20260225104921.png]]
 注：</p>
 <p>如果 box1计算得到的占位宽超过了 box 元素的内容区宽，就会达不到我们相要的布局效果</p>
@@ -2847,30 +2377,29 @@
 <p><strong>button 标签，是典型的怪异盒模型</strong></p>
 </li>
 </ul>
-<div class="codehilite"><pre><span></span><code><span class="nt">&lt;style&gt;</span>
-<span class="w">  </span>/*<span class="w"> </span>button的可视宽高<span class="w"> </span>为<span class="w"> </span>100px<span class="w"> </span>*/
-<span class="w">  </span>button<span class="w"> </span>{
-<span class="w">    </span>width:<span class="w"> </span>100px;
-<span class="w">    </span>height:<span class="w"> </span>100px;
-<span class="w">    </span>padding:<span class="w"> </span>10px;
-<span class="w">    </span>border:<span class="w"> </span>20px<span class="w"> </span>solid<span class="w"> </span>red;
-<span class="w">  </span>}
-<span class="w">  </span>/*<span class="w"> </span>div的可视宽高为<span class="w"> </span>100+10<span class="w"> </span>*<span class="w"> </span>2+10<span class="w"> </span>*<span class="w"> </span>2=140px<span class="w"> </span>*/
-<span class="w">  </span>div<span class="w"> </span>{
-<span class="w">    </span>width:<span class="w"> </span>100px;
-<span class="w">    </span>height:<span class="w"> </span>100px;
-<span class="w">    </span>border:<span class="w"> </span>10px<span class="w"> </span>solid<span class="w"> </span>red;
-<span class="w">    </span>padding:<span class="w"> </span>10px;
-<span class="w">  </span>}
-<span class="nt">&lt;/style&gt;</span>
-<span class="nt">&lt;body&gt;</span>
-<span class="w">  </span><span class="nt">&lt;button&gt;</span>button<span class="nt">&lt;/button&gt;</span>
-<span class="w">  </span><span class="nt">&lt;hr</span><span class="w"> </span><span class="nt">/&gt;</span>
-<span class="w">  </span><span class="cm">&lt;!-- 画了一水平线 --&gt;</span>
-<span class="w">  </span><span class="nt">&lt;div&gt;</span>div<span class="nt">&lt;/div&gt;</span>
-<span class="nt">&lt;/body&gt;</span>
-</code></pre></div>
-
+<pre><code>&lt;style&gt;
+  /* button的可视宽高 为 100px */
+  button {
+    width: 100px;
+    height: 100px;
+    padding: 10px;
+    border: 20px solid red;
+  }
+  /* div的可视宽高为 100+10 * 2+10 * 2=140px */
+  div {
+    width: 100px;
+    height: 100px;
+    border: 10px solid red;
+    padding: 10px;
+  }
+&lt;/style&gt;
+&lt;body&gt;
+  &lt;button&gt;button&lt;/button&gt;
+  &lt;hr /&gt;
+  &lt;!-- 画了一水平线 --&gt;
+  &lt;div&gt;div&lt;/div&gt;
+&lt;/body&gt;
+</code></pre>
 <p>![[Pasted image 20260225105353.png]]</p>
 <p><strong>同样的代码，在 Google 浏览中为什么显示却有差异</strong></p>
 <p><strong>原因：</strong></p>
@@ -2893,21 +2422,20 @@
 <p><code>box-sizing: border-box</code>盒子以怪异盒子模型特性来渲染</p>
 </li>
 </ul>
-<div class="codehilite"><pre><span></span><code><span class="nt">&lt;style&gt;</span>
-<span class="w">  </span>.box<span class="w"> </span>{
-<span class="w">    </span>width:<span class="w"> </span>100px;
-<span class="w">    </span>height:<span class="w"> </span>150px;
-<span class="w">    </span>padding:<span class="w"> </span>20px;
-<span class="w">    </span>border:<span class="w"> </span>10px;
-<span class="w">    </span>margin:<span class="w"> </span>50px;
-<span class="w">    </span>/*box-sizing:border-box;*/
-<span class="w">  </span>}
-<span class="nt">&lt;/style&gt;</span>
-<span class="nt">&lt;body&gt;</span>
-<span class="w">  </span><span class="nt">&lt;div</span><span class="w"> </span><span class="na">class=</span><span class="s">&quot;box&quot;</span><span class="nt">&gt;&lt;/div&gt;</span>
-<span class="nt">&lt;/body&gt;</span>
-</code></pre></div>
-
+<pre><code>&lt;style&gt;
+  .box {
+    width: 100px;
+    height: 150px;
+    padding: 20px;
+    border: 10px;
+    margin: 50px;
+    /*box-sizing:border-box;*/
+  }
+&lt;/style&gt;
+&lt;body&gt;
+  &lt;div class=&quot;box&quot;&gt;&lt;/div&gt;
+&lt;/body&gt;
+</code></pre>
 <p>以上代码，在两种盒子模型下渲染的效果如下</p>
 <table>
 <thead>
@@ -3037,113 +2565,112 @@
 <p>要求：利用 PS 与 蓝湖 结合，将以下 PSD 设计稿用代码以 1:1 还原成网页</p>
 <h2 id="1_1">1、商品卡片布局<a class="headerlink" href="#1_1" title="Permanent link">&para;</a></h2>
 <p>![[Pasted image 20260225111349.png]]</p>
-<div class="codehilite"><pre><span></span><code><span class="o">&lt;</span><span class="nt">style</span><span class="o">&gt;</span>
-<span class="w">  </span><span class="nt">body</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="k">font</span><span class="p">:</span><span class="w"> </span><span class="mi">12</span><span class="kt">px</span><span class="o">/</span><span class="mi">1</span><span class="w"> </span><span class="s2">&quot;Microsoft YaHei&quot;</span><span class="p">;</span>
-<span class="w">  </span><span class="p">}</span>
-<span class="w">  </span><span class="nt">h3</span><span class="o">,</span>
-<span class="w">  </span><span class="nt">p</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="k">margin</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
-<span class="w">  </span><span class="p">}</span>
-<span class="w">  </span><span class="nt">a</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="k">text-decoration</span><span class="p">:</span><span class="w"> </span><span class="kc">none</span><span class="p">;</span>
-<span class="w">    </span><span class="c">/* border: 1px solid red; */</span>
-<span class="w">    </span><span class="k">display</span><span class="p">:</span><span class="w"> </span><span class="kc">block</span><span class="p">;</span><span class="w"> </span><span class="c">/* 变成块级元素 */</span>
-<span class="w">  </span><span class="p">}</span>
-<span class="w">  </span><span class="p">.</span><span class="nc">goods</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="k">width</span><span class="p">:</span><span class="w"> </span><span class="mi">150</span><span class="kt">px</span><span class="p">;</span>
-<span class="w">    </span><span class="c">/* height: 200px; 后面再去掉 */</span>
-<span class="w">    </span><span class="k">border</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="kt">px</span><span class="w"> </span><span class="kc">solid</span><span class="w"> </span><span class="mh">#666666</span><span class="p">;</span>
-<span class="w">    </span><span class="k">padding</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="kt">px</span><span class="p">;</span>
-<span class="w">  </span><span class="p">}</span>
-<span class="w">  </span><span class="p">.</span><span class="nc">goods</span><span class="w"> </span><span class="nt">img</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="c">/* border: 1px solid red; */</span>
-<span class="w">    </span><span class="k">display</span><span class="p">:</span><span class="w"> </span><span class="kc">block</span><span class="p">;</span>
-<span class="w">  </span><span class="p">}</span>
-<span class="w">  </span><span class="p">.</span><span class="nc">goods</span><span class="w"> </span><span class="nt">h3</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="c">/* border: 1px solid red; */</span>
-<span class="w">    </span><span class="k">font-size</span><span class="p">:</span><span class="w"> </span><span class="mi">12</span><span class="kt">px</span><span class="p">;</span>
-<span class="w">    </span><span class="k">color</span><span class="p">:</span><span class="w"> </span><span class="mh">#666666</span><span class="p">;</span>
-<span class="w">    </span><span class="k">font-weight</span><span class="p">:</span><span class="w"> </span><span class="mi">400</span><span class="p">;</span>
-<span class="w">    </span><span class="c">/* font-family: Microsoft YaHei; */</span>
-<span class="w">    </span><span class="k">line-height</span><span class="p">:</span><span class="w"> </span><span class="mi">18</span><span class="kt">px</span><span class="p">;</span>
-<span class="w">    </span><span class="k">margin-top</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="kt">px</span><span class="p">;</span>
-<span class="w">  </span><span class="p">}</span>
-<span class="w">  </span><span class="p">.</span><span class="nc">goods</span><span class="w"> </span><span class="nt">p</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="k">font-size</span><span class="p">:</span><span class="w"> </span><span class="mi">16</span><span class="kt">px</span><span class="p">;</span>
-<span class="w">    </span><span class="k">color</span><span class="p">:</span><span class="w"> </span><span class="mh">#e1251b</span><span class="p">;</span>
-<span class="w">    </span><span class="k">line-height</span><span class="p">:</span><span class="w"> </span><span class="mi">23</span><span class="kt">px</span><span class="p">;</span>
-<span class="w">    </span><span class="k">font-weight</span><span class="p">:</span><span class="w"> </span><span class="mi">400</span><span class="p">;</span>
-<span class="w">    </span><span class="c">/* font-family: Microsoft YaHei; */</span>
-<span class="w">    </span><span class="c">/* border: 1px solid red; */</span>
-<span class="w">    </span><span class="k">margin-top</span><span class="p">:</span><span class="w"> </span><span class="mi">9</span><span class="kt">px</span><span class="p">;</span>
-<span class="w">  </span><span class="p">}</span>
-<span class="w">  </span><span class="p">.</span><span class="nc">goods</span><span class="w"> </span><span class="nt">p</span><span class="w"> </span><span class="nt">span</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="k">font-family</span><span class="p">:</span><span class="w"> </span><span class="n">Arial</span><span class="p">;</span>
-<span class="w">    </span><span class="k">font-weight</span><span class="p">:</span><span class="w"> </span><span class="mi">400</span><span class="p">;</span>
-<span class="w">    </span><span class="k">font-size</span><span class="p">:</span><span class="w"> </span><span class="mi">12</span><span class="kt">px</span><span class="p">;</span>
-<span class="w">    </span><span class="c">/* color: #E1251B; */</span>
-<span class="w">    </span><span class="k">line-height</span><span class="p">:</span><span class="w"> </span><span class="mi">18</span><span class="kt">px</span><span class="p">;</span>
-<span class="w">    </span><span class="k">margin-right</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="kt">px</span><span class="p">;</span>
-<span class="w">  </span><span class="p">}</span>
-<span class="w">  </span><span class="p">.</span><span class="nc">goods</span><span class="w"> </span><span class="nt">p</span><span class="w"> </span><span class="p">.</span><span class="nc">sp2</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="k">font-family</span><span class="p">:</span><span class="w"> </span><span class="n">Microsoft</span><span class="w"> </span><span class="n">YaHei</span><span class="p">;</span>
-<span class="w">    </span><span class="k">margin-right</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
-<span class="w">  </span><span class="p">}</span>
-<span class="o">&lt;/</span><span class="nt">style</span><span class="o">&gt;</span>
+<pre><code>&lt;style&gt;
+  body {
+    font: 12px/1 &quot;Microsoft YaHei&quot;;
+  }
+  h3,
+  p {
+    margin: 0;
+  }
+  a {
+    text-decoration: none;
+    /* border: 1px solid red; */
+    display: block; /* 变成块级元素 */
+  }
+  .goods {
+    width: 150px;
+    /* height: 200px; 后面再去掉 */
+    border: 1px solid #666666;
+    padding: 10px;
+  }
+  .goods img {
+    /* border: 1px solid red; */
+    display: block;
+  }
+  .goods h3 {
+    /* border: 1px solid red; */
+    font-size: 12px;
+    color: #666666;
+    font-weight: 400;
+    /* font-family: Microsoft YaHei; */
+    line-height: 18px;
+    margin-top: 2px;
+  }
+  .goods p {
+    font-size: 16px;
+    color: #e1251b;
+    line-height: 23px;
+    font-weight: 400;
+    /* font-family: Microsoft YaHei; */
+    /* border: 1px solid red; */
+    margin-top: 9px;
+  }
+  .goods p span {
+    font-family: Arial;
+    font-weight: 400;
+    font-size: 12px;
+    /* color: #E1251B; */
+    line-height: 18px;
+    margin-right: 2px;
+  }
+  .goods p .sp2 {
+    font-family: Microsoft YaHei;
+    margin-right: 0;
+  }
+&lt;/style&gt;
 
-<span class="o">&lt;</span><span class="nt">div</span><span class="w"> </span><span class="nt">class</span><span class="o">=</span><span class="s2">&quot;goods&quot;</span><span class="o">&gt;</span>
-<span class="w">  </span><span class="o">&lt;</span><span class="nt">a</span><span class="w"> </span><span class="nt">href</span><span class="o">=</span><span class="s2">&quot;http://arryblog.com&quot;</span><span class="o">&gt;</span>
-<span class="w">    </span><span class="o">&lt;</span><span class="nt">img</span><span class="w"> </span><span class="nt">src</span><span class="o">=</span><span class="s2">&quot;./images/img1.png&quot;</span><span class="w"> </span><span class="nt">alt</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="w"> </span><span class="o">/&gt;</span>
-<span class="w">    </span><span class="o">&lt;</span><span class="nt">h3</span><span class="o">&gt;</span><span class="nt">iSeeJplus山茶花智能眼部按</span><span class="w"> </span><span class="nt">摩器护眼仪</span><span class="o">&lt;/</span><span class="nt">h3</span><span class="o">&gt;</span>
-<span class="w">    </span><span class="o">&lt;</span><span class="nt">p</span><span class="o">&gt;&lt;</span><span class="nt">span</span><span class="w"> </span><span class="nt">class</span><span class="o">=</span><span class="s2">&quot;sp1&quot;</span><span class="o">&gt;</span><span class="err">¥</span><span class="o">&lt;/</span><span class="nt">span</span><span class="o">&gt;</span><span class="nt">679</span><span class="o">.&lt;</span><span class="nt">span</span><span class="w"> </span><span class="nt">class</span><span class="o">=</span><span class="s2">&quot;sp2&quot;</span><span class="o">&gt;</span><span class="nt">00</span><span class="o">&lt;/</span><span class="nt">span</span><span class="o">&gt;&lt;/</span><span class="nt">p</span><span class="o">&gt;</span>
-<span class="w">  </span><span class="o">&lt;/</span><span class="nt">a</span><span class="o">&gt;</span>
-<span class="o">&lt;/</span><span class="nt">div</span><span class="o">&gt;</span>
-</code></pre></div>
-
+&lt;div class=&quot;goods&quot;&gt;
+  &lt;a href=&quot;http://arryblog.com&quot;&gt;
+    &lt;img src=&quot;./images/img1.png&quot; alt=&quot;&quot; /&gt;
+    &lt;h3&gt;iSeeJplus山茶花智能眼部按 摩器护眼仪&lt;/h3&gt;
+    &lt;p&gt;&lt;span class=&quot;sp1&quot;&gt;¥&lt;/span&gt;679.&lt;span class=&quot;sp2&quot;&gt;00&lt;/span&gt;&lt;/p&gt;
+  &lt;/a&gt;
+&lt;/div&gt;
+</code></pre>
 <h2 id="2-css">2、 CSS 边框实现三角形<a class="headerlink" href="#2-css" title="Permanent link">&para;</a></h2>
 <p>![[Pasted image 20260225111454.png]]</p>
-<div class="codehilite"><pre><span></span><code><span class="nt">&lt;style&gt;</span>
-<span class="w">  </span>.box1<span class="w"> </span>{
-<span class="w">    </span>width:<span class="w"> </span>0;
-<span class="w">    </span>height:<span class="w"> </span>0;
-<span class="w">    </span>/*<span class="w"> </span>transparent<span class="w"> </span>是透明色<span class="w"> </span>*/
-<span class="w">    </span>border:<span class="w"> </span>30px<span class="w"> </span>solid<span class="w"> </span>transparent;
-<span class="w">    </span>border-top-color:<span class="w"> </span>red;
-<span class="w">  </span>}
+<pre><code>&lt;style&gt;
+  .box1 {
+    width: 0;
+    height: 0;
+    /* transparent 是透明色 */
+    border: 30px solid transparent;
+    border-top-color: red;
+  }
 
-<span class="w">  </span>.box2<span class="w"> </span>{
-<span class="w">    </span>width:<span class="w"> </span>0;
-<span class="w">    </span>height:<span class="w"> </span>0;
-<span class="w">    </span>/*<span class="w"> </span>transparent<span class="w"> </span>是透明色<span class="w"> </span>*/
-<span class="w">    </span>border:<span class="w"> </span>30px<span class="w"> </span>solid<span class="w"> </span>transparent;
-<span class="w">    </span>border-right-color:<span class="w"> </span>red;
-<span class="w">  </span>}
+  .box2 {
+    width: 0;
+    height: 0;
+    /* transparent 是透明色 */
+    border: 30px solid transparent;
+    border-right-color: red;
+  }
 
-<span class="w">  </span>.box3<span class="w"> </span>{
-<span class="w">    </span>width:<span class="w"> </span>0;
-<span class="w">    </span>height:<span class="w"> </span>0;
-<span class="w">    </span>/*<span class="w"> </span>transparent<span class="w"> </span>是透明色<span class="w"> </span>*/
-<span class="w">    </span>border:<span class="w"> </span>30px<span class="w"> </span>solid<span class="w"> </span>transparent;
-<span class="w">    </span>border-bottom-color:<span class="w"> </span>red;
-<span class="w">  </span>}
+  .box3 {
+    width: 0;
+    height: 0;
+    /* transparent 是透明色 */
+    border: 30px solid transparent;
+    border-bottom-color: red;
+  }
 
-<span class="w">  </span>.box4<span class="w"> </span>{
-<span class="w">    </span>width:<span class="w"> </span>0;
-<span class="w">    </span>height:<span class="w"> </span>0;
-<span class="w">    </span>/*<span class="w"> </span>transparent<span class="w"> </span>是透明色<span class="w"> </span>*/
-<span class="w">    </span>border:<span class="w"> </span>30px<span class="w"> </span>solid<span class="w"> </span>transparent;
-<span class="w">    </span>border-left-color:<span class="w"> </span>red;
-<span class="w">  </span>}
-<span class="nt">&lt;/style&gt;</span>
+  .box4 {
+    width: 0;
+    height: 0;
+    /* transparent 是透明色 */
+    border: 30px solid transparent;
+    border-left-color: red;
+  }
+&lt;/style&gt;
 
-<span class="nt">&lt;body&gt;</span>
-<span class="w">  </span><span class="nt">&lt;div</span><span class="w"> </span><span class="na">class=</span><span class="s">&quot;box1&quot;</span><span class="nt">&gt;&lt;/div&gt;</span>
-<span class="w">  </span><span class="nt">&lt;div</span><span class="w"> </span><span class="na">class=</span><span class="s">&quot;box2&quot;</span><span class="nt">&gt;&lt;/div&gt;</span>
-<span class="w">  </span><span class="nt">&lt;div</span><span class="w"> </span><span class="na">class=</span><span class="s">&quot;box3&quot;</span><span class="nt">&gt;&lt;/div&gt;</span>
-<span class="w">  </span><span class="nt">&lt;div</span><span class="w"> </span><span class="na">class=</span><span class="s">&quot;box4&quot;</span><span class="nt">&gt;&lt;/div&gt;</span>
-<span class="nt">&lt;/body&gt;</span>
-</code></pre></div>
+&lt;body&gt;
+  &lt;div class=&quot;box1&quot;&gt;&lt;/div&gt;
+  &lt;div class=&quot;box2&quot;&gt;&lt;/div&gt;
+  &lt;div class=&quot;box3&quot;&gt;&lt;/div&gt;
+  &lt;div class=&quot;box4&quot;&gt;&lt;/div&gt;
+&lt;/body&gt;
+</code></pre>
 
 
 
@@ -3164,6 +2691,12 @@
 <script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
         </div>
         
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+  Back to top
+</button>
+        
       </main>
       
         <footer class="md-footer">
@@ -3171,6 +2704,10 @@
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
       <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright © 2026 我的个人网站
+    </div>
   
   
     Made with
@@ -3190,7 +2727,7 @@
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.tabs", "navigation.sidebar.expand", "navigation.top", "search.suggest", "search.highlight"], "search": "../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
       <script src="../assets/javascripts/bundle.471ce7a9.min.js"></script>
