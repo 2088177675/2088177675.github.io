@@ -10,13 +10,13 @@
       
       
       
-        <link rel="canonical" href="https://2088177675.github.io/about/">
+        <link rel="canonical" href="https://2088177675.github.io/12.1%20css-box-model-1/">
       
       
-        <link rel="prev" href="..">
+        <link rel="prev" href="../11.3%20css-list-styles/">
       
       
-        <link rel="next" href="../1.1%20frontend-industry/">
+        <link rel="next" href="../12.2%20css-box-model-2/">
       
       
       <link rel="icon" href="../assets/images/favicon.png">
@@ -24,7 +24,7 @@
     
     
       
-        <title>关于我 - 我的个人网站</title>
+        <title>CSS 盒子模型（上） - 我的个人网站</title>
       
     
     
@@ -73,6 +73,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#_1" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -103,7 +108,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              关于我
+              CSS 盒子模型（上）
             
           </span>
         </div>
@@ -201,11 +206,9 @@
         
   
   
-    
   
-  
-    <li class="md-tabs__item md-tabs__item--active">
-      <a href="./" class="md-tabs__link">
+    <li class="md-tabs__item">
+      <a href="../about/" class="md-tabs__link">
         
   
     
@@ -220,16 +223,20 @@
         
   
   
+    
+  
   
     
     
       
   
   
+    
+  
   
     
     
-      <li class="md-tabs__item">
+      <li class="md-tabs__item md-tabs__item--active">
         <a href="../1.1%20frontend-industry/" class="md-tabs__link">
           
   
@@ -313,17 +320,10 @@
       
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../about/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -332,7 +332,6 @@
   
 
       </a>
-      
     </li>
   
 
@@ -341,23 +340,28 @@
       
   
   
+    
   
   
+  
     
     
     
-      
-      
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
         
           
-          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
             
   
   <span class="md-ellipsis">
@@ -368,7 +372,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
             技术笔记
@@ -1004,6 +1008,8 @@
                 
   
   
+    
+  
   
   
     
@@ -1013,11 +1019,11 @@
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_5" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_5" checked>
         
           
           <label class="md-nav__link" for="__nav_3_5" id="__nav_3_5_label" tabindex="0">
@@ -1031,7 +1037,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_5_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_5_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_3_5">
             <span class="md-nav__icon md-icon"></span>
             CSS 基础
@@ -1147,10 +1153,19 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../12.1%20css-box-model-1/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -1159,6 +1174,7 @@
   
 
       </a>
+      
     </li>
   
 
@@ -1662,6 +1678,8 @@
   
   
   
+    
+  
   
 </nav>
                   </div>
@@ -1676,9 +1694,729 @@
                   
 
 
-  <h1>关于我</h1>
+<h1 id="_1">一、盒子模型简介<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<p>TIP</p>
+<p>所有 HTML 标签都可以看成矩形盒子，具有 （盒子模型） 结构。
+盒模型由 4 个部分组成，分别是： content、padding、border、margin
+盒模型有 5 个属性： width 宽 、height 高 、padding 内边距 、border 边框 、margin 外边距
+![[Pasted image 20260225101950.png]]</p>
+<p>注：</p>
+<p>width、height 不是盒子的总宽度</p>
+<p>在标准盒子模型下，盒子模型的 content 部分就是元素的 width 和 height 属性组成的矩形部分。</p>
+<p>我们可以用现实生活中的相框类比：
+![[Pasted image 20260225102013.png]]</p>
+<p>简单盒子模型</p>
+<pre><code>&lt;style&gt;
+  .box {
+    /* 宽度 200px */
+    width: 200px;
+    /* 高度 200px */
+    height: 200px;
+    /* 边框 快捷键 bd */
+    border: 10px solid red;
+    /* 内边距 上右下左 30px */
+    padding: 30px;
+    /* 外边距 上右下左 30px */
+    margin: 30px;
+  }
+&lt;/style&gt;
+&lt;body&gt;
+  &lt;div class=&quot;box&quot;&gt;我就是div盒子的内容&lt;/div&gt;
+&lt;/body&gt;
+</code></pre>
+<p>![[Pasted image 20260225102057.png]]</p>
+<h1 id="_2"><strong>二、盒模型的属性</strong><a class="headerlink" href="#_2" title="Permanent link">&para;</a></h1>
+<p><strong>包含内容：</strong></p>
+<ul>
+<li>
+<p>width、height 属性（宽、高），border 属性（边框）</p>
+</li>
+<li>
+<p>padding 属性（内边框），padding 的不同数值写法</p>
+</li>
+<li>
+<p>margin 属性（外边距），margin 的不同数值写法，margin 塌陷，margin 负值</p>
+</li>
+<li>
+<p>去掉元素默认值，盒子水平居中，盒子模型占位计算</p>
+</li>
+</ul>
+<h2 id="1width-height-">1、width 和 height 属性 - 宽和高<a class="headerlink" href="#1width-height-" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>属性</th>
+<th>单位</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>width</td>
+<td>px、移动端开发（百分比、rem、vh、vw 等单位）</td>
+<td>盒子内容的宽度</td>
+</tr>
+<tr>
+<td>height</td>
+<td>px、移动端开发（百分比、rem 等单位）</td>
+<td>盒子内容的高度</td>
+</tr>
+</tbody>
+</table>
+<pre><code>&lt;style&gt;
+  div {
+    width: 100px; /*宽度*/
+    height: 100px; /*高度*/
+    background-color: pink; /*背景色*/
+  }
+&lt;/style&gt;
+&lt;body&gt;
+  &lt;div&gt;我是div盒子&lt;/div&gt;
+&lt;/body&gt;
+</code></pre>
+<p>![[Pasted image 20260225102145.png]]</p>
+<p>如果 width 和 height 的值为 % 百分比值，则 % 百分比相对于父元素宽和高而言。%百分比单位在移动端或响应式开发中用得较多。</p>
+<pre><code>&lt;style&gt;
+  .box {
+    /* 宽高 构成 内容区 */
+    width: 200px;
+    height: 100px;
+    border: 2px solid red;
+  }
+  .item {
+    width: 50%; /* 计算得到宽 200px * 50%=100px */
+    height: 50%; /* 计算得到高 100px * 50%=50px */
+    background-color: khaki;
+  }
+&lt;/style&gt;
+&lt;div class=&quot;box&quot;&gt;
+  &lt;div class=&quot;item&quot;&gt;&lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+<p>![[Pasted image 20260225102243.png]]</p>
+<h2 id="2border-"><strong>2、border 属性 - 边框</strong><a class="headerlink" href="#2border-" title="Permanent link">&para;</a></h2>
+<p><strong>TIP</strong></p>
+<p>border 属性的三要素：</p>
+<p>border 属性的值由三部分组成：线宽 线型（风格） 颜色；</p>
+<pre><code>/* 
+  1px 线宽度
+  solid 线型
+  red 线颜色
+*/
+border: 1px solid red;
+</code></pre>
+<p><strong>常见线型值</strong></p>
+<table>
+<thead>
+<tr>
+<th>值</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>solid</td>
+<td>实线</td>
+</tr>
+<tr>
+<td>dashed</td>
+<td>虚线</td>
+</tr>
+<tr>
+<td>dotted</td>
+<td>点状线</td>
+</tr>
+<tr>
+<td>double</td>
+<td>双边框</td>
+</tr>
+<tr>
+<td>groove</td>
+<td>定义 3D 凹槽边框。效果取决于 border-color 值</td>
+</tr>
+<tr>
+<td>ridge</td>
+<td>定义 3D 垄状边框。效果取决于 border-color 值</td>
+</tr>
+<tr>
+<td>inset</td>
+<td>3D inset 边框。其效果取决于 border-color 的值。</td>
+</tr>
+<tr>
+<td>outset</td>
+<td>3D outset 边框。其效果取决于 border-color 的值。</td>
+</tr>
+<tr>
+<td>none</td>
+<td>无边框</td>
+</tr>
+<tr>
+<td>hidden</td>
+<td>隐藏边框</td>
+</tr>
+<tr>
+<td>![[Pasted image 20260225102328.png]]</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<pre><code>&lt;style&gt;
+  div {
+    width: 50px; /* 宽 */
+    height: 50px; /* 高 */
+  }
+  .border1 {
+    border: 2px solid red; /*2px 实线 红色边框线 */
+  }
+  .border2 {
+    border: 4px dashed blue; /* 4px 虚线 蓝色边框 */
+  }
+  .no-border {
+    border: none; /*去掉边框线*/
+  }
+&lt;/style&gt;
+&lt;body&gt;
+  &lt;div class=&quot;border1&quot;&gt;1&lt;/div&gt;
+  &lt;div class=&quot;no-border&quot;&gt;2&lt;/div&gt;
+  &lt;div class=&quot;border2&quot;&gt;3&lt;/div&gt;
+&lt;/body&gt;
+</code></pre>
+<p>![[Pasted image 20260225102430.png]]</p>
+<h3 id="21"><strong>2.1、边框的三要素小属性</strong><a class="headerlink" href="#21" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>小属性</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>border-width</td>
+<td>线宽</td>
+</tr>
+<tr>
+<td>border-style</td>
+<td>线型</td>
+</tr>
+<tr>
+<td>border-color</td>
+<td>线颜色</td>
+</tr>
+</tbody>
+</table>
+<p><strong>注：</strong></p>
+<p>小属性是为了层叠大属性用的</p>
+<pre><code>&lt;style&gt;
+  div {
+    width: 50px;
+    height: 50px;
+    /* 2px 实线 灰色边框 */
+    border: 2px solid #666;
+  }
+  .box {
+    /* 小属简单独立定义边框颜色为红色，覆盖上面的灰色 */
+    border-color: red;
+  }
+&lt;/style&gt;
+&lt;body&gt;
+  &lt;div&gt;1&lt;/div&gt;
+  &lt;div class=&quot;box&quot;&gt;2&lt;/div&gt;
+  &lt;div&gt;3&lt;/div&gt;
+&lt;/body&gt;
+</code></pre>
+<p>![[Pasted image 20260225102519.png]]</p>
+<h3 id="22"><strong>2.2、四个方向的边框</strong><a class="headerlink" href="#22" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>属性</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>border-top</td>
+<td>上边框</td>
+</tr>
+<tr>
+<td>border-right</td>
+<td>右边框</td>
+</tr>
+<tr>
+<td>border-bottom</td>
+<td>下边框</td>
+</tr>
+<tr>
+<td>border-left</td>
+<td>左边框</td>
+</tr>
+</tbody>
+</table>
+<p><strong>注：</strong></p>
+<p>小属性是为了层叠大属性用的</p>
+<pre><code>border-left: 1px solid red;
+...
+</code></pre>
+<p>使用方法</p>
+<pre><code>&lt;style&gt;
+  div {
+    width: 100px;
+    height: 100px;
+    /* 上边框 */
+    border-top: 5px solid red;
+    /* 右边框 */
+    border-right: 6px double blue;
+    /* 下边框 */
+    border-bottom: 6px dotted orange;
+    /* 左边框 */
+    border-left: 5px dashed skyblue;
+  }
+&lt;/style&gt;
+&lt;body&gt;
+  &lt;div&gt;&lt;/div&gt;
+&lt;/body&gt;
+</code></pre>
+<p>![[Pasted image 20260225102616.png]]</p>
+<p><strong>单独去掉某一边框线，可以将 border-top、border-bottom、border-right、border-left 的属性值设为 none</strong></p>
+<pre><code>/* 去掉上边框线 */
+border-top: none;
+/* 去掉左边框线 */
+border-left: none;
+...
+</code></pre>
+<h3 id="23"><strong>2.3、四个方向的边框的三要素小属性</strong><a class="headerlink" href="#23" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>属性</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>border-top-width</td>
+<td>上边框宽度</td>
+</tr>
+<tr>
+<td>border-top-style</td>
+<td>上边框线型</td>
+</tr>
+<tr>
+<td>border-top-color</td>
+<td>上边框颜色</td>
+</tr>
+<tr>
+<td>border-right-width</td>
+<td>右边框宽度</td>
+</tr>
+<tr>
+<td>border-right-style</td>
+<td>右边框线型</td>
+</tr>
+<tr>
+<td>border-right-color</td>
+<td>右边框颜色</td>
+</tr>
+<tr>
+<td>border-bottom-width</td>
+<td>下边框宽度</td>
+</tr>
+<tr>
+<td>border-bottom-style</td>
+<td>下边框线型</td>
+</tr>
+<tr>
+<td>border-bottom-color</td>
+<td>下边框颜色</td>
+</tr>
+<tr>
+<td>border-left-width</td>
+<td>左边框宽度</td>
+</tr>
+<tr>
+<td>border-left-style</td>
+<td>左边框线型</td>
+</tr>
+<tr>
+<td>border-left-color</td>
+<td>左边框颜色</td>
+</tr>
+</tbody>
+</table>
+<p><strong>注：</strong></p>
+<p>小属性是为了层叠大属性用的</p>
+<pre><code>&lt;style type=&quot;text/css&quot;&gt;
+  .box {
+    width: 200px;
+    height: 200px;
+    border: 20px solid red; /*20px 实线 红色 边框线*/
+    border-bottom-color: turquoise; /*底边框背景色为 天蓝色*/
+    border-top-style: dotted; /*上边框风格为点状*/
+    border-left-width: 30px; /*左边框宽 30px*/
+    /*写在后面的样式会覆盖前面的对应属性样式*/
+  }
+&lt;/style&gt;
+&lt;body&gt;
+  &lt;div class=&quot;box&quot;&gt;&lt;/div&gt;
+&lt;/body&gt;
+</code></pre>
+<p>![[Pasted image 20260225102720.png]]</p>
+<h2 id="3padding-">3、padding 属性 - 内边距<a class="headerlink" href="#3padding-" title="Permanent link">&para;</a></h2>
+<p>TIP</p>
+<p>padding 是盒子的内边距，即边框内壁到内容区之间的距离
+![[Pasted image 20260225102818.png]]</p>
+<h3 id="31"><strong>3.1、单独设置不同方向内边距</strong><a class="headerlink" href="#31" title="Permanent link">&para;</a></h3>
+<p><strong>TIP</strong></p>
+<p>padding 有四个方向，可以通过以下属性分别设置不同方向内边距</p>
+<table>
+<thead>
+<tr>
+<th>属性</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>padding-top</td>
+<td>上内边距</td>
+</tr>
+<tr>
+<td>padding-right</td>
+<td>右内边距</td>
+</tr>
+<tr>
+<td>padding-bottom</td>
+<td>下内边距</td>
+</tr>
+<tr>
+<td>padding-left</td>
+<td>左内边距</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<pre><code>&lt;style&gt;
+  .box1 {
+    width: 200px;
+    height: 100px;
+    background-color: skyblue;
+    /* 上内边距 */
+    padding-top: 10px;
+    /* 右内边距 */
+    padding-right: 20px;
+    /* 下内边距 */
+    padding-bottom: 30px;
+    /* 左内边距 */
+    padding-left: 40px;
+  }
+&lt;/style&gt;
 
-<p>这是我的个人介绍页面，基于Markdown编写。</p>
+&lt;body&gt;
+  &lt;div class=&quot;box1&quot;&gt;
+    内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容
+  &lt;/div&gt;
+&lt;/body&gt;
+</code></pre>
+<p>![[Pasted image 20260225102901.png]]</p>
+<h3 id="32padding-4"><strong>3.2、padding 属性，4 值不同写法</strong><a class="headerlink" href="#32padding-4" title="Permanent link">&para;</a></h3>
+<p><strong>TIP</strong></p>
+<p>padding 属性，可以一次性设置元素四个方向的内边距</p>
+<ul>
+<li><strong>1 个值</strong></li>
+</ul>
+<pre><code>    /* padding:上下左右; */
+    padding: 20px; /* 四个方向的内边距大小都是20px; */
+</code></pre>
+<ul>
+<li><strong>2 个值</strong></li>
+</ul>
+<pre><code>    /* padding:上下  左右; */
+    padding: 20px 30px; /*第一个值代表上下内边距20px，第二个值是左右内边距30px */
+</code></pre>
+<ul>
+<li><strong>3 个值</strong></li>
+</ul>
+<pre><code>    /* padding:上  左右  下; */
+    padding: 20px 10px 30px; /*值1代表上内边距20px  值2代表左右内边距 10px  值3 代表下内边距30px */
+</code></pre>
+<ul>
+<li><strong>4 个值</strong></li>
+</ul>
+<pre><code>    /* padding:上  右  下  左; */
+    padding: 10px 20px 30px 40px; /*padding:上  右  下  左 ； 四个方向值*/
+</code></pre>
+<p><strong>注：</strong></p>
+<ul>
+<li>
+<p><strong>应用场景：</strong>​ 如果设置父子间距，可以给父元素添加内边距来实现</p>
+</li>
+<li>
+<p><strong>快速记忆：</strong>​ 左右是一对，上下是一对，缺下时和上一样，缺左时和右一样。</p>
+</li>
+</ul>
+<h3 id="33-padding"><strong>3.3、快速灵活设置 padding 属性</strong><a class="headerlink" href="#33-padding" title="Permanent link">&para;</a></h3>
+<p><strong>TIP</strong></p>
+<p>padding 大小属性的最佳实践：</p>
+<ul>
+<li>
+<p>小属性 padding-top/padding-right/padding-bottom/padding-left 用来层叠大属性 padding 来组合使用</p>
+</li>
+<li>
+<p>更推荐（小属性层叠大属性）写法</p>
+</li>
+</ul>
+<pre><code>/* 小属性层叠大属性
+   padding: 上右下左为40px    大属性
+   padding-bottom: 下为0       小属性
+*/
+padding: 40px;
+padding-bottom: 0;
+</code></pre>
+<p><strong>案例</strong></p>
+<pre><code>&lt;style&gt;
+  .box {
+    width: 50px;
+    border: 1px solid red;
+    /* 四个方向内边距都为10px */
+    padding: 10px;
+  }
+  .box1 {
+    /* 单独控制下内边距为0 */
+    padding-bottom: 0;
+  }
+&lt;/style&gt;
+&lt;body&gt;
+  &lt;div class=&quot;box&quot;&gt;文字内容文字&lt;/div&gt;
+  &lt;div class=&quot;box&quot;&gt;文字内容文字&lt;/div&gt;
+  &lt;div class=&quot;box box1&quot;&gt;文字内容文字&lt;/div&gt;
+&lt;/body&gt;
+</code></pre>
+<p>![[Pasted image 20260225103330.png]]</p>
+<h2 id="4margin-"><strong>4、margin 属性 - 外边距</strong><a class="headerlink" href="#4margin-" title="Permanent link">&para;</a></h2>
+<p><strong>TIP</strong></p>
+<ul>
+<li>
+<p>margin 是盒子的外边距</p>
+</li>
+<li>
+<p>即：盒子和其他盒子之间的距离</p>
+</li>
+</ul>
+<h3 id="41"><strong>4.1、单独设置不同方向外边距</strong><a class="headerlink" href="#41" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>属性</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>margin-top</td>
+<td>上外边距</td>
+</tr>
+<tr>
+<td>margin-right</td>
+<td>右外边距</td>
+</tr>
+<tr>
+<td>margin-bottom</td>
+<td>下外边距</td>
+</tr>
+<tr>
+<td>margin-left</td>
+<td>左外边距</td>
+</tr>
+</tbody>
+</table>
+<pre><code>&lt;style&gt;
+  .box {
+    width: 50px;
+    height: 50px;
+    background-color: skyblue;
+  }
+  .box1 {
+    /* 上外边距 20px */
+    margin-top: 20px;
+    /* 左外边距 50px */
+    margin-left: 50px;
+    /* 下外边距 30px */
+    margin-bottom: 30px;
+  }
+&lt;/style&gt;
+&lt;body&gt;
+  &lt;div class=&quot;box box1&quot;&gt;box1&lt;/div&gt;
+  &lt;div class=&quot;box box2&quot;&gt;box2&lt;/div&gt;
+&lt;/body&gt;
+</code></pre>
+<p>![[Pasted image 20260225103705.png]]</p>
+<h3 id="42margin-4"><strong>4.2、margin 属性，4 值不同写法</strong><a class="headerlink" href="#42margin-4" title="Permanent link">&para;</a></h3>
+<p><strong>TIP</strong></p>
+<p>margin 属性，可以一次性设置元素四个方向的外边距</p>
+<ul>
+<li>
+<p><strong>1 个值</strong></p>
+<p><code>margin: 20px; /*四个方向的外边距大小都是20px;*/</code></p>
+</li>
+<li>
+<p><strong>2 个值</strong></p>
+<p><code>margin: 20px 30px; /*第一个值代表上下内边距20px，第二个值是左右内边距30px padding:上下 左右*/</code></p>
+</li>
+<li>
+<p><strong>3 个值</strong></p>
+<p><code>margin: 20px 10px 30px; /*值1代表上内边距20px 值2代表左右内边距 10px 值3 代表下内边距30px */</code></p>
+</li>
+<li>
+<p><strong>4 个值</strong></p>
+<p><code>margin: 10px 20px 30px 40px; /*padding:上 右 下 左 ； 四个方向值*/</code></p>
+</li>
+</ul>
+<h3 id="43margin"><strong>4.3、margin 设置块级元素水平居中</strong><a class="headerlink" href="#43margin" title="Permanent link">&para;</a></h3>
+<p><strong>TIP</strong></p>
+<p>将块级元素的 margin 属性的左右值同时设置为 auto，就可以实现元素在水平方向居中显示。</p>
+<pre><code>margin: 20px auto; /*上下外边距20px 水平居中显示*/
+margin: 10px auto 20px; /*上20px 水平居中 下20px*/
+</code></pre>
+<p><strong>案例</strong></p>
+<pre><code>&lt;style type=&quot;text/css&quot;&gt;
+  .box1 {
+    width: 100px;
+    height: 100px;
+    border: 5px solid red;
+  }
+  .box2 {
+    width: 50px;
+    height: 50px;
+    background-color: skyblue;
+    margin: 10px auto; /*上下外边距10px 水平方向居中*/
+    /* margin:20px auto 10px; */
+  }
+&lt;/style&gt;
+&lt;body&gt;
+  &lt;div class=&quot;box1&quot;&gt;
+    &lt;div class=&quot;box2&quot;&gt;1&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/body&gt;
+</code></pre>
+<p>![[Pasted image 20260225103853.png]]</p>
+<p><strong>提示：</strong></p>
+<ul>
+<li>
+<p>div 块级元素水平居中，是给元素自身加上 <code>margin:0 auto;</code></p>
+</li>
+<li>
+<p><code>margin:auto 20px;</code>这样写，并不会垂直居中</p>
+</li>
+<li>
+<p>温馨提示：文字水平、图片水平居中用：<code>text-align:center</code></p>
+</li>
+</ul>
+<h3 id="44margin"><strong>4.4、margin 的塌陷</strong><a class="headerlink" href="#44margin" title="Permanent link">&para;</a></h3>
+<p><strong>TIP</strong></p>
+<p>margin 塌陷也叫：外间距重叠 或 外边距合并 或 外边距穿透</p>
+<p><strong>① 兄弟元素之间，垂直方向：上下外边距出现塌陷</strong></p>
+<p><strong>TIP</strong></p>
+<ul>
+<li>
+<p>垂直方向的 margin 有塌陷现象，上一个元素的下外边距与下一个元素的上外边距会发生合并</p>
+</li>
+<li>
+<p>小的 margin 会塌陷到大的 margin 中，从而 margin 不叠加，只以大值为准</p>
+</li>
+<li>
+<p>以下两盒子之间间距为 100px，垂直方向的 margin 不叠加，以大数为准
+![[Pasted image 20260225103949.png]]</p>
+</li>
+</ul>
+<pre><code>&lt;style&gt;
+  .box {
+    width: 200px;
+    height: 100px;
+  }
+  .box1 {
+    background-color: skyblue;
+    /*下外边距 100px */
+    margin-bottom: 100px;
+  }
+  .box2 {
+    background-color: gold;
+    /* 上外边距 50px */
+    margin-top: 50px;
+  }
+&lt;/style&gt;
+&lt;body&gt;
+  &lt;div class=&quot;box box1&quot;&gt;&lt;/div&gt;
+  &lt;div class=&quot;box box2&quot;&gt;&lt;/div&gt;
+&lt;/body&gt;
+</code></pre>
+<p><strong>解决办法：</strong></p>
+<ul>
+<li>
+<p><strong>方法一</strong>​ 任何一个元素加上 <code>display:inline-block;</code></p>
+</li>
+<li>
+<p><strong>方法二</strong>​ 把外边距只加在其中一个元素上</p>
+</li>
+<li>
+<p><strong>方法三</strong>​ 选择把任意一个元素的外边距换成对应的 <code>padding</code></p>
+</li>
+</ul>
+<p><strong>② 父子元素之间，垂直方向：上外边距塌陷</strong></p>
+<p><strong>TIP</strong></p>
+<p>当一个元素包含在另一个元素中时，如果父元素没有设置内边距或边框把外边距分隔开，它们的上外边距也会发生塌陷（合并）</p>
+<pre><code>&lt;style&gt;
+  .box {
+    width: 100px;
+    height: 100px;
+    background-color: gold;
+    /* 父元素的上外边距 */
+    margin-top: 20px;
+  }
+  .item {
+    width: 50px;
+    height: 50px;
+    background-color: skyblue;
+    /* 子元素的上外边距，此时父子元素的上边距发生塌陷（合并），最终上外边距的结果为 50px */
+    margin-top: 50px;
+  }
+&lt;/style&gt;
+&lt;body&gt;
+  &lt;div class=&quot;box&quot;&gt;
+    &lt;div class=&quot;item&quot;&gt;&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/body&gt;
+</code></pre>
+<p><strong>TIP</strong></p>
+<p><code>.item</code>的 <code>margin-top:50px;</code>发生了穿透现象（塌陷）</p>
+<ul>
+<li>
+<p>穿透了父元素，并与父元素上外边距发生合并，合并后以最大的值为主。</p>
+</li>
+<li>
+<p>所以看到的间距并不 <code>.item</code>与 <code>.box</code>的间距，而是 <code>.box</code>与浏览器上面产生了 <code>50px</code>的间距
+![[Pasted image 20260225104134.png]]</p>
+</li>
+</ul>
+<p><strong>解决方案</strong></p>
+<ul>
+<li>
+<p><strong>方法一</strong>​ ：给父元素加上 <code>overflow: hidden;</code></p>
+</li>
+<li>
+<p><strong>方法二</strong>​ ：给父元素添加透明的 <code>border</code>边框</p>
+</li>
+<li>
+<p><strong>方法三</strong>​ ：将子元素的上外边距去掉，改成给父元素添加上内边距来实现两者的上间距。</p>
+</li>
+</ul>
+<p>还有更多方法，等我们后面学完浮动，定位之后再来讲解。</p>
+<h3 id="45margin"><strong>4.5、margin 负值</strong><a class="headerlink" href="#45margin" title="Permanent link">&para;</a></h3>
+<p><strong>TIP</strong></p>
+<p>关于 margin 负值问题，我们留在 float 浮动 学完后再学习。</p>
 
 
 

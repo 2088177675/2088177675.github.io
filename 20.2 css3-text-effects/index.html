@@ -10,13 +10,11 @@
       
       
       
-        <link rel="canonical" href="https://2088177675.github.io/about/">
+        <link rel="canonical" href="https://2088177675.github.io/20.2%20css3-text-effects/">
       
       
-        <link rel="prev" href="..">
+        <link rel="prev" href="../20.1%20css3-border-shadow/">
       
-      
-        <link rel="next" href="../1.1%20frontend-industry/">
       
       
       <link rel="icon" href="../assets/images/favicon.png">
@@ -24,7 +22,7 @@
     
     
       
-        <title>关于我 - 我的个人网站</title>
+        <title>CSS3 文本样式与透明度 - 我的个人网站</title>
       
     
     
@@ -73,6 +71,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#text-shadow" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -103,7 +106,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              关于我
+              CSS3 文本样式与透明度
             
           </span>
         </div>
@@ -201,11 +204,9 @@
         
   
   
-    
   
-  
-    <li class="md-tabs__item md-tabs__item--active">
-      <a href="./" class="md-tabs__link">
+    <li class="md-tabs__item">
+      <a href="../about/" class="md-tabs__link">
         
   
     
@@ -220,16 +221,20 @@
         
   
   
+    
+  
   
     
     
       
   
   
+    
+  
   
     
     
-      <li class="md-tabs__item">
+      <li class="md-tabs__item md-tabs__item--active">
         <a href="../1.1%20frontend-industry/" class="md-tabs__link">
           
   
@@ -313,17 +318,10 @@
       
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../about/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -332,7 +330,6 @@
   
 
       </a>
-      
     </li>
   
 
@@ -341,23 +338,28 @@
       
   
   
+    
   
   
+  
     
     
     
-      
-      
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
         
           
-          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
             
   
   <span class="md-ellipsis">
@@ -368,7 +370,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
             技术笔记
@@ -1281,6 +1283,8 @@
                 
   
   
+    
+  
   
   
     
@@ -1290,11 +1294,11 @@
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_6" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_6" checked>
         
           
           <label class="md-nav__link" for="__nav_3_6" id="__nav_3_6_label" tabindex="0">
@@ -1308,7 +1312,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_6_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_6_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_3_6">
             <span class="md-nav__icon md-icon"></span>
             CSS 进阶
@@ -1613,10 +1617,19 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../20.2%20css3-text-effects/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -1625,6 +1638,7 @@
   
 
       </a>
+      
     </li>
   
 
@@ -1662,6 +1676,8 @@
   
   
   
+    
+  
   
 </nav>
                   </div>
@@ -1676,9 +1692,448 @@
                   
 
 
-  <h1>关于我</h1>
-
-<p>这是我的个人介绍页面，基于Markdown编写。</p>
+<h1 id="text-shadow">三、text - shadow 文本阴影<a class="headerlink" href="#text-shadow" title="Permanent link">&para;</a></h1>
+<p>TIP</p>
+<ul>
+<li>
+<p>text - shadow 用来为文字添加阴，如果要给文字添加多个阴影，多个阴影之间用 <code>,</code>（逗号）隔开</p>
+</li>
+<li>
+<p>当阴影个数 <code>&gt; 1</code>时，阴影应用的顺序为从前到后，第一个指定的阴影在最顶部显示。</p>
+</li>
+</ul>
+<p>语法：</p>
+<pre><code>/*
+x偏移和Y偏移，值可以为正负整数
+模糊半径 为0或大于0的整数
+*/
+text - shadow: x偏移 Y偏移 模糊半径 颜色;
+</code></pre>
+<pre><code>&lt;style&gt;
+  .box {
+    width: 100px;
+    height: 100px;
+    margin: 50px auto;
+    font-size: 100px;
+    /* 红色阴影  蓝色阴影 */
+    text-shadow: 0px 0px 10px rgb(251, 9, 9), 50px 10px 10px blue;
+  }
+&lt;/style&gt;
+&lt;body&gt;
+  &lt;div class=&quot;box&quot;&gt;我&lt;/div&gt;
+&lt;/body&gt;
+</code></pre>
+<p>![[Pasted image 20260301113332.png]]</p>
+<h1 id="_1">四、文本溢出显示省略号<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<p>TIP</p>
+<p>单行文本和多行文本溢出隐藏并显示省略号 <code>…</code>在实际项目开发中经常使用</p>
+<h2 id="1">1、单行文本溢出显示省略号<a class="headerlink" href="#1" title="Permanent link">&para;</a></h2>
+<pre><code>/* 文字不换行 */
+white-space: nowrap;
+/* 超出显示省略号 */
+text-overflow: ellipsis;
+/* 超出部分隐藏 */
+overflow: hidden;
+</code></pre>
+<pre><code>&lt;style&gt;
+p {
+  width: 200px;
+  height: 50px;
+  border: 1px solid #ddd;
+  line-height: 50px;
+  /* 文字不换行 */
+  white-space: nowrap;
+  /* 超出显示省略号 */
+  text-overflow: ellipsis;
+  /* 超出部分隐藏 */
+  overflow: hidden;
+}
+&lt;/style&gt;
+&lt;body&gt;
+  &lt;p style=&quot;color:red;&quot;&gt;当文字的内容超容器的宽度时，会显示3个省略号
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<p>![[Pasted image 20260301113410.png]]</p>
+<h2 id="2">2、多行文本溢出显示省略号<a class="headerlink" href="#2" title="Permanent link">&para;</a></h2>
+<pre><code>&lt;style&gt;
+  p {
+    width: 200px;
+    height: 100px;
+    border: 1px solid #ddd;
+    line-height: 50px;
+    /* 超出部分隐藏 */
+    overflow: hidden;
+    /* 超出部分显示省略号 */
+    text-overflow: ellipsis;
+    /* 对象做为弹性盒子模型显示 */
+    display: -webkit-box;
+    /* 块容器 中的内容限制为指定的行数。 */
+    -webkit-line-clamp: 2;
+    /* 弹性盒子对象的子元素排列方式为竖排 */
+    -webkit-box-orient: vertical;
+  }
+&lt;/style&gt;
+&lt;body&gt;
+  &lt;p&gt;当文字的内容超容器的宽度时，会显示3个省略号当文字的内容超容器的宽度时，&lt;/p&gt;
+&lt;/body&gt;
+</code></pre>
+<p>![[Pasted image 20260301113501.png]]</p>
+<h1 id="_2">四、文本溢出显示省略号<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h1>
+<p>TIP</p>
+<p>单行文本和多行文本溢出隐藏并显示省略号 <code>…</code>在实际项目开发中经常使用</p>
+<h2 id="1_1">1、单行文本溢出显示省略号<a class="headerlink" href="#1_1" title="Permanent link">&para;</a></h2>
+<pre><code>/* 文字不换行 */
+white-space: nowrap;
+/* 超出显示省略号 */
+text-overflow: ellipsis;
+/* 超出部分隐藏 */
+overflow: hidden;
+</code></pre>
+<pre><code>&lt;style&gt;
+p {
+  width: 200px;
+  height: 50px;
+  border: 1px solid #ddd;
+  line-height: 50px;
+  /* 文字不换行 */
+  white-space: nowrap;
+  /* 超出显示省略号 */
+  text-overflow: ellipsis;
+  /* 超出部分隐藏 */
+  overflow: hidden;
+}
+&lt;/style&gt;
+&lt;body&gt;
+  &lt;p style=&quot;color:red;&quot;&gt;当文字的内容超容器的宽度时，会显示3个省略号
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<p>**注意事项：</p>
+<p>只有当元素的<strong>高 = line-height 大小 × -webkit-line-clamp（指定行数）</strong>时，才能显示出正确的效果。</p>
+<h1 id="opacity">五、opacity 设置元素不透明度<a class="headerlink" href="#opacity" title="Permanent link">&para;</a></h1>
+<h4 id="tip">TIP<a class="headerlink" href="#tip" title="Permanent link">&para;</a></h4>
+<p>opacity 属性指定了一个元素的 <strong>不透明度</strong>​</p>
+<table>
+<thead>
+<tr>
+<th>opacity 属性值</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>元素完全透明（即元素不可见）</td>
+</tr>
+<tr>
+<td>值在 0.0 - 1.0 之间</td>
+<td>元素半透明（元素后面的背景可见），值越大，元素透明度越低</td>
+</tr>
+<tr>
+<td>1</td>
+<td>即元素完全不透明（即元素后面的背景不可见）</td>
+</tr>
+</tbody>
+</table>
+<h4 id="_3">注：<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h4>
+<ul>
+<li>
+<p>opacity 的值是一个 0.0 到 1.0 范围内的数字值。值如果大于 1，相当于 1；值小于 0，则相当于 0。</p>
+</li>
+<li>
+<p>opacity 设置透明度时，其里面的子元素和内容也会被透明掉。所以也可以用 <code>opacity: 0;</code>来隐藏一个元素，及其里面的子元素一起隐藏掉。</p>
+</li>
+<li>
+<p>opacity 的属性值不为 1 时，元素会创建自己的层叠上下文</p>
+</li>
+</ul>
+<h4 id="_4">代码示例：<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h4>
+<pre><code>&lt;style&gt;
+.item {
+  width: 100px;
+  height: 100px;
+  background-color: pink;
+  float: left;
+  margin: 10px 10px;
+}
+.item1 {
+  /* 不透明度 */
+  opacity: 0.8;
+}
+.item2 {
+  /* 不透明度 */
+  opacity: 0.5;
+}
+.item3 {
+  /* 不透明度 */
+  opacity: 0.1;
+}
+&lt;/style&gt;
+&lt;body&gt;
+  &lt;div class=&quot;item item1&quot;&gt;.item1&lt;/div&gt;
+  &lt;div class=&quot;item item2&quot;&gt;.item2&lt;/div&gt;
+  &lt;div class=&quot;item item3&quot;&gt;.item3&lt;/div&gt;
+&lt;/body&gt;
+</code></pre>
+<p>![[Pasted image 20260301113542.png]]
+opacity 的属性值不为 1 时，元素会创建自已的层叠上下文</p>
+<pre><code>&lt;style&gt;
+  .box {
+    width: 100px;
+    height: 100px;
+  }
+  .box1 {
+    background-color: skyblue;
+    /*
+        opacity的值不为1时，会创建层叠上下文
+        即opacity:0.7时，.box1会在.box2的上面显示
+        */
+    opacity: 0.7;
+  }
+  .box2 {
+    background-color: pink;
+    margin-top: -50px;
+    margin-left: 30px;
+  }
+&lt;/style&gt;
+&lt;body&gt;
+  &lt;div class=&quot;box box1&quot;&gt;&lt;/div&gt;
+  &lt;div class=&quot;box box2&quot;&gt;&lt;/div&gt;
+&lt;/body&gt;
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>.box1 未设置不透明度时或不透明度为 1 时</th>
+<th>.box1 的不透明度 opacity: 0.7 时</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>![[Pasted image 20260301113859.png]]</td>
+<td>![[Pasted image 20260301113904.png]]</td>
+</tr>
+</tbody>
+</table>
+<p>**对比学习表格</p>
+<table>
+<thead>
+<tr>
+<th>属性</th>
+<th>是否在 DOM 树中</th>
+<th>是否在渲染树中</th>
+<th>视觉效果</th>
+<th>对布局的影响</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>visibility: hidden</code></td>
+<td>✅ 在</td>
+<td>✅ 在</td>
+<td>元素不可见，但其内容和结构被保留为完全透明。</td>
+<td>占据原有空间，会影响周围元素的布局。</td>
+</tr>
+<tr>
+<td><code>display: none</code></td>
+<td>✅ 在</td>
+<td>❌ 不在</td>
+<td>元素及其所有后代完全从渲染流程中移除，如同不存在。</td>
+<td>不占据任何空间，周围元素会重新排列。</td>
+</tr>
+<tr>
+<td><code>background-color: rgba(0,0,0,0.1)</code></td>
+<td>✅ 在</td>
+<td>✅ 在</td>
+<td>仅元素的背景颜色具有透明度，元素的内容（文字、子元素）完全不透明。</td>
+<td>正常占据空间，正常布局。</td>
+</tr>
+<tr>
+<td><code>opacity: 0</code></td>
+<td>✅ 在</td>
+<td>✅ 在</td>
+<td>将整个元素（包括其所有内容、子元素）作为一个整体设置为完全透明。</td>
+<td>仍然占据原有空间，正常参与布局。</td>
+</tr>
+<tr>
+<td><code>overflow: hidden</code></td>
+<td>✅ 在</td>
+<td>✅ 在</td>
+<td>将子元素超出容器范围的部分进行裁剪隐藏，容器本身可见。</td>
+<td>正常占据空间，但内部内容的溢出部分不影响外部布局。</td>
+</tr>
+</tbody>
+</table>
+<p>**注（黄色背景区域）</p>
+<ul>
+<li>
+<p>只有 <code>display: none</code>会被移出渲染树，其他所有属性下的元素都同时存在于 DOM 树和渲染树中。</p>
+</li>
+<li>
+<p><code>visibility: hidden</code>和 <code>opacity: 0</code>的主要区别在于：前者仅自身透明但可独立控制子元素显隐，后者是连同所有内容作为一个整体透明。</p>
+</li>
+<li>
+<p><code>background-color</code>的透明度是样式效果，不影响元素的“存在性”。</p>
+</li>
+<li>
+<p><code>overflow: hidden</code>是一种对内部内容的裁剪规则，元素本身完全正常参与布局。</p>
+</li>
+</ul>
+<h1 id="object-fit">六、object-fit 图片裁剪<a class="headerlink" href="#object-fit" title="Permanent link">&para;</a></h1>
+<h4 id="tip_1">TIP<a class="headerlink" href="#tip_1" title="Permanent link">&para;</a></h4>
+<ul>
+<li>
+<p><code>object-fit</code>属性指定 <code>&lt;img&gt;</code>、<code>&lt;video&gt;</code>等<strong>可替换元素</strong>的内容应该如何适应到其使用的高度和宽度确定的框。</p>
+</li>
+<li>
+<p>可替换元素，点击查看完整官方详细内容 👇</p>
+</li>
+<li>
+<p><code>object-fit</code>通过以下属性值，来切换被替换元素的内容对象在元素框内的对齐方式，有点类似于 <code>background-size</code>。</p>
+</li>
+<li>
+<p>但是 <code>object-fit</code>在对齐时，是在元素框<strong>中间向两边</strong>的方式来填充。</p>
+</li>
+<li>
+<p>而 <code>background-size</code>默认是从<strong>左上角向右和下</strong>来填充的，如果要设置以中间向两边，需要设置 <code>background-position: center;</code></p>
+</li>
+</ul>
+<p>**object-fit 属性值表格</p>
+<table>
+<thead>
+<tr>
+<th>属性值</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>contain</code></td>
+<td>被替换的内容将被缩放，保持元素的宽高比，全部填充在内容框内。</td>
+</tr>
+<tr>
+<td><code>cover</code></td>
+<td>被替换的内容将被缩放，保持元素的宽高比，填满整个内容框。</td>
+</tr>
+<tr>
+<td><code>fill</code></td>
+<td>被替换的内容正好填充元素的内容框。内容可能会被拉伸或压缩变形。</td>
+</tr>
+<tr>
+<td><code>none</code></td>
+<td>被替换的内容将保持其原有的尺寸。</td>
+</tr>
+<tr>
+<td><code>scale-down</code></td>
+<td>内容的尺寸与 <code>none</code>或 <code>contain</code>中的一个相同，取决于它们两个之间谁得到的对象尺寸会更小一些。</td>
+</tr>
+</tbody>
+</table>
+<pre><code>&lt;style&gt;
+  img {
+    width: 250px;
+    height: 200px;
+    border: 2px solid blue;
+  }
+  .contain {
+    /* object-contain 保持宽高比 填充在内容框中 */
+    object-fit: contain;
+  }
+  .cover {
+    /* cover 保持宽高比，正好填充满整个内容框 */
+    object-fit: cover;
+  }
+  .fill {
+    /* fill 被替换的内容正好填充元素的内容框。内容可能会被拉伸或压缩变形  */
+    object-fit: fill;
+  }
+  .none {
+    /* none 被替换的内容将保持其原有的尺寸 */
+    object-fit: none;
+  }
+  .scale-down {
+    /* scale-down 表示被替换内容尺寸为 none和 contain中最小的那一个 */
+    object-fit: scale-down;
+  }
+&lt;/style&gt;
+&lt;body&gt;
+  &lt;img src=&quot;images/hua1.jpg&quot; alt=&quot;&quot; class=&quot;contain&quot; /&gt;
+  &lt;img src=&quot;images/hua1.jpg&quot; alt=&quot;&quot; class=&quot;cover&quot; /&gt;
+  &lt;img src=&quot;images/hua1.jpg&quot; alt=&quot;&quot; class=&quot;fill&quot; /&gt;
+  &lt;img src=&quot;images/hua1.jpg&quot; alt=&quot;&quot; class=&quot;none&quot; /&gt;
+  &lt;img src=&quot;images/fish.png&quot; alt=&quot;&quot; class=&quot;scale-down&quot; /&gt;
+  &lt;img src=&quot;images/fish.png&quot; alt=&quot;&quot; class=&quot;contain&quot; /&gt;
+&lt;/body&gt;
+</code></pre>
+<p>![[Pasted image 20260301114037.png]]</p>
+<h2 id="1_2">1、案例应用：防止图片拉伸或挤压<a class="headerlink" href="#1_2" title="Permanent link">&para;</a></h2>
+<ul>
+<li>
+<p><strong>TIP</strong></p>
+<ul>
+<li>
+<p>我们预想的是用户按 1:1 的大小来上传头像图片，但实际用户上传的头像比例是五花八门，就会造成图片被拉伸或挤压变形。</p>
+</li>
+<li>
+<p>我们可以添加 <code>object - fit: cover;</code>来等比例裁剪图片尺寸，这样图片就不会被拉伸或压缩，不过会有一部分图片被裁剪掉。</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>比如</strong></p>
+<ul>
+<li>设计师认为用户会按要求上传 1:1（宽:高）的用户头像
+![[Pasted image 20260301114159.png]]
+但实际，用户上传的头像不是 1:1 ，各种比例都有，比如：3：2
+![[Pasted image 20260301114252.png]]</li>
+</ul>
+</li>
+</ul>
+<p>最后出现的效果反差如下图：</p>
+<table>
+<thead>
+<tr>
+<th>设计师设计的效果（图片尺寸 1：1）</th>
+<th>实际用户上传的图片效果（尺寸 3：2）</th>
+<th>通过 object-fit:cover 处理后 用户上传图片的效果</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>![[Pasted image 20260301114417.png]]</td>
+<td>![[Pasted image 20260301114424.png]]</td>
+<td>![[Pasted image 20260301114433.png]]</td>
+</tr>
+</tbody>
+</table>
+<pre><code>&lt;style&gt;
+  .box {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    /* 超出部分隐藏 */
+    overflow: hidden;
+  }
+  .box img {
+    width: 100%;
+    height: 100%;
+    /* 保持图片原有尺寸来裁剪 */
+    object-fit: cover;
+  }
+&lt;/style&gt;
+&lt;body&gt;
+  &lt;div class=&quot;box&quot;&gt;
+    &lt;img src=&quot;images/tx.png&quot; alt=&quot;&quot; /&gt;
+  &lt;/div&gt;
+&lt;/body&gt;
+</code></pre>
+<h2 id="2_1">2、浏览器兼容前缀<a class="headerlink" href="#2_1" title="Permanent link">&para;</a></h2>
+<pre><code>.element {
+  -webkit-object-fit: cover; /* 兼容旧版 WebKit 浏览器 */
+  object-fit: cover; /* 标准写法 */
+}
+</code></pre>
 
 
 

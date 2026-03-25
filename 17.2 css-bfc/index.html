@@ -10,13 +10,13 @@
       
       
       
-        <link rel="canonical" href="https://2088177675.github.io/about/">
+        <link rel="canonical" href="https://2088177675.github.io/17.2%20css-bfc/">
       
       
-        <link rel="prev" href="..">
+        <link rel="prev" href="../17.1%20css-float/">
       
       
-        <link rel="next" href="../1.1%20frontend-industry/">
+        <link rel="next" href="../17.3%20css-clear-float/">
       
       
       <link rel="icon" href="../assets/images/favicon.png">
@@ -24,7 +24,7 @@
     
     
       
-        <title>关于我 - 我的个人网站</title>
+        <title>CSS BFC 规范与浏览器差异 - 我的个人网站</title>
       
     
     
@@ -73,6 +73,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#bfc" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -103,7 +108,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              关于我
+              CSS BFC 规范与浏览器差异
             
           </span>
         </div>
@@ -201,11 +206,9 @@
         
   
   
-    
   
-  
-    <li class="md-tabs__item md-tabs__item--active">
-      <a href="./" class="md-tabs__link">
+    <li class="md-tabs__item">
+      <a href="../about/" class="md-tabs__link">
         
   
     
@@ -220,16 +223,20 @@
         
   
   
+    
+  
   
     
     
       
   
   
+    
+  
   
     
     
-      <li class="md-tabs__item">
+      <li class="md-tabs__item md-tabs__item--active">
         <a href="../1.1%20frontend-industry/" class="md-tabs__link">
           
   
@@ -313,17 +320,10 @@
       
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../about/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -332,7 +332,6 @@
   
 
       </a>
-      
     </li>
   
 
@@ -341,23 +340,28 @@
       
   
   
+    
   
   
+  
     
     
     
-      
-      
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
         
           
-          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
             
   
   <span class="md-ellipsis">
@@ -368,7 +372,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
             技术笔记
@@ -1281,6 +1285,8 @@
                 
   
   
+    
+  
   
   
     
@@ -1290,11 +1296,11 @@
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_6" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_6" checked>
         
           
           <label class="md-nav__link" for="__nav_3_6" id="__nav_3_6_label" tabindex="0">
@@ -1308,7 +1314,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_6_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_6_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_3_6">
             <span class="md-nav__icon md-icon"></span>
             CSS 进阶
@@ -1445,10 +1451,30 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../17.2%20css-bfc/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    CSS BFC 规范与浏览器差异
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -1457,6 +1483,53 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-bfc" class="md-nav__link">
+    <span class="md-ellipsis">
+      1、创建 BFC
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2bfc" class="md-nav__link">
+    <span class="md-ellipsis">
+      2、BFC 的其他作用
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      3、浏览器差异
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1662,6 +1735,43 @@
   
   
   
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-bfc" class="md-nav__link">
+    <span class="md-ellipsis">
+      1、创建 BFC
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2bfc" class="md-nav__link">
+    <span class="md-ellipsis">
+      2、BFC 的其他作用
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      3、浏览器差异
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
   
 </nav>
                   </div>
@@ -1676,9 +1786,147 @@
                   
 
 
-  <h1>关于我</h1>
+<h1 id="bfc">五、BFC 规范 和 浏览器差异<a class="headerlink" href="#bfc" title="Permanent link">&para;</a></h1>
+<p>**TIP</p>
+<p>BFC （Box Formatting Context ，块级格式上下文）是页面上的一个隔离的独立容器
+容器里的子元素不会影响到外面的元素，反之亦然
+如：一个盒子不设置 height，当内容子元素都浮动时，无法撑起自身</p>
+<p>原因是：这个盒子没有形成 BFC
+![[Pasted image 20260228115106.png]]</p>
+<h2 id="1-bfc">1、创建 BFC<a class="headerlink" href="#1-bfc" title="Permanent link">&para;</a></h2>
+<p>**TIP</p>
+<p>方法 1：float 的值不是 none
+方法 2：position 的值不是 static 或者 relative
+方法 3：display 的值是 inline-block、flex 或 inline-flex
+方法 4：overflow：hidden;</p>
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+  &lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot; /&gt;
+    &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=edge&quot; /&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot; /&gt;
+    &lt;title&gt;创建BFC - arry老师&lt;/title&gt;
+    &lt;style&gt;
+      .box {
+        width: 500px;
+        border: 5px solid red;
+        /* 
+            方法1：float的值不是none 
+            该方法可以实现效果，但没有意义，不可能随意给盒子设置浮动
+        */
+        /* float: left; */
 
-<p>这是我的个人介绍页面，基于Markdown编写。</p>
+        /* 
+            方法2：position的值不是static或者relative 
+            该方法可以实现效果，但不靠谱
+        */
+        /* position: absolute; */
+
+        /* 
+            方法3：display的值是 inline-block、flex 或 inline-flex 
+            该方法可以实现效果，但，没有意义，可能随便改变盒子的为行内块，获取其他的
+        */
+        /* display: inline-block; */
+        /* display: flex; */
+        /* display: inline-flex; */
+
+        /* 
+            方法4：overflow：hidden；
+            该方法可以实现效果，但是，不能满足所有的场景
+        */
+        /* overflow: hidden; */
+      }
+      .box .c1 {
+        width: 200px;
+        height: 200px;
+        background-color: orange;
+        float: left;
+      }
+      .box .c2 {
+        width: 200px;
+        height: 200px;
+        background-color: skyblue;
+        float: left;
+      }
+    &lt;/style&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;h1&gt;创建BFC&lt;/h1&gt;
+    &lt;p&gt;
+      BFC （Box Formatting Context
+      ，块级格式上下文）是页面上的一个隔离的独立容器
+    &lt;/p&gt;
+
+    &lt;div class=&quot;box&quot;&gt;
+      &lt;div class=&quot;c1&quot;&gt;&lt;/div&gt;
+      &lt;div class=&quot;c2&quot;&gt;&lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<p>溢出隐藏：overflow：hidden;</p>
+<p>溢出盒子边框的内容将会被隐藏
+overflow：hidden；是非常好用的让盒子形成 BFC 的方法</p>
+<h2 id="2bfc">2、BFC 的其他作用<a class="headerlink" href="#2bfc" title="Permanent link">&para;</a></h2>
+<p>**TIP</p>
+<p>BFC 可以取消盒子 margin 塌陷
+BFC 可以阻止元素被浮动元素覆盖</p>
+<pre><code>&lt;style&gt;
+  p {
+    width: 200px;
+    height: 200px;
+    background-color: orange;
+    /* 垂直方向上下margin会重合 距离依然是：50 */
+    margin: 50px;
+  }
+
+  /* 
+    BFC作用一：可以取消盒子margin塌陷
+    添加overflow：hidden; 创建BFC
+  */
+  div {
+    overflow: hidden;
+  }
+
+  /* 
+    BFC作用二：可以阻止元素被浮动元素覆盖
+    没有实际意义，实际开发不会这么用，只具有理论意义，要明白
+    需要并排显示的盒子，要么都浮动，要么都不写，以下的写法是不合法规范的
+  */
+  .box1 {
+    width: 300px;
+    height: 300px;
+    background-color: skyblue;
+    float: left;
+  }
+
+  .box2 {
+    width: 200px;
+    height: 200px;
+    background-color: tomato;
+    /* float: left; */
+    overflow: hidden;
+  }
+&lt;/style&gt;
+
+&lt;body&gt;
+  &lt;div&gt;
+    &lt;p&gt;&lt;/p&gt;
+  &lt;/div&gt;
+
+  &lt;div&gt;
+    &lt;p&gt;&lt;/p&gt;
+  &lt;/div&gt;
+
+  &lt;section class=&quot;box1&quot;&gt;&lt;/section&gt;
+  &lt;section class=&quot;box2&quot;&gt;&lt;/section&gt;
+&lt;/body&gt;
+</code></pre>
+<h2 id="3">3、浏览器差异<a class="headerlink" href="#3" title="Permanent link">&para;</a></h2>
+<p>**TIP</p>
+<p>IE6、7 浏览器使用 haslayout 机制 和 BFC 规范略有差异
+比如：IE 浏览器可以使用 zoom:1 属性，让盒子拥有 layout
+如果要制作兼容到 IE6、7 的网页时，尽量让网页布局变得简单，内部有浮动的盒子要设置 height 属性，规范编程，就没有问题</p>
 
 
 
