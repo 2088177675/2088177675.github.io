@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% block title %}公共共享题库{% endblock %}
+
+{% block content %}
+<div class="card">
+    <h2 class="card-title">公共共享题库（其他老师分享的题目）</h2>
+    <form method="post" action="{{ url_for('batch_save_share_q') }}" style="margin-bottom:16px;display:flex;gap:10px;align-items:center;">
+        <input type="hidden" name="share_ids" id="save_share_ids">
+        <button type="submit" class="btn btn-success" onclick="getSelectedIds('share_q','save_share_ids')">批量存入我的题库</button>
+        <button class="btn btn-sm" onclick="checkAll('share_q',true)">全选</button>
+        <button class="btn btn-sm" onclick="checkAll('share_q',false)">取消全选</button>
+    </form>
+
+    {% if share_list %}
+    <div class="check-group">
+        {% for item in share_list %}
+        <div style="border:1px solid #ddd;padding:10px;border-radius:6px;">
+            <input type="checkbox" name="share_q" value="{{ item.id }}" id="sq_{{ item.id }}">
+            <label for="sq_{{ item.id }}">
+                <div style="font-weight:bold;">
+                    {% if item.source_question.q_type == 'single' %}单选
+                    {% elif item.source_question.q_type == 'multi' %}多选
+                    {% elif item.source_question.q_type == 'judge' %}判断
+                    {% elif item.source_question.q_type == 'blank' %}填空
+                    {% else %}解答
+                    {% endif %}
+                    （{{ item.source_question.score }}分）
+                </div>
+                <div style="font-size:14px;margin-top:4px;">{{ item.source_question.question }}</div>
+                <div style="font-size:12px;color:#666;">分享老师：{{ item.source_teacher.username }}</div>
+            </label>
+        </div>
+        {% endfor %}
+    </div>
+    {% else %}
+    <div class="empty-tip">暂无其他老师共享题目</div>
+    {% endif %}
+</div>
+{% endblock %}

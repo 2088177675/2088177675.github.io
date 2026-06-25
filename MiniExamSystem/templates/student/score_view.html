@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block title %}考试成绩详情{% endblock %}
+
+{% block content %}
+<div class="card">
+    <h2 class="card-title">{{ exam.exam_name }} 答题结果</h2>
+    <div style="font-size:18px;margin-bottom:20px;">
+        你的得分：<span style="color:#2563eb;font-weight:bold;">{{ record.get_score }}</span> / {{ exam.total_score }}
+    </div>
+
+    {% for q in paper_questions %}
+    {% set stu_ans = student_answers.get(q.id, "") %}
+    {% set real_ans = q.get_answer() %}
+    <div style="margin:24px 0;padding:16px;border:1px solid #eee;border-radius:8px;">
+        <div style="font-weight:bold;margin-bottom:10px;">
+            {{ loop.index }}.
+            {% if q.q_type == 'single' %}【单选】
+            {% elif q.q_type == 'multi' %}【多选】
+            {% elif q.q_type == 'judge' %}【判断】
+            {% elif q.q_type == 'blank' %}【填空】
+            {% else %}【解答】
+            {% endif %}
+            {{ q.question }} ({{ q.score }}分)
+        </div>
+        <div>你的答案：{{ stu_ans }}</div>
+        <div style="color:#10b981;margin-top:6px;">标准答案：{{ real_ans }}</div>
+    </div>
+    {% endfor %}
+
+    <div style="margin-top:30px;">
+        <a href="{{ url_for('my_exam') }}">
+            <button class="btn btn-primary">返回我的考试</button>
+        </a>
+    </div>
+</div>
+{% endblock %}

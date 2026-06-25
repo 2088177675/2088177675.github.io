@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block title %}教师首页{% endblock %}
+
+{% block content %}
+<div class="card">
+    <h2 class="card-title">欢迎，{{ current_user.username }} 老师</h2>
+    <p style="margin-bottom:20px;">您的专属6位身份码：<span style="font-size:22px;color:#2563eb;font-weight:bold;">{{ current_user.teacher_code }}</span></p>
+
+    <h3>待处理未结束考试</h3>
+    {% if unfinished_exams %}
+        {% for exam in unfinished_exams %}
+        <div class="countdown-tip">
+            <div>考试名称：{{ exam.exam_name }}</div>
+            <div>考试开始时间：{{ exam.exam_start_time.strftime('%Y-%m-%d %H:%M') }}</div>
+            <div>剩余结束时间：<span id="tea_count_{{ exam.id }}"></span></div>
+            <div style="margin-top:8px;">
+                <a href="{{ url_for('exam_list') }}">
+                    <button class="btn btn-sm btn-primary">前往考试管理</button>
+                </a>
+            </div>
+        </div>
+        <script>
+            startCountdown("tea_count_{{ exam.id }}", "{{ exam.exam_end_time }}");
+        </script>
+        {% endfor %}
+    {% else %}
+        <div class="empty-tip">暂无未结束的考试，可前往创建新考试</div>
+    {% endif %}
+
+    <div style="margin-top:30px;display:flex;gap:15px;">
+        <a href="{{ url_for('ai_create_question') }}"><button class="btn btn-success">AI批量出题</button></a>
+        <a href="{{ url_for('my_question_bank') }}"><button class="btn btn-primary">管理个人题库</button></a>
+        <a href="{{ url_for('create_exam') }}"><button class="btn btn-warning">创建新考试</button></a>
+    </div>
+</div>
+{% endblock %}

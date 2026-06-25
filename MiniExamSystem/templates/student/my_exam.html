@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+{% block title %}我的所有考试记录{% endblock %}
+
+{% block content %}
+<div class="card">
+    <h2 class="card-title">我参与过的全部考试</h2>
+    {% if record_list %}
+    <table class="table">
+        <tr>
+            <th>考试名称</th>
+            <th>开考时间</th>
+            <th>总分</th>
+            <th>我的得分</th>
+            <th>状态</th>
+            <th>操作</th>
+        </tr>
+        {% for record in record_list %}
+        <tr>
+            <td>{{ record.exam.exam_name }}</td>
+            <td>{{ record.exam.exam_start_time.strftime('%Y-%m-%d %H:%M') }}</td>
+            <td>{{ record.exam.total_score }}</td>
+            <td>{{ record.get_score if record.is_submit else "未交卷" }}</td>
+            <td>
+                {% if record.is_submit %}
+                    <span style="color:#10b981;">已完成</span>
+                {% elif record.exam.exam_end_time < now %}
+                    <span style="color:#ef4444;">考试已结束</span>
+                {% else %}
+                    <span style="color:#2563eb;">待答题</span>
+                {% endif %}
+            </td>
+            <td>
+                {% if record.is_submit %}
+                    <a href="{{ url_for('score_view', record_id=record.id) }}">
+                        <button class="btn btn-sm btn-primary">查看成绩答案</button>
+                    </a>
+                {% elif record.exam.exam_start_time <= now and record.exam.exam_end_time > now %}
+                    <a href="{{ url_for('take_exam', record_id=record.id) }}">
+                        <button class="btn btn-sm btn-success">继续答题</button>
+                    </a>
+                {% else %}
+                    <span style="font-size:13px;color:#666;">{% if record.exam.exam_end_time < now %}已结束{% else %}未到开考时间{% endif %}</span>
+                {% endif %}
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+    {% else %}
+    <div class="empty-tip">暂无任何考试记录</div>
+    {% endif %}
+</div>
+{% endblock %}

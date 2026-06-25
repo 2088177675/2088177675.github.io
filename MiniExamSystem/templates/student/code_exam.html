@@ -1,0 +1,110 @@
+{% extends "base.html" %}
+{% block title %}考试入口{% endblock %}
+
+{% block content %}
+<div class="card">
+    <h2 class="card-title">
+        {% if exam_list %}该老师全部考试{% else %}输入6位考试码参与考试{% endif %}
+    </h2>
+
+    {% if not exam_list %}
+    <form method="post">
+        {{ form.hidden_tag() }}
+        <div class="form-item">
+            {{ form.exam_code.label }}
+            {{ form.exam_code(placeholder="大小写字母+数字6位考试码") }}
+        </div>
+        <div class="form-item">
+            {{ form.submit(class="btn btn-primary") }}
+        </div>
+    </form>
+
+    {% if target_exam %}
+    <div style="margin-top:20px;padding:16px;border:1px solid #10b981;border-radius:8px;">
+        <p>考试名称：{{ target_exam.exam_name }}</p>
+        <p>开考时间：{{ target_exam.exam_start_time.strftime('%Y-%m-%d %H:%M') }}</p>
+        <p>答题时长：{{ target_exam.exam_duration }}分钟</p>
+        <p>总分：{{ target_exam.total_score }}分</p>
+        {% if record %}
+            {% if record.is_submit %}
+                <span style="color:#ef4444;">你已完成本场考试</span>
+                <a href="{{ url_for('score_view', record_id=record.id) }}">查看成绩</a>
+            {% else %}
+                <a href="{{ url_for('take_exam', record_id=record.id) }}">
+                    <button class="btn btn-success">进入考试</button>
+                </a>
+            {% endif %}
+        {% else %}
+            <a href="{{ url_for('join_exam_by_code', exam_id=target_exam.id) }}">
+                <button class="btn btn-success">报名参加本场考试</button>
+            </a>
+        {% endif %}
+    </div>
+    {% endif %}
+    {% endif %}
+
+    {% if exam_list %}
+        {% if exam_list|length > 0 %}
+        <table class="table" style="margin-top:15px;">
+            <tr>
+                <th>考试名称</th>
+                <th>开考时间</th>
+                <th>答题时长</th>
+                <th>总分</th>
+                <th>状态</th>
+                <th>操作</th>
+            </tr>
+            {% for exam in exam_list %}
+            <tr>
+                <td>{{ exam.exam_name }}</td>
+                <td>{{ exam.exam_start_time.strftime('%Y-%m-%d %H:%M') }}</td>
+                <td>{{ exam.exam_duration }}分钟</td>
+                <td>{{ exam.total_score }}分</td>
+                <td>
+                    {% if exam.is_finish %}
+                        <span style="color:red;">已结束</span>
+                    {% elif now < exam.exam_start_time %}
+                        <span style="color:#2563eb;">未开始</span>
+                    {% else %}
+                        <span style="color:green;">进行中</span>
+                    {% endif %}
+                </td>
+                <td>
+                    {% set student_record = namespace(item=None) %}
+                    {% for r in exam.student_records %}
+                        {% if r.student_id == session.user_id %}
+                            {% set student_record.item = r %}
+                        {% endif %}
+                    {% endfor %}
+
+                    {% if student_record.item %}
+                        {% if student_record.item.is_submit %}
+                            <a href="{{ url_for('score_view', record_id=student_record.item.id) }}">
+                                <button class="btn btn-sm btn-primary">查看成绩</button>
+                            </a>
+                        {% elif exam.exam_end_time > now %}
+                            <a href="{{ url_for('take_exam', record_id=student_record.item.id) }}">
+                                <button class="btn btn-sm btn-success">进入答题</button>
+                            </a>
+                        {% else %}
+                            <span style="color:#666">考试已截止</span>
+                        {% endif %}
+                    {% else %}
+                        {% if exam.is_finish %}
+                            <span style="color:#666">无法报名</span>
+                        {% else %}
+                            <a href="{{ url_for('join_exam_direct', exam_id=exam.id) }}">
+                                <button class="btn btn-sm btn-success">报名参加</button>
+                            </a>
+                        {% endif %}
+                    {% endif %}
+                </td>
+            </tr>
+            {% endfor %}
+        </table>
+        {% else %}
+        <div class="empty-tip">该老师暂未创建任何考试</div>
+        {% endif %}
+    {% endif %}
+</div>
+{% endblock %}

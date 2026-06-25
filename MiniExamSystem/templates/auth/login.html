@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block title %}登录 - 在线考试系统{% endblock %}
+
+{% block content %}
+<div class="login-wrap card">
+    <h2 class="card-title">账号登录</h2>
+    <!-- 表单必须包裹所有输入框，hidden_tag放在最顶部 -->
+    <form method="post" novalidate>
+        {{ form.hidden_tag() }}
+        <div class="form-item">
+            {{ form.username.label }}
+            {{ form.username(placeholder="请输入账号") }}
+        </div>
+        <div class="form-item">
+            {{ form.password.label }}
+            {{ form.password(placeholder="请输入密码") }}
+        </div>
+        <div class="form-item">
+            <!-- 明确type="submit" 强制提交 -->
+            <input type="submit" class="btn btn-primary" value="立即登录">
+        </div>
+    </form>
+    <div style="margin-top:16px;text-align:center;color:#666;">
+        没有账号？<a href="{{ url_for('register') }}">前往注册</a>
+    </div>
+    <div style="margin-top:12px;font-size:14px;color:#6b7280;">
+        管理员默认账号：admin / admin123
+    </div>
+</div>
+{% endblock %}

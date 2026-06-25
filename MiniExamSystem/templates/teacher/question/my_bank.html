@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+{% block title %}我的个人题库{% endblock %}
+
+{% block content %}
+<div class="card">
+    <h2 class="card-title">我的题库</h2>
+    <div style="margin-bottom:16px;display:flex;gap:12px;align-items:center;flex-wrap:wrap;">
+        <a href="{{ url_for('ai_create_question') }}">
+            <button class="btn btn-success">AI生成新题目</button>
+        </a>
+        <!-- 新增：公共共享题库入口 -->
+        <a href="{{ url_for('share_bank') }}">
+            <button class="btn btn-primary">查看全体老师共享题库</button>
+        </a>
+        <form method="post" action="{{ url_for('batch_share_question') }}" style="display:inline-block;">
+            <input type="hidden" name="q_ids" id="share_qids">
+            <button type="submit" class="btn btn-warning" onclick="getSelectedIds('q_id','share_qids')">批量共享选中题目</button>
+        </form>
+        <button class="btn btn-sm" onclick="checkAll('q_id',true)">全选</button>
+        <button class="btn btn-sm" onclick="checkAll('q_id',false)">取消全选</button>
+    </div>
+
+    {% if q_list %}
+    <div class="check-group">
+        {% for q in q_list %}
+        <div style="border:1px solid #ddd;padding:10px;border-radius:6px;">
+            <input type="checkbox" name="q_id" value="{{ q.id }}" id="q_{{ q.id }}">
+            <label for="q_{{ q.id }}">
+                <div style="font-weight:bold;">
+                    {% if q.q_type == 'single' %}单选
+                    {% elif q.q_type == 'multi' %}多选
+                    {% elif q.q_type == 'judge' %}判断
+                    {% elif q.q_type == 'blank' %}填空
+                    {% else %}解答
+                    {% endif %}
+                    （{{ q.score }}分）
+                </div>
+                <div style="font-size:14px;margin-top:4px;">{{ q.question }}</div>
+                {% if q.is_shared %}
+                <span style="color:#10b981;font-size:12px;">已共享至公共题库</span>
+                {% endif %}
+            </label>
+        </div>
+        {% endfor %}
+    </div>
+    {% else %}
+    <div class="empty-tip">题库暂无题目，可使用AI出题添加题目，或前往共享题库收藏其他老师题目</div>
+    {% endif %}
+</div>
+
+<script>
+// 获取所有选中题库ID赋值给隐藏输入框
+function getSelectedIds(name, hiddenId) {
+    let arr = [];
+    document.querySelectorAll(`input[name="${name}"]:checked`).forEach(item=>{
+        arr.push(item.value);
+    })
+    if(arr.length === 0){
+        alert("请至少勾选一道题目");
+        event.preventDefault();
+        return false;
+    }
+    document.getElementById(hiddenId).value = arr.join(",");
+}
+</script>
+{% endblock %}

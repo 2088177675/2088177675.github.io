@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% block title %}学生首页{% endblock %}
+
+{% block content %}
+<div class="card">
+    <h2 class="card-title">欢迎你，{{ user.username }}</h2>
+    <h3>待参与/未交卷考试提醒</h3>
+    {% if wait_exam_list %}
+        {% for record in wait_exam_list %}
+        <div class="countdown-tip">
+            <div>考试名称：{{ record.exam.exam_name }}</div>
+            <div>考试开始时间：{{ record.exam.exam_start_time.strftime('%Y-%m-%d %H:%M') }}</div>
+            <div>距离开考倒计时：<span id="stu_count_{{ record.id }}"></span></div>
+            <div style="margin-top:8px;">
+                {% if record.exam.exam_start_time <= now %}
+                    <a href="{{ url_for('take_exam', record_id=record.id) }}">
+                        <button class="btn btn-sm btn-primary">进入答题</button>
+                    </a>
+                {% else %}
+                    <span style="color:#666">暂未到开考时间</span>
+                {% endif %}
+            </div>
+        </div>
+        <script>
+            startCountdown("stu_count_{{ record.id }}", "{{ record.exam.exam_start_time }}");
+        </script>
+        {% endfor %}
+    {% else %}
+        <div class="empty-tip">暂无待参与考试，可搜索老师绑定或输入考试码参与考试</div>
+    {% endif %}
+
+    <div style="margin-top:30px;display:flex;gap:15px;flex-wrap:wrap;">
+        <a href="{{ url_for('search_teacher') }}"><button class="btn btn-primary">搜索老师绑定</button></a>
+        <a href="{{ url_for('code_exam') }}"><button class="btn btn-success">考试码快速入场</button></a>
+        <a href="{{ url_for('my_exam') }}"><button class="btn btn-warning">查看我的所有考试</button></a>
+    </div>
+</div>
+{% endblock %}

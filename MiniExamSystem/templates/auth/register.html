@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block title %}注册账号 - 在线考试系统{% endblock %}
+
+{% block content %}
+<div class="register-wrap card">
+    <h2 class="card-title">新用户注册</h2>
+    <form method="post" novalidate>
+        {{ form.hidden_tag() }}
+        <div class="form-item">
+            {{ form.username.label }}
+            {{ form.username(placeholder="3-30位字符，账号不可重复") }}
+        </div>
+        <div class="form-item">
+            {{ form.password.label }}
+            {{ form.password(placeholder="至少6位密码") }}
+        </div>
+        <div class="form-item">
+            {{ form.email.label }}
+            {{ form.email(placeholder="填写邮箱") }}
+        </div>
+        <div class="form-item">
+            {{ form.role.label }}
+            {{ form.role() }}
+            <div style="font-size:13px;color:#666;margin-top:4px;">
+                老师注册后自动生成6位数字身份码，可分享给学生绑定
+            </div>
+        </div>
+        <div class="form-item">
+            <input type="submit" class="btn btn-success" value="完成注册">
+        </div>
+    </form>
+    <div style="margin-top:16px;text-align:center;color:#666;">
+        已有账号？<a href="{{ url_for('login') }}">返回登录</a>
+    </div>
+</div>
+{% endblock %}

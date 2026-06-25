@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block title %}教师个人中心{% endblock %}
+
+{% block content %}
+<div class="card">
+    <h2 class="card-title">个人信息</h2>
+    <div style="font-size:16px;line-height:2.2;">
+        <p>用户名：{{ user.username }}</p>
+        <p>邮箱：{{ user.email }}</p>
+        <p>注册时间：{{ user.create_time.strftime('%Y-%m-%d %H:%M') }}</p>
+        <p>专属教师身份码（6位数字）：
+            <span style="font-size:24px;color:#2563eb;font-weight:bold;">{{ user.teacher_code }}</span>
+        </p>
+        <p>说明：学生输入此身份码即可搜索并关联您</p>
+    </div>
+    <div style="margin-top:20px;">
+        <a href="{{ url_for('relate_student_list') }}">
+            <button class="btn btn-primary">查看已关联我的学生</button>
+        </a>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block title %}我的老师{% endblock %}
+
+{% block content %}
+<div class="card">
+    <h2 class="card-title">已绑定的老师列表</h2>
+    {% if tea_list %}
+    <table class="table">
+        <tr>
+            <th>老师账号</th>
+            <th>老师身份码</th>
+            <th>绑定时间</th>
+            <th>操作</th>
+        </tr>
+        {% for item in tea_list %}
+        <tr>
+            <td>{{ item.teacher.username }}</td>
+            <td>{{ item.teacher.teacher_code }}</td>
+            <td>{{ item.create_time.strftime('%Y-%m-%d %H:%M') }}</td>
+            <td>
+                <a href="{{ url_for('teacher_exam_list', tea_id=item.teacher.id) }}">
+                    <button class="btn btn-sm btn-primary">查看该老师所有考试</button>
+                </a>
+                <button class="btn btn-sm btn-danger" onclick="if(confirmDel('确定取关该老师？')) location.href='{{ url_for('unbind_teacher', rel_id=item.id) }}'">取关解绑</button>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+    {% else %}
+    <div class="empty-tip">暂无绑定老师，前往搜索页面绑定</div>
+    {% endif %}
+</div>
+{% endblock %}

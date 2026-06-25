@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+{% block title %}AI智能出题{% endblock %}
+
+{% block content %}
+<div class="card">
+    <h2 class="card-title">通义千问AI自动生成题目</h2>
+    <form method="post" onsubmit="return checkForm()">
+        {{ form.hidden_tag() }}
+
+        <div class="form-item">
+            {{ form.subject.label }}
+            {{ form.subject(placeholder="例如：Python基础、初中数学一元二次方程、计算机网络TCP协议") }}
+            <div style="font-size:13px;color:#666;margin-top:4px;">填写出题知识点/主题，AI将围绕该内容生成题目</div>
+        </div>
+
+        <div class="form-item">
+            {{ form.q_type.label }}
+            {{ form.q_type() }}
+        </div>
+
+        <div class="form-item">
+            {{ form.q_count.label }}
+            {{ form.q_count() }}
+            <div style="font-size:13px;color:#666;margin-top:4px;">单次最多生成20道题目，生成后自动存入个人题库</div>
+        </div>
+
+        <div class="form-item">
+            {{ form.submit(class="btn btn-success") }}
+        </div>
+    </form>
+
+    {% if result_msg %}
+    <div class="flash-box flash-success" style="margin-top:20px;">{{ result_msg }}</div>
+    {% endif %}
+</div>
+
+<script>
+function checkForm(){
+    let subject = document.getElementById("subject").value.trim();
+    let num = document.getElementById("q_count").value;
+    if(!subject){
+        alert("请输入出题主题/知识点！");
+        return false;
+    }
+    if(num < 1 || num > 20){
+        alert("出题数量必须在1~20之间");
+        return false;
+    }
+    return true;
+}
+</script>
+{% endblock %}

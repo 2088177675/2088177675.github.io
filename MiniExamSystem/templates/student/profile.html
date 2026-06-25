@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block title %}个人中心{% endblock %}
+
+{% block content %}
+<div class="card">
+    <h2 class="card-title">个人信息</h2>
+    <div style="font-size:16px;line-height:2.2;">
+        <p>用户名：{{ user.username }}</p>
+        <p>身份：学生</p>
+        <p>邮箱：{{ user.email }}</p>
+        <p>注册时间：{{ user.create_time.strftime('%Y-%m-%d %H:%M') }}</p>
+    </div>
+</div>
+{% endblock %}

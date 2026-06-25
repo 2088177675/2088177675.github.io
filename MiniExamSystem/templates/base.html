@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}在线考试管理系统{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <!-- 导航栏 -->
+    <div class="navbar">
+        <div class="container nav-wrap">
+            <a href="{{ url_for('index') }}" class="logo">MiniExam 在线考试系统</a>
+            <div class="nav-menu">
+                {% if session.user_id %}
+                    {% if session.user_role == "admin" %}
+                        <a href="{{ url_for('admin_index') }}">管理员首页</a>
+                        <a href="{{ url_for('user_manage') }}">用户管理</a>
+                    {% elif session.user_role == "teacher" %}
+                        <a href="{{ url_for('teacher_index') }}">教师首页</a>
+                        <a href="{{ url_for('teacher_profile') }}">个人中心</a>
+                        <a href="{{ url_for('my_question_bank') }}">我的题库</a>
+                        <a href="{{ url_for('exam_list') }}">考试管理</a>
+                    {% elif session.user_role == "student" %}
+                        <a href="{{ url_for('student_index') }}">学生首页</a>
+                        <a href="{{ url_for('search_teacher') }}">搜索老师</a>
+                        <a href="{{ url_for('my_teacher') }}">我的老师</a>
+                        <a href="{{ url_for('code_exam') }}">考试码入场</a>
+                        <a href="{{ url_for('my_exam') }}">我的考试</a>
+                    {% endif %}
+                    <a href="{{ url_for('logout') }}">退出登录</a>
+                {% else %}
+                    <a href="{{ url_for('login') }}">登录</a>
+                    <a href="{{ url_for('register') }}">注册</a>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+
+    <!-- 主内容区域 -->
+    <div class="container">
+        <!-- 消息提示 -->
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                {% for msg in messages %}
+                    <div class="flash-box flash-success">{{ msg }}</div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+
+        <!-- 页面主体内容 -->
+        {% block content %}{% endblock %}
+    </div>
+
+    <!-- 引入JS脚本 -->
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+    {% block script %}{% endblock %}
+</body>
+</html>

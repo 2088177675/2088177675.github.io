@@ -1,0 +1,104 @@
+{% extends "base.html" %}
+{% block title %}创建新考试{% endblock %}
+
+{% block content %}
+<div class="card">
+    <h2 class="card-title">新建一场考试</h2>
+    <form method="post">
+        {{ form.hidden_tag() }}
+
+        <div class="form-item">
+            {{ form.exam_name.label }}
+            {{ form.exam_name(placeholder="例如：Python期末模拟测试") }}
+        </div>
+
+        <div class="form-item">
+            <label>从我的题库选择题目（勾选需要纳入试卷的题目）</label>
+            <div style="margin:8px 0;display:flex;gap:10px;">
+                <button type="button" class="btn btn-sm" onclick="checkAll('bank_q',true)">全选题库题目</button>
+                <button type="button" class="btn btn-sm" onclick="checkAll('bank_q',false)">清空选择</button>
+            </div>
+            <div class="check-group">
+                {% for q in q_list %}
+                <div>
+                    <input type="checkbox" name="bank_q" value="{{ q.id }}" id="bq_{{ q.id }}">
+                    <label for="bq_{{ q.id }}">
+                        {% if q.q_type == 'single' %}单选
+                        {% elif q.q_type == 'multi' %}多选
+                        {% elif q.q_type == 'judge' %}判断
+                        {% elif q.q_type == 'blank' %}填空
+                        {% else %}解答
+                        {% endif %}
+                        {{ q.question|truncate(30) }} ({{ q.score }}分)
+                    </label>
+                </div>
+                {% endfor %}
+            </div>
+            <input type="hidden" name="select_q_ids" id="select_q_ids">
+        </div>
+
+        <div class="form-item">
+            {{ form.random_pick_num.label }}
+            {{ form.random_pick_num(placeholder="从上方选中题目里随机抽取多少道组成试卷") }}
+        </div>
+
+        <div class="form-item">
+            {{ form.total_score.label }}
+            {{ form.total_score() }}
+        </div>
+
+        <div class="form-item">
+            {{ form.shuffle_question() }}
+            {{ form.shuffle_question.label }}
+        </div>
+
+        <div class="form-item">
+            {{ form.use_exam_code() }}
+            {{ form.use_exam_code.label }}
+            <div style="font-size:13px;color:#666;">开启后自动生成6位字母数字考试码，学生可凭码入场</div>
+        </div>
+
+        <div class="form-item">
+            {{ form.code_expire_time.label }}
+            {{ form.code_expire_time(placeholder="格式：2026-06-20 14:00") }}
+            <div style="font-size:13px;color:#666;">仅开启考试码时需要填写，超过该时间考试码失效</div>
+        </div>
+
+        <div class="form-item">
+            {{ form.exam_start_time.label }}
+            {{ form.exam_start_time(placeholder="格式：2026-06-20 15:00") }}
+        </div>
+
+        <div class="form-item">
+            {{ form.exam_duration.label }}
+            {{ form.exam_duration() }}
+            <div style="font-size:13px;color:#666;">学生答题总时长（分钟）</div>
+        </div>
+
+        <div class="form-item">
+            {{ form.show_answer_immediately() }}
+            {{ form.show_answer_immediately.label }}
+            <div style="font-size:13px;color:#666;">取消勾选则整场考试结束后才统一显示答案分数</div>
+        </div>
+
+        <div class="form-item">
+            {{ form.submit(class="btn btn-primary", onclick="return getBankIds()") }}
+        </div>
+    </form>
+</div>
+
+<script>
+function getBankIds(){
+    let arr = [];
+    document.querySelectorAll('input[name="bank_q"]:checked').forEach(item=>{
+        arr.push(item.value);
+    })
+    if(arr.length === 0){
+        alert("请至少勾选一道题库题目！");
+        return false;
+    }
+    document.getElementById("select_q_ids").value = arr.join(",");
+    return true;
+}
+</script>
+{% endblock %}

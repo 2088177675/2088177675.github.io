@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% block title %}{{ exam.exam_name }} - 成绩统计{% endblock %}
+
+{% block content %}
+<div class="card">
+    <h2 class="card-title">{{ exam.exam_name }} 考试成绩统计</h2>
+    <div style="margin-bottom:20px;line-height:2;">
+        <p>考试总分：{{ exam.total_score }}分</p>
+        <p>是否交卷立刻显示答案：{{ "是" if exam.show_answer_immediately else "考试结束统一展示" }}</p>
+    </div>
+
+    {% if record_list %}
+    <table class="table">
+        <tr>
+            <th>学生ID</th>
+            <th>学生用户名</th>
+            <th>得分</th>
+            <th>交卷时间</th>
+        </tr>
+        {% for record in record_list %}
+        <tr>
+            <td>{{ record.student.id }}</td>
+            <td>{{ record.student.username }}</td>
+            <td style="font-weight:bold;color:#2563eb;">{{ record.get_score }} / {{ exam.total_score }}</td>
+            <td>{{ record.submit_time.strftime('%Y-%m-%d %H:%M') if record.submit_time else "未交卷" }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    {% else %}
+    <div class="empty-tip">暂无学生参加本场考试</div>
+    {% endif %}
+
+    <div style="margin-top:20px;">
+        <a href="{{ url_for('exam_list') }}">
+            <button class="btn btn-primary">返回考试列表</button>
+        </a>
+    </div>
+</div>
+{% endblock %}

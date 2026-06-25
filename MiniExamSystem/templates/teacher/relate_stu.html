@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block title %}我的关联学生{% endblock %}
+
+{% block content %}
+<div class="card">
+    <h2 class="card-title">绑定我的学生列表</h2>
+    {% if stu_list %}
+    <table class="table">
+        <tr>
+            <th>学生ID</th>
+            <th>学生用户名</th>
+            <th>绑定时间</th>
+            <th>操作</th>
+        </tr>
+        {% for item in stu_list %}
+        <tr>
+            <td>{{ item.student.id }}</td>
+            <td>{{ item.student.username }}</td>
+            <td>{{ item.create_time.strftime('%Y-%m-%d %H:%M') }}</td>
+            <td>
+                <button class="btn btn-danger btn-sm" onclick="if(confirmDel('确定解除和该学生的绑定？')) location.href='{{ url_for('unbind_student', rel_id=item.id) }}'">解除关联</button>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+    {% else %}
+    <div class="empty-tip">暂无学生通过身份码绑定您</div>
+    {% endif %}
+</div>
+{% endblock %}
