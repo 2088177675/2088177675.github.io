@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>我的考试 - 学生端</title>
+    <link rel="stylesheet" href="../../css/style.css">
+</head>
+<body>
+    <div class="app-layout">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h2>📚 在线考试系统</h2>
+                <p>学生端</p>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="dashboard.html">📊 学生中心</a></li>
+                <li><a href="exams.html" class="active">📝 我的考试</a></li>
+                <li><a href="scores.html">📈 我的成绩</a></li>
+                <li><a href="mistakes.html">❌ 错题回顾</a></li>
+            </ul>
+            <div class="sidebar-footer">
+                <div class="user-info">
+                    <div class="user-avatar">👨‍🎓</div>
+                    <div class="user-details">
+                        <p id="studentName">学生</p>
+                        <span>学生账号</span>
+                    </div>
+                </div>
+                <button class="logout-btn" onclick="logout()">🚪 退出登录</button>
+            </div>
+        </aside>
+        <main class="main-content">
+            <div class="page-header">
+                <h1>我的考试</h1>
+                <p>查看可参加的考试</p>
+            </div>
+            <div class="card">
+                <div class="card-header"><h3>📋 考试列表</h3></div>
+                <div id="examsList"></div>
+            </div>
+        </main>
+    </div>
+    <div class="modal-overlay" id="examOverlay" style="background:white;overflow:auto;">
+        <div style="max-width:900px;margin:0 auto;padding:30px;">
+            <div class="exam-header">
+                <div>
+                    <h2 id="examTitleDisplay"></h2>
+                    <p id="examInfoDisplay"></p>
+                </div>
+                <div class="exam-timer" id="timer">⏱️ 60:00</div>
+            </div>
+            <div id="examQuestions"></div>
+            <div class="exam-nav">
+                <button class="btn btn-secondary" onclick="confirmQuit()">退出考试</button>
+                <button class="btn btn-success" onclick="submitExam()">✅ 提交试卷</button>
+            </div>
+        </div>
+    </div>
+    <script src="../../js/data.js"></script>
+    <script src="../../js/auth.js"></script>
+    <script src="../../js/student-common.js"></script>
+    <script>
+        let currentExam = null, currentAnswers = [], timerInterval = null, timeLeft = 0;
+        document.addEventListener('DOMContentLoaded', () => { initStudentPage(); loadExams(); });
+        function loadExams() {
+            const user = Auth.getUser();
+            const classId = sessionStorage.getItem('studentClassId');
+            const exams = DataStore.get('exams').filter(e => e.classId == classId);
+            const scores = DataStore.get('scores').filter(s => s.studentId === user.id);
+            const container = document.getElementById('examsList');
+            if (exams.length === 0) { container.innerHTML = '<div class="empty-state"><div class="empty-state-icon">📝</div><h3>暂无考试</h3><p>老师还没有发布考试</p></div>'; return; }
+            container.innerHTML = exams.map(exam => {
+                const taken = scores.find(s => s.examId === exam.id);
+                return `<div class="card" style="margin-bottom:15px;"><div style="display:flex;justify-content:space-between;align-items:center;"><div><h4>${exam.title}</h4><p style="color:#888;font-size:14px;">${exam.description||''} | ${exam.duration}分钟 | ${exam.totalScore}分 | ${exam.questions.length}题</p></div>${taken?`<span class="badge badge-success">✓ 已完成 (${taken.score}分)</span>`:`<button class="btn btn-primary" onclick="startExam(${exam.id})">开始考试</button>`}</div></div>`;
+            }).join('');
+        }
+        function startExam(examId) {
+            currentExam = DataStore.get('exams').find(e => e.id === examId);
+            if (!currentExam) return;
+            currentAnswers = new Array(currentExam.questions.length).fill(-1);
+            timeLeft = currentExam.duration * 60;
+            document.getElementById('examTitleDisplay').textContent = currentExam.title;
+            document.getElementById('examInfoDisplay').textContent = `共${currentExam.questions.length}题 | 满分${currentExam.totalScore}分`;
+            renderQuestions();
+            document.getElementById('examOverlay').classList.add('active');
+            startTimer();
+        }
+        function renderQuestions() {
+            const container = document.getElementById('examQuestions');
+            container.innerHTML = currentExam.questions.map((q, i) => `<div class="question-card"><span class="question-number">题目 ${i+1} / ${currentExam.questions.length}</span><div class="question-text">${q.content}</div><div class="options-list">${q.options.map((opt, j) => `<div class="option-item ${currentAnswers[i]===j?'selected':''}" onclick="selectAnswer(${i},${j})"><span class="option-label">${String.fromCharCode(65+j)}</span><span>${opt}</span></div>`).join('')}</div></div>`).join('');
+        }
+        function selectAnswer(qIndex, optionIndex) { currentAnswers[qIndex] = optionIndex; renderQuestions(); }
+        function startTimer() {
+            updateTimerDisplay();
+            timerInterval = setInterval(() => {
+                timeLeft--;
+                updateTimerDisplay();
+                if (timeLeft <= 0) { clearInterval(timerInterval); alert('考试时间到！'); submitExam(); }
+            }, 1000);
+        }
+        function updateTimerDisplay() {
+            const m = Math.floor(timeLeft/60).toString().padStart(2,'0');
+            const s = (timeLeft%60).toString().padStart(2,'0');
+            const timer = document.getElementById('timer');
+            timer.textContent = `⏱️ ${m}:${s}`;
+            if (timeLeft < 300) timer.classList.add('warning');
+        }
+        function confirmQuit() {
+            if (confirm('确定要退出考试吗？已作答不会保存！')) {
+                clearInterval(timerInterval);
+                document.getElementById('examOverlay').classList.remove('active');
+            }
+        }
+        function submitExam() {
+            clearInterval(timerInterval);
+            const unanswered = currentAnswers.filter(a => a === -1).length;
+            if (unanswered > 0 && !confirm(`还有${unanswered}道题未作答，确定提交吗？`)) return;
+            let score = 0;
+            currentExam.questions.forEach((q, i) => { if (currentAnswers[i] === q.correctAnswer) score += q.score; });
+            const user = Auth.getUser();
+            const scores = DataStore.get('scores');
+            scores.push({
+                id: DataStore.generateId('scores'), studentId: user.id, studentName: user.name,
+                examId: currentExam.id, examTitle: currentExam.title, className: currentExam.className,
+                score, totalScore: currentExam.totalScore, answers: [...currentAnswers],
+                submitTime: new Date().toLocaleString('zh-CN'),
+                duration: Math.ceil((currentExam.duration * 60 - timeLeft) / 60)
+            });
+            DataStore.set('scores', scores);
+            document.getElementById('examOverlay').classList.remove('active');
+            alert(`考试完成！得分：${score}/${currentExam.totalScore}`);
+            loadExams();
+        }
+    </script>
+</body>
+</html>

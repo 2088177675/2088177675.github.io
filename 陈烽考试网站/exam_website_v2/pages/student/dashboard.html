@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>学生中心 - 在线考试系统</title>
+    <link rel="stylesheet" href="../../css/style.css">
+</head>
+<body>
+    <div class="app-layout">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h2>📚 在线考试系统</h2>
+                <p>学生端</p>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="dashboard.html" class="active">📊 学生中心</a></li>
+                <li><a href="exams.html">📝 我的考试</a></li>
+                <li><a href="scores.html">📈 我的成绩</a></li>
+                <li><a href="mistakes.html">❌ 错题回顾</a></li>
+            </ul>
+            <div class="sidebar-footer">
+                <div class="user-info">
+                    <div class="user-avatar">👨‍🎓</div>
+                    <div class="user-details">
+                        <p id="studentName">学生</p>
+                        <span>学生账号</span>
+                    </div>
+                </div>
+                <button class="logout-btn" onclick="logout()">🚪 退出登录</button>
+            </div>
+        </aside>
+        <main class="main-content">
+            <div class="page-header">
+                <h1>学生中心</h1>
+                <p>欢迎回来，查看你的学习概况</p>
+            </div>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-icon blue">📝</div>
+                    <div class="stat-info"><h4 id="totalExams">0</h4><p>待考考试</p></div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon green">📈</div>
+                    <div class="stat-info"><h4 id="takenExams">0</h4><p>已考次数</p></div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon orange">🏆</div>
+                    <div class="stat-info"><h4 id="avgScore">0</h4><p>平均分</p></div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon red">❌</div>
+                    <div class="stat-info"><h4 id="wrongCount">0</h4><p>错题数量</p></div>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="../../js/data.js"></script>
+    <script src="../../js/auth.js"></script>
+    <script src="../../js/student-common.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => { initStudentPage(); loadStats(); });
+        function loadStats() {
+            const user = Auth.getUser();
+            const exams = DataStore.get('exams');
+            const scores = DataStore.get('scores').filter(s => s.studentId === user.id);
+            const classId = sessionStorage.getItem('studentClassId');
+            const pendingExams = exams.filter(e => e.classId == classId && !scores.some(s => s.examId === e.id));
+            const avg = scores.length > 0 ? (scores.reduce((a,b) => a + b.score, 0) / scores.length).toFixed(1) : 0;
+            let wrongs = 0;
+            scores.forEach(s => {
+                const exam = exams.find(e => e.id === s.examId);
+                if (exam) {
+                    s.answers.forEach((ans, i) => {
+                        if (ans !== exam.questions[i]?.correctAnswer) wrongs++;
+                    });
+                }
+            });
+            document.getElementById('totalExams').textContent = pendingExams.length;
+            document.getElementById('takenExams').textContent = scores.length;
+            document.getElementById('avgScore').textContent = avg;
+            document.getElementById('wrongCount').textContent = wrongs;
+        }
+    </script>
+</body>
+</html>

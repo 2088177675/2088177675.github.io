@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>班级管理 - 教师端</title>
+    <link rel="stylesheet" href="../../css/style.css">
+</head>
+<body>
+    <div class="app-layout">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h2>📚 在线考试系统</h2>
+                <p>教师端</p>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="dashboard.html">📊 工作台</a></li>
+                <li><a href="exams.html">📝 考试管理</a></li>
+                <li><a href="students.html">👨‍🎓 学生管理</a></li>
+                <li><a href="classes.html" class="active">🏫 班级管理</a></li>
+                <li><a href="scores.html">📈 成绩统计</a></li>
+            </ul>
+            <div class="sidebar-footer">
+                <div class="user-info">
+                    <div class="user-avatar">👨‍🏫</div>
+                    <div class="user-details">
+                        <p id="teacherName">教师</p>
+                        <span>教师账号</span>
+                    </div>
+                </div>
+                <button class="logout-btn" onclick="logout()">🚪 退出登录</button>
+            </div>
+        </aside>
+        <main class="main-content">
+            <div class="page-header">
+                <h1>班级管理</h1>
+                <p>管理班级信息</p>
+            </div>
+            <div class="card">
+                <div class="card-header">
+                    <h3>班级列表</h3>
+                    <button class="btn btn-success" onclick="openClassModal()">➕ 添加班级</button>
+                </div>
+                <table class="data-table">
+                    <thead><tr><th>ID</th><th>班级名称</th><th>描述</th><th>学生人数</th><th>操作</th></tr></thead>
+                    <tbody id="classesTable"></tbody>
+                </table>
+            </div>
+        </main>
+    </div>
+    <div class="modal-overlay" id="classModal">
+        <div class="modal">
+            <div class="modal-header">
+                <h3>添加班级</h3>
+                <button class="modal-close" onclick="closeClassModal()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group"><label>班级名称 *</label><input type="text" id="className" required></div>
+                <div class="form-group"><label>描述</label><textarea id="classDesc" rows="2"></textarea></div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" onclick="closeClassModal()">取消</button>
+                <button class="btn btn-success" onclick="saveClass()">保存</button>
+            </div>
+        </div>
+    </div>
+    <script src="../../js/data.js"></script>
+    <script src="../../js/auth.js"></script>
+    <script src="../../js/teacher-common.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => { initTeacherPage(); loadClasses(); });
+        function loadClasses() {
+            const classes = DataStore.get('classes');
+            const students = DataStore.get('students');
+            document.getElementById('classesTable').innerHTML = classes.map(c => {
+                const count = students.filter(s => s.classId === c.id).length;
+                return `<tr><td>${c.id}</td><td><strong>${c.name}</strong></td><td>${c.description||'-'}</td><td>${count}人</td><td><button class="btn btn-danger btn-sm" onclick="deleteClass(${c.id})">删除</button></td></tr>`;
+            }).join('') || '<tr><td colspan="5" style="text-align:center;color:#888;">暂无班级</td></tr>';
+        }
+        function openClassModal() { document.getElementById('classModal').classList.add('active'); }
+        function closeClassModal() { document.getElementById('classModal').classList.remove('active'); }
+        function saveClass() {
+            const name = document.getElementById('className').value;
+            const desc = document.getElementById('classDesc').value;
+            if (!name) { alert('请输入班级名称'); return; }
+            const classes = DataStore.get('classes');
+            classes.push({ id: DataStore.generateId('classes'), name, description: desc, studentCount: 0 });
+            DataStore.set('classes', classes); showToast('班级添加成功'); closeClassModal(); loadClasses();
+        }
+        function deleteClass(id) {
+            confirmAction('删除班级将同时移除该班级的学生和考试关联，确定继续？', () => {
+                let classes = DataStore.get('classes'); classes = classes.filter(c => c.id !== id);
+                DataStore.set('classes', classes); showToast('已删除'); loadClasses();
+            });
+        }
+    </script>
+</body>
+</html>

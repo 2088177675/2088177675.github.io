@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>错题回顾 - 学生端</title>
+    <link rel="stylesheet" href="../../css/style.css">
+</head>
+<body>
+    <div class="app-layout">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h2>📚 在线考试系统</h2>
+                <p>学生端</p>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="dashboard.html">📊 学生中心</a></li>
+                <li><a href="exams.html">📝 我的考试</a></li>
+                <li><a href="scores.html">📈 我的成绩</a></li>
+                <li><a href="mistakes.html" class="active">❌ 错题回顾</a></li>
+            </ul>
+            <div class="sidebar-footer">
+                <div class="user-info">
+                    <div class="user-avatar">👨‍🎓</div>
+                    <div class="user-details">
+                        <p id="studentName">学生</p>
+                        <span>学生账号</span>
+                    </div>
+                </div>
+                <button class="logout-btn" onclick="logout()">🚪 退出登录</button>
+            </div>
+        </aside>
+        <main class="main-content">
+            <div class="page-header">
+                <h1>错题回顾</h1>
+                <p>查看近期考试中的错题，巩固知识点</p>
+            </div>
+            <div id="mistakesContainer"></div>
+        </main>
+    </div>
+    <script src="../../js/data.js"></script>
+    <script src="../../js/auth.js"></script>
+    <script src="../../js/student-common.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => { initStudentPage(); loadMistakes(); });
+        function loadMistakes() {
+            const user = Auth.getUser();
+            const scores = DataStore.get('scores').filter(s => s.studentId === user.id);
+            const exams = DataStore.get('exams');
+            const container = document.getElementById('mistakesContainer');
+            let mistakes = [];
+            scores.forEach(s => {
+                const exam = exams.find(e => e.id === s.examId);
+                if (!exam) return;
+                s.answers.forEach((ans, i) => {
+                    const q = exam.questions[i];
+                    if (ans !== q.correctAnswer) {
+                        mistakes.push({ examTitle: s.examTitle, question: q, yourAnswer: ans, submitTime: s.submitTime });
+                    }
+                });
+            });
+            if (mistakes.length === 0) { container.innerHTML = '<div class="card empty-state"><div class="empty-state-icon">🎉</div><h3>太棒了！</h3><p>你没有错题，继续保持！</p></div>'; return; }
+            container.innerHTML = mistakes.map((m, i) => `<div class="wrong-question"><div style="display:flex;justify-content:space-between;margin-bottom:10px;"><span class="badge badge-danger">错题 ${i+1}</span><span style="color:#888;font-size:13px;">${m.examTitle} | ${m.submitTime}</span></div><div class="question-text">${m.question.content}</div><div class="options-list" style="margin:15px 0;">${m.question.options.map((opt, j) => `<div class="option-item ${j===m.question.correctAnswer?'correct':''} ${j===m.yourAnswer&&j!==m.question.correctAnswer?'wrong':''}"><span class="option-label">${String.fromCharCode(65+j)}</span><span>${opt}</span>${j===m.question.correctAnswer?'<span style="color:#2ecc71;font-weight:600;">✓ 正确答案</span>':''}${j===m.yourAnswer&&j!==m.question.correctAnswer?'<span style="color:#e74c3c;font-weight:600;">✗ 你的答案</span>':''}</div>`).join('')}</div>${m.question.explanation?`<div class="explanation"><strong>💡 解析：</strong>${m.question.explanation}</div>`:''}</div>`).join('');
+        }
+    </script>
+</body>
+</html>

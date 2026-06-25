@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>考试管理 - 教师端</title>
+    <link rel="stylesheet" href="../../css/style.css">
+</head>
+<body>
+    <div class="app-layout">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h2>📚 在线考试系统</h2>
+                <p>教师端</p>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="dashboard.html">📊 工作台</a></li>
+                <li><a href="exams.html" class="active">📝 考试管理</a></li>
+                <li><a href="students.html">👨‍🎓 学生管理</a></li>
+                <li><a href="classes.html">🏫 班级管理</a></li>
+                <li><a href="scores.html">📈 成绩统计</a></li>
+            </ul>
+            <div class="sidebar-footer">
+                <div class="user-info">
+                    <div class="user-avatar">👨‍🏫</div>
+                    <div class="user-details">
+                        <p id="teacherName">教师</p>
+                        <span>教师账号</span>
+                    </div>
+                </div>
+                <button class="logout-btn" onclick="logout()">🚪 退出登录</button>
+            </div>
+        </aside>
+        <main class="main-content">
+            <div class="page-header">
+                <h1>考试管理</h1>
+                <p>创建和管理考试</p>
+            </div>
+            <div class="card">
+                <div class="card-header">
+                    <div class="filter-bar">
+                        <input type="text" id="searchExam" placeholder="🔍 搜索考试名称..." oninput="filterExams()">
+                        <select id="filterClass" onchange="filterExams()"><option value="">全部班级</option></select>
+                        <select id="filterStatus" onchange="filterExams()">
+                            <option value="">全部状态</option>
+                            <option value="published">已发布</option>
+                            <option value="draft">草稿</option>
+                        </select>
+                    </div>
+                    <button class="btn btn-success" onclick="openExamModal()">➕ 发布新考试</button>
+                </div>
+                <table class="data-table">
+                    <thead><tr><th>考试名称</th><th>班级</th><th>时长</th><th>总分</th><th>题目数</th><th>状态</th><th>发布时间</th><th>操作</th></tr></thead>
+                    <tbody id="examsTable"></tbody>
+                </table>
+            </div>
+        </main>
+    </div>
+
+    <!-- 发布考试模态框 -->
+    <div class="modal-overlay" id="examModal">
+        <div class="modal">
+            <div class="modal-header">
+                <h3>📝 发布新考试</h3>
+                <button class="modal-close" onclick="closeExamModal()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="form-row">
+                    <div class="form-group"><label>考试名称 *</label><input type="text" id="examTitle" placeholder="请输入考试名称" required></div>
+                    <div class="form-group"><label>选择班级 *</label><select id="examClass" required><option value="">-- 请选择班级 --</option></select></div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group"><label>考试时长(分钟) *</label><input type="number" id="examDuration" placeholder="如：60" min="1" required></div>
+                    <div class="form-group"><label>总分 *</label><input type="number" id="examTotalScore" placeholder="如：100" min="1" required></div>
+                </div>
+                <div class="form-group"><label>考试说明</label><textarea id="examDesc" rows="3" placeholder="请输入考试说明..."></textarea></div>
+
+                <h4 style="margin: 25px 0 15px;">📝 题目设置</h4>
+                <div id="questionsContainer"></div>
+                <button type="button" class="btn btn-primary" onclick="addQuestion()" style="margin-top: 15px;">➕ 手动添加题目</button>
+
+                <!-- AI 自动出题按钮 -->
+                <div style="margin-top: 15px; padding-top: 15px; border-top: 2px dashed #e0e0e0;">
+                    <button type="button" class="btn btn-warning" onclick="openAIModal()" style="width: 100%;">
+                        🤖 AI 自动出题（DeepSeek）
+                    </button>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" onclick="closeExamModal()">取消</button>
+                <button class="btn btn-success" onclick="saveExam()">💾 保存考试</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 查看详情模态框 -->
+    <div class="modal-overlay" id="detailModal">
+        <div class="modal">
+            <div class="modal-header">
+                <h3>📋 考试详情</h3>
+                <button class="modal-close" onclick="closeDetailModal()">&times;</button>
+            </div>
+            <div class="modal-body" id="detailContent"></div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" onclick="closeDetailModal()">关闭</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- AI 出题模态框 -->
+    <div class="modal-overlay" id="aiModal">
+        <div class="modal">
+            <div class="modal-header">
+                <h3>🤖 AI 自动出题</h3>
+                <button class="modal-close" onclick="closeAIModal()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label>出题主题 *</label>
+                    <input type="text" id="aiTopic" placeholder="例如：JavaScript基础、中国古代历史、高等数学..." required>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>学科分类</label>
+                        <select id="aiSubject">
+                            <option value="计算机">计算机</option>
+                            <option value="数学">数学</option>
+                            <option value="英语">英语</option>
+                            <option value="物理">物理</option>
+                            <option value="化学">化学</option>
+                            <option value="历史">历史</option>
+                            <option value="地理">地理</option>
+                            <option value="政治">政治</option>
+                            <option value="其他">其他</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>题目数量</label>
+                        <select id="aiCount">
+                            <option value="3">3道</option>
+                            <option value="5" selected>5道</option>
+                            <option value="10">10道</option>
+                            <option value="15">15道</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>难度</label>
+                    <select id="aiDifficulty">
+                        <option value="简单">简单</option>
+                        <option value="中等" selected>中等</option>
+                        <option value="困难">困难</option>
+                    </select>
+                </div>
+                <div style="background: #f8f9fa; padding: 15px; border-radius: 8px; margin-top: 15px;">
+                    <p style="font-size: 13px; color: #888; margin: 0;">
+                        💡 提示：AI 将根据你输入的主题自动生成题目、选项、正确答案和解析。<br>
+                        生成后你可以手动编辑修改。<br><br>
+                        ⚠️ 使用前请先在 <strong>js/teacher-exams.js</strong> 第 6 行设置你的 DeepSeek API Key
+                    </p>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" onclick="closeAIModal()">取消</button>
+                <button class="btn btn-warning" id="aiGenerateBtn" onclick="generateQuestions()">
+                    🤖 开始生成
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="../../js/data.js"></script>
+    <script src="../../js/auth.js"></script>
+    <script src="../../js/teacher-common.js"></script>
+    <script src="../../js/teacher-exams.js"></script>
+</body>
+</html>

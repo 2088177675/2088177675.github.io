@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>我的成绩 - 学生端</title>
+    <link rel="stylesheet" href="../../css/style.css">
+</head>
+<body>
+    <div class="app-layout">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h2>📚 在线考试系统</h2>
+                <p>学生端</p>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="dashboard.html">📊 学生中心</a></li>
+                <li><a href="exams.html">📝 我的考试</a></li>
+                <li><a href="scores.html" class="active">📈 我的成绩</a></li>
+                <li><a href="mistakes.html">❌ 错题回顾</a></li>
+            </ul>
+            <div class="sidebar-footer">
+                <div class="user-info">
+                    <div class="user-avatar">👨‍🎓</div>
+                    <div class="user-details">
+                        <p id="studentName">学生</p>
+                        <span>学生账号</span>
+                    </div>
+                </div>
+                <button class="logout-btn" onclick="logout()">🚪 退出登录</button>
+            </div>
+        </aside>
+        <main class="main-content">
+            <div class="page-header">
+                <h1>我的成绩</h1>
+                <p>查看历史考试成绩</p>
+            </div>
+            <div id="scoresContainer"></div>
+        </main>
+    </div>
+    <script src="../../js/data.js"></script>
+    <script src="../../js/auth.js"></script>
+    <script src="../../js/student-common.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => { initStudentPage(); loadScores(); });
+        function loadScores() {
+            const user = Auth.getUser();
+            const scores = DataStore.get('scores').filter(s => s.studentId === user.id);
+            const container = document.getElementById('scoresContainer');
+            if (scores.length === 0) { container.innerHTML = '<div class="card empty-state"><div class="empty-state-icon">📊</div><h3>暂无成绩</h3><p>还没有参加过考试</p></div>'; return; }
+            container.innerHTML = scores.map(s => {
+                const rate = ((s.score / s.totalScore) * 100).toFixed(1);
+                return `<div class="card"><div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:15px;"><h4>${s.examTitle}</h4><span class="badge ${s.score>=60?'badge-success':'badge-danger'}">${s.score>=60?'及格':'不及格'}</span></div><div class="score-details" style="grid-template-columns:repeat(4,1fr);"><div class="score-detail-item"><h4 style="color:${s.score>=60?'#2ecc71':'#e74c3c'}">${s.score}</h4><p>得分</p></div><div class="score-detail-item"><h4>${s.totalScore}</h4><p>满分</p></div><div class="score-detail-item"><h4>${rate}%</h4><p>正确率</p></div><div class="score-detail-item"><h4>${s.duration}分钟</h4><p>用时</p></div></div><p style="margin-top:15px;color:#888;font-size:13px;">提交时间：${s.submitTime}</p></div>`;
+            }).join('');
+        }
+    </script>
+</body>
+</html>
