@@ -1,0 +1,3165 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="基于mkdocs+GitHub Pages的个人站点">
+      
+      
+      
+      
+        <link rel="prev" href="../7.1%20%E5%89%8D%E7%AB%AF%E7%AC%94%E8%AE%B0%E7%A5%9E%E5%99%A8Markdown%E6%96%87%E6%A1%A3%E4%B8%8A%E6%89%8B%E6%8C%87%E5%8D%97%E5%92%8C%E8%AF%AD%E6%B3%95%E8%AE%B2%E8%A7%A3/">
+      
+      
+        <link rel="next" href="../7.3%20Markdown%E9%AB%98%E9%98%B6%E8%AF%AD%E6%B3%95%E5%BA%94%E7%94%A8/">
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.32">
+    
+    
+      
+        <title>7.2 Markdown文档语法详解 - 我的个人网站</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.3cba04c6.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#10-" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="我的个人网站" class="md-header__button md-logo" aria-label="我的个人网站" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            我的个人网站
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              7.2 Markdown文档语法详解
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="我的个人网站" class="md-nav__button md-logo" aria-label="我的个人网站" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    我的个人网站
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    首页
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../about/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    关于我
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    技术笔记
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            技术笔记
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_1" id="__nav_3_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    1
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_1">
+            <span class="md-nav__icon md-icon"></span>
+            1
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../1.1%20%E8%AE%A4%E7%9F%A5%E5%A4%A7%E5%89%8D%E7%AB%AF%E4%B9%8B%E8%AE%A4%E7%9F%A5%E5%89%8D%E7%AB%AF%E5%92%8C%E4%BA%92%E8%81%94%E7%BD%91%E8%A1%8C%E4%B8%9A%EF%BC%8C%E4%BB%8E%E5%AE%8F%E8%A7%82%E5%88%B0%E5%BE%AE%E8%A7%82%E5%85%A8%E9%9D%A2%E7%86%9F%E6%82%89%E5%89%8D%E7%AB%AF%E5%B2%97%E4%BD%8D/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1.1 认知大前端之认知前端和互联网行业，从宏观到微观全面熟悉前端岗位
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../1.2%20%E5%89%8D%E7%AB%AF%E5%AD%A6%E4%B9%A0%E8%B7%AF%E7%BA%BF%E4%B9%8B%E8%AE%A4%E7%9F%A5%E5%89%8D%E7%AB%AF%E5%B2%97%E4%BD%8D%E5%92%8C%E4%BA%92%E8%81%94%E7%BD%91%E5%B2%97%E4%BD%8D/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1.2 前端学习路线之认知前端岗位和互联网岗位
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../1.3%20%E5%89%8D%E7%AB%AF%E5%AD%A6%E4%B9%A0%E6%8C%87%E5%8D%97%E4%B9%8B%E5%89%8D%E7%AB%AF%E5%AD%A6%E4%B9%A0%E6%96%B9%E6%B3%95%E8%AE%BA%E4%B8%8E%E5%89%8D%E7%AB%AF%E5%AD%A6%E4%B9%A0%E6%8C%87%E5%8D%97/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1.3 前端学习指南之前端学习方法论与前端学习指南
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    2
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            2
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2.1%20%E5%89%8D%E7%AB%AF%E5%85%A5%E9%97%A8%E4%B9%8B%E5%89%8D%EF%BC%8C%E5%BF%85%E9%A1%BB%E6%90%9E%E6%87%82%E4%BA%92%E8%81%94%E7%BD%91%E5%9F%BA%E7%A1%80%E5%8E%9F%E7%90%86/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2.1 前端入门之前，必须搞懂互联网基础原理
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2.2%20%E5%89%8D%E7%AB%AF%E5%85%A5%E9%97%A8%E4%B9%8B%E4%BB%80%E4%B9%88%E6%98%AFhtml%EF%BC%8Chtmll%E7%9A%84%E6%A0%87%E7%AD%BE%E5%92%8C%E4%B9%A6%E5%86%99%E8%A7%84%E5%88%99/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2.2 前端入门之什么是html，htmll的标签和书写规则
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    3
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            3
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../3.1%20%E5%89%8D%E7%AB%AF%E5%85%A5%E9%97%A8%E4%B9%8Bhtml%E6%A0%87%E7%AD%BE%E5%92%8C%E5%B1%9E%E6%80%A7%E4%B9%8B%E6%A0%87%E9%A2%98%E5%92%8C%E6%AE%B5%E8%90%BD%E6%A0%87%E7%AD%BE%E3%80%81div%E6%A0%87%E7%AD%BE%E4%BB%A5%E5%8F%8Ahtml5%E7%89%B9%E6%80%A7%E8%AF%A6%E8%A7%A3/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3.1 前端入门之html标签和属性之标题和段落标签、div标签以及html5特性详解
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../3.2%20%E5%89%8D%E7%AB%AF%E5%85%A5%E9%97%A8%E4%B9%8Bhtml%E6%A0%87%E7%AD%BE%E5%92%8C%E5%B1%9E%E6%80%A7%E4%B9%8B%E8%AE%A4%E8%AF%86html5%E6%A1%86%E6%9E%B6/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3.2 前端入门之html标签和属性之认识html5框架
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_4" id="__nav_3_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    4
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_4">
+            <span class="md-nav__icon md-icon"></span>
+            4
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../4.1%20%E5%89%8D%E7%AB%AF%E5%85%A5%E9%97%A8html%E6%A0%87%E7%AD%BE%E5%B1%9E%E6%80%A7%E4%B9%8B%E5%88%97%E8%A1%A8%E6%A0%87%E7%AD%BE%E8%AF%A6%E8%A7%A3/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    4.1 前端入门html标签属性之列表标签详解
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../4.2%20%E5%89%8D%E7%AB%AF%E5%85%A5%E9%97%A8html%E6%A0%87%E7%AD%BE%E4%B9%8B%E5%A4%9A%E5%AA%92%E4%BD%93%E6%A0%87%E7%AD%BE%E8%AF%A6%E8%A7%A3/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    4.2 前端入门html标签之多媒体标签详解
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_5" id="__nav_3_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    5
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_5">
+            <span class="md-nav__icon md-icon"></span>
+            5
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../5.1%20%E5%89%8D%E7%AB%AF%E5%85%A5%E9%97%A8html%E6%A0%87%E7%AD%BE%E5%B1%9E%E6%80%A7%E4%B9%8B%E9%9F%B3%E8%A7%86%E9%A2%91%E6%A0%87%E7%AD%BE%E5%B1%9E%E6%80%A7%E8%AE%B2%E8%A7%A3/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    5.1 前端入门html标签属性之音视频标签属性讲解
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../5.2%20%E5%89%8D%E7%AB%AF%E5%85%A5%E9%97%A8%E5%85%A8%E9%9B%86%E4%B9%8Bhtml5%E5%8C%BA%E5%9D%97%E5%8C%96%E6%A0%87%E7%AD%BE/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    5.2 前端入门全集之html5区块化标签
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_6" id="__nav_3_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    6
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_6">
+            <span class="md-nav__icon md-icon"></span>
+            6
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../6.1%20HTML%E6%A0%87%E7%AD%BE%E5%B1%9E%E6%80%A7%E4%B9%8B%E8%A1%A8%E5%8D%95%E6%A0%87%E7%AD%BE%E8%AF%A6%E8%A7%A3/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    6.1 HTML标签属性之表单标签详解
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../6.2%20%E5%89%8D%E7%AB%AF%E5%85%A5%E9%97%A8%E4%B9%8BHTML5%E6%96%B0%E5%A2%9E%E8%A1%A8%E5%8D%95%E6%8E%A7%E4%BB%B6/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    6.2 前端入门之HTML5新增表单控件
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../6.3%20HTML%E7%BB%BC%E5%90%88%E5%BA%94%E7%94%A8%E4%BB%A5%E5%8F%8A%E5%A4%8D%E4%B9%A0%E6%B1%87%E6%80%BB/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    6.3 HTML综合应用以及复习汇总
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_7" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3_7" id="__nav_3_7_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    7
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_7_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3_7">
+            <span class="md-nav__icon md-icon"></span>
+            7
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../7.1%20%E5%89%8D%E7%AB%AF%E7%AC%94%E8%AE%B0%E7%A5%9E%E5%99%A8Markdown%E6%96%87%E6%A1%A3%E4%B8%8A%E6%89%8B%E6%8C%87%E5%8D%97%E5%92%8C%E8%AF%AD%E6%B3%95%E8%AE%B2%E8%A7%A3/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    7.1 前端笔记神器Markdown文档上手指南和语法讲解
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    7.2 Markdown文档语法详解
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    7.2 Markdown文档语法详解
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#10-" class="md-nav__link">
+    <span class="md-ellipsis">
+      10、列表 - 无序列表
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#11" class="md-nav__link">
+    <span class="md-ellipsis">
+      11、代码块
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="11、代码块">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#111" class="md-nav__link">
+    <span class="md-ellipsis">
+      11.1、单行代码块
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#112" class="md-nav__link">
+    <span class="md-ellipsis">
+      11.2、块级代码块（多行）
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="11.2、块级代码块（多行）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      语法格式如下
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#12" class="md-nav__link">
+    <span class="md-ellipsis">
+      12、分割线
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#13" class="md-nav__link">
+    <span class="md-ellipsis">
+      13、外链接
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="13、外链接">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#131" class="md-nav__link">
+    <span class="md-ellipsis">
+      13.1为链接添加标题
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#132url" class="md-nav__link">
+    <span class="md-ellipsis">
+      13.2、URL 和电子邮件地址
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#133" class="md-nav__link">
+    <span class="md-ellipsis">
+      13.3、格式化链接
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#14" class="md-nav__link">
+    <span class="md-ellipsis">
+      14、插入图像
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#15" class="md-nav__link">
+    <span class="md-ellipsis">
+      15、链接图像
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#16" class="md-nav__link">
+    <span class="md-ellipsis">
+      16、转义字符（显示特殊符号）
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#17" class="md-nav__link">
+    <span class="md-ellipsis">
+      17、表格
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#21" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.1、基础表格
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#22" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.2、带对齐方式的表格
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#23" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.3、复杂表格（需要合并单元格）
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../7.3%20Markdown%E9%AB%98%E9%98%B6%E8%AF%AD%E6%B3%95%E5%BA%94%E7%94%A8/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    7.3 Markdown高阶语法应用
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../7.4%20Markdown%E6%96%87%E6%A1%A3%EF%BC%8C%E4%B8%AA%E6%80%A7%E5%8C%96%E8%AE%BE%E7%BD%AEtypora/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    7.4 Markdown文档，个性化设置typora
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_8" id="__nav_3_8_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    8
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_8">
+            <span class="md-nav__icon md-icon"></span>
+            8
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../8.1%20%E6%9C%80%E5%85%A8%E7%9A%84%E5%89%8D%E7%AB%AFGit%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B%E4%B9%8Bgit%E5%85%A5%E9%97%A8/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    8.1 最全的前端Git使用教程之git入门
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../8.2%20%E6%9C%80%E5%85%A8%E7%9A%84%E5%89%8D%E7%AB%AFGit%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B%E4%B9%8B%E6%89%8B%E6%8A%8A%E6%89%8B%E5%B8%A6%E4%BD%A0%E4%B8%8A%E6%89%8BGit%E5%AE%9E%E6%88%98/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    8.2 最全的前端Git使用教程之手把手带你上手Git实战
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_9" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_9" id="__nav_3_9_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    9
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_9">
+            <span class="md-nav__icon md-icon"></span>
+            9
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../9.1%20Web%E5%89%8D%E7%AB%AF%E5%AD%A6%E4%B9%A0%E7%AD%94%E7%96%91/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    9.1 Web前端学习答疑
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_10" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_10" id="__nav_3_10_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    10
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_10_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_10">
+            <span class="md-nav__icon md-icon"></span>
+            10
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../10.1%20CSS%E5%9F%BA%E7%A1%80%E8%AE%A4%E7%9F%A5%EF%BC%8C%E4%BB%8E%E9%9B%B6%E5%AD%A6%E5%89%8D%E7%AB%AFCSS%E5%85%A5%E9%97%A8%E7%AC%AC%E4%B8%80%E8%AF%BE/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    10.1 CSS基础认知，从零学前端CSS入门第一课
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../10.2%20CSS%E5%9F%BA%E7%A1%80%E9%80%89%E6%8B%A9%E5%99%A8%E8%AF%A6%E8%A7%A3/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    10.2 CSS基础选择器详解
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_11" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_11" id="__nav_3_11_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    11
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_11_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_11">
+            <span class="md-nav__icon md-icon"></span>
+            11
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../11.1%20%E5%89%8D%E7%AB%AF%E5%85%A5%E9%97%A8%E4%B9%8BCSS%E5%AD%97%E4%BD%93%E5%B1%9E%E6%80%A7%E8%AF%A6%E8%A7%A3/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    11.1 前端入门之CSS字体属性详解
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../11.2%20%E5%89%8D%E7%AB%AF%E5%85%A5%E9%97%A8%E4%B9%8BCSS%E6%96%87%E6%9C%AC%E5%B1%9E%E6%80%A7%E8%AF%A6%E8%A7%A3/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    11.2 前端入门之CSS文本属性详解
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../11.3%20%E5%89%8D%E7%AB%AF%E5%85%A5%E9%97%A8%E4%B9%8BCSS%E5%88%97%E8%A1%A8%E6%A0%B7%E5%BC%8F%E8%AF%A6%E8%A7%A3/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    11.3 前端入门之CSS列表样式详解
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_12" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_12" id="__nav_3_12_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    12
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_12_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_12">
+            <span class="md-nav__icon md-icon"></span>
+            12
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../12.1%20%E5%89%8D%E7%AB%AF%E5%85%A5%E9%97%A8%E4%B9%8BCSS%E7%9B%92%E5%AD%90%E6%A8%A1%E5%9E%8B%E8%AF%A6%E7%BB%86%E8%AE%B2%E8%A7%A3%E4%B8%8A%E9%9B%86/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    12.1 前端入门之CSS盒子模型详细讲解上集
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../12.2%20%E5%89%8D%E7%AB%AF%E5%85%A5%E9%97%A8%E4%B9%8BCSS%E7%9B%92%E5%AD%90%E6%A8%A1%E5%9E%8B%E8%AF%A6%E7%BB%86%E8%AE%B2%E8%A7%A3%E4%B8%8B%E9%9B%86/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    12.2 前端入门之CSS盒子模型详细讲解下集
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_13" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_13" id="__nav_3_13_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    13
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_13_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_13">
+            <span class="md-nav__icon md-icon"></span>
+            13
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../13.1%20%E5%89%8D%E7%AB%AF%E5%85%A5%E9%97%A8%E4%B9%8BCSS%20display%E5%B1%9E%E6%80%A7%E8%AF%A6%E8%A7%A3/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    13.1 前端入门之CSS display属性详解
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../13.2%20%E5%89%8D%E7%AB%AF%E5%85%A5%E9%97%A8%E6%95%99%E7%A8%8B%E4%B9%8BCSS%20background%E8%83%8C%E6%99%AF%E5%B1%9E%E6%80%A7%20%E4%B8%8A/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    13.2 前端入门教程之CSS background背景属性 上
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_14" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_14" id="__nav_3_14_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    14
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_14_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_14">
+            <span class="md-nav__icon md-icon"></span>
+            14
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../14.1%E5%89%8D%E7%AB%AF%E5%85%A5%E9%97%A8%E6%95%99%E7%A8%8B%E4%B9%8BCSS%20background%E8%83%8C%E6%99%AF%E5%B1%9E%E6%80%A7%20%E4%B8%8B/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    14.1前端入门教程之CSS background背景属性 下
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../14.2%20%E5%89%8D%E7%AB%AF%E5%85%A5%E9%97%A8CSS%E5%85%B6%E4%BB%96%E7%9A%84%E5%B8%B8%E7%94%A8%E5%B1%9E%E6%80%A7%E8%AF%A6%E8%A7%A3/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    14.2 前端入门CSS其他的常用属性详解
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_15" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_15" id="__nav_3_15_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    15
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_15_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_15">
+            <span class="md-nav__icon md-icon"></span>
+            15
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../15.1%20%E5%89%8D%E7%AB%AF%E5%85%A5%E9%97%A8%E4%B9%8BCSS%E5%A4%8D%E5%90%88%E9%80%89%E6%8B%A9%E5%99%A8%20%E4%B8%8A%E9%9B%86/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    15.1 前端入门之CSS复合选择器 上集
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../15.2%20%E5%89%8D%E7%AB%AF%E5%85%A5%E9%97%A8%E4%B9%8BCSS%E5%A4%8D%E5%90%88%E9%80%89%E6%8B%A9%E5%99%A8%20%E4%B8%8B%E9%9B%86/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    15.2 前端入门之CSS复合选择器 下集
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_16" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_16" id="__nav_3_16_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    16
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_16_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_16">
+            <span class="md-nav__icon md-icon"></span>
+            16
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../16.1%20CSS%E7%BB%A7%E6%89%BF%E6%80%A7%E8%AF%A6%E8%A7%A3/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    16.1 CSS继承性详解
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../16.2%20CSS%E5%B1%82%E5%8F%A0%E6%80%A7%E8%AF%A6%E8%A7%A3/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    16.2 CSS层叠性详解
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../16.3%20CSS%E4%BC%98%E5%85%88%E7%BA%A7%E8%AE%B2%E8%A7%A3%E4%BB%A5%E5%8F%8A%E9%97%AE%E9%A2%98%E7%AD%94%E7%96%91/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    16.3 CSS优先级讲解以及问题答疑
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_17" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_17" id="__nav_3_17_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    17
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_17_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_17">
+            <span class="md-nav__icon md-icon"></span>
+            17
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../17.1%20%E5%89%8D%E7%AB%AFCSS%20Float%28%E6%B5%AE%E5%8A%A8%29%E8%AF%A6%E8%A7%A3/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    17.1 前端CSS Float(浮动)详解
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../17.2%20%E5%89%8D%E7%AB%AF%E5%85%A5%E9%97%A8%E4%B9%8BCSS%E6%95%99%E7%A8%8B%20BFC%E8%A7%84%E8%8C%83%E4%B8%8E%E6%B5%8F%E8%A7%88%E5%99%A8%E5%B7%AE%E5%BC%82/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    17.2 前端入门之CSS教程 BFC规范与浏览器差异
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../17.3%20%E5%89%8D%E7%AB%AF%E5%85%A5%E9%97%A8%E4%B9%8BCSS%E6%B8%85%E9%99%A4%E6%B5%AE%E5%8A%A8/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    17.3 前端入门之CSS清除浮动
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_18" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_18" id="__nav_3_18_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    18
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_18_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_18">
+            <span class="md-nav__icon md-icon"></span>
+            18
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../18.1%20%E5%89%8D%E7%AB%AF%E5%85%A5%E9%97%A8%E4%B9%8BCSS%E5%AE%9A%E4%BD%8D%E4%B9%8B%E7%9B%B8%E5%AF%B9%E5%AE%9A%E4%BD%8D%E5%92%8C%E7%BB%9D%E5%AF%B9%E5%AE%9A%E4%BD%8D/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    18.1 前端入门之CSS定位之相对定位和绝对定位
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../18.2%20%E5%89%8D%E7%AB%AF%E5%85%A5%E9%97%A8%E4%B9%8BCSS%E5%AE%9A%E4%BD%8D%EF%BC%9A%E7%B2%98%E6%80%A7%E5%AE%9A%E4%BD%8D%E5%92%8C%E5%9B%BA%E5%AE%9A%E5%AE%9A%E4%BD%8D%E7%AF%87/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    18.2 前端入门之CSS定位：粘性定位和固定定位篇
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_19" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_19" id="__nav_3_19_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    19
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_19_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_19">
+            <span class="md-nav__icon md-icon"></span>
+            19
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../19.1%20%E5%89%8D%E7%AB%AF%E5%85%A5%E9%97%A8%E6%95%99%E7%A8%8B%E4%B9%8BCSS%E5%B1%82%E5%8F%A0%E4%B8%8A%E4%B8%8B%E6%96%87/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    19.1 前端入门教程之CSS层叠上下文
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../19.2%20%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91%E5%BA%94%E8%AF%A5%E8%A6%81%E4%BA%86%E8%A7%A3%E7%9A%84%EF%BC%8C%E9%98%BF%E9%87%8Cicofont%E5%9B%BE%E6%A0%87%E5%BA%93%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    19.2 前端开发应该要了解的，阿里icofont图标库使用方法
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../19.3%20%E5%89%8D%E7%AB%AF%E5%85%A5%E9%97%A8%E4%B9%8BCSS%20margin%E4%B8%BA%E8%B4%9F%E5%80%BC%E8%AF%A6%E8%A7%A3/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    19.3 前端入门之CSS margin为负值详解
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_20" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_20" id="__nav_3_20_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    20
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_20_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_20">
+            <span class="md-nav__icon md-icon"></span>
+            20
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../20.1%20%E5%89%8D%E7%AB%AF%E5%85%A5%E9%97%A8CSS3%E5%9C%86%E8%A7%92%E9%98%B4%E5%BD%B1%E4%B8%8E%E7%9B%92%E5%AD%90%E9%98%B4%E5%BD%B1%E8%AF%A6%E8%A7%A3/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    20.1 前端入门CSS3圆角阴影与盒子阴影详解
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../20.2%20%E5%89%8D%E7%AB%AF%E5%85%A5%E9%97%A8CSS%E6%96%87%E6%9C%AC%E9%98%B4%E5%BD%B1%E3%80%81%E6%96%87%E6%9C%AC%E7%9C%81%E7%95%A5%E5%8F%B7%E3%80%81%E9%80%8F%E6%98%8E%E5%BA%A6%E3%80%81%E5%9B%BE%E7%89%87%E8%A3%81%E5%88%87%E5%B1%9E%E6%80%A7%E8%AE%B2%E8%A7%A3/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    20.2 前端入门CSS文本阴影、文本省略号、透明度、图片裁切属性讲解
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#10-" class="md-nav__link">
+    <span class="md-ellipsis">
+      10、列表 - 无序列表
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#11" class="md-nav__link">
+    <span class="md-ellipsis">
+      11、代码块
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="11、代码块">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#111" class="md-nav__link">
+    <span class="md-ellipsis">
+      11.1、单行代码块
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#112" class="md-nav__link">
+    <span class="md-ellipsis">
+      11.2、块级代码块（多行）
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="11.2、块级代码块（多行）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      语法格式如下
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#12" class="md-nav__link">
+    <span class="md-ellipsis">
+      12、分割线
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#13" class="md-nav__link">
+    <span class="md-ellipsis">
+      13、外链接
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="13、外链接">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#131" class="md-nav__link">
+    <span class="md-ellipsis">
+      13.1为链接添加标题
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#132url" class="md-nav__link">
+    <span class="md-ellipsis">
+      13.2、URL 和电子邮件地址
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#133" class="md-nav__link">
+    <span class="md-ellipsis">
+      13.3、格式化链接
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#14" class="md-nav__link">
+    <span class="md-ellipsis">
+      14、插入图像
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#15" class="md-nav__link">
+    <span class="md-ellipsis">
+      15、链接图像
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#16" class="md-nav__link">
+    <span class="md-ellipsis">
+      16、转义字符（显示特殊符号）
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#17" class="md-nav__link">
+    <span class="md-ellipsis">
+      17、表格
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#21" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.1、基础表格
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#22" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.2、带对齐方式的表格
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#23" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.3、复杂表格（需要合并单元格）
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  <h1>7.2 Markdown文档语法详解</h1>
+
+<h2 id="10-">10、列表 - 无序列表<a class="headerlink" href="#10-" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p>TIP</p>
+<p>要创建无序列表，请在行项目前添加破折号 - 星号 * 或 加号 +
+  缩进一项或多项以创建嵌套列表</p>
+</blockquote>
+<p>![[Pasted image 20260127203509.png]]</p>
+<p>![[Pasted image 20260127203536.png]]
+渲染的输出如下所示：
+![[Pasted image 20260127203558.png]]</p>
+<h2 id="11"><strong>11、代码块</strong><a class="headerlink" href="#11" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p><strong>TIP</strong></p>
+<p>在 Markdown 中插入代码块有两种方式：<strong>行内式</strong>和<strong>块级式</strong>。</p>
+<ul>
+<li>
+<p><strong>行内式</strong>：使用单个反引号 ` 将代码包裹起来。</p>
+</li>
+<li>
+<p><strong>块级式</strong>：使用三个反引号 <code>```</code>将代码块包裹起来，并可以在反引号后指定代码的语言（可选）。
+</p>
+</li>
+</ul>
+</blockquote>
+<h3 id="111"><strong>11.1、单行代码块</strong><a class="headerlink" href="#111" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p><strong>TIP</strong></p>
+<p>使用单个反引号 <code>`</code>将代码包裹起来。</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>Markdown 语法</th>
+<th>HTML</th>
+<th>渲染输出</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>这是一个<code>行内式</code>代码块</td>
+<td>这是一个<code>&lt;code&gt;行内式&lt;/code&gt;</code>代码块</td>
+<td>这是一个<code>行内式</code>代码块</td>
+</tr>
+<tr>
+<td>![[Pasted image 20260127204537.png]]</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="112"><strong>11.2、块级代码块（多行）</strong><a class="headerlink" href="#112" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p><strong>TIP</strong></p>
+<p>使用三个反引号 ```将代码块包裹起来，并可以在反引号后指定代码的语言（可选）。</p>
+<p>可支持多种编程语言类型：html、css、javascript、vue、java、python...</p>
+</blockquote>
+<h4 id="_1"><strong>语法格式如下</strong><a class="headerlink" href="#_1" title="Permanent link">&para;</a></h4>
+<div class="codehilite"><pre><span></span><code>代码片段
+代码片段
+</code></pre></div>
+
+<p>**CSS</p>
+<div class="codehilite"><pre><span></span><code><span class="nt">p</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">color</span><span class="p">:</span><span class="w"> </span><span class="kc">red</span><span class="p">;</span>
+<span class="w">  </span><span class="k">font-size</span><span class="p">:</span><span class="w"> </span><span class="mi">14</span><span class="kt">px</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p>**JavaScript</p>
+<div class="codehilite"><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="nx">num1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">~~</span><span class="mf">3.14</span><span class="p">;</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">num2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">3.14</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="mf">0</span><span class="p">;</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">num3</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">3.14</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="mf">0</span><span class="p">;</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">num1</span><span class="p">,</span><span class="w"> </span><span class="nx">num2</span><span class="p">,</span><span class="w"> </span><span class="nx">num3</span><span class="p">);</span><span class="w"> </span><span class="c1">// 3 3 3</span>
+</code></pre></div>
+
+<p><strong>JSON 数据</strong></p>
+<div class="codehilite"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;firstName&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;John&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;lastName&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Smith&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;age&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">25</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<h2 id="12">12、分割线<a class="headerlink" href="#12" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p><strong>TIP</strong></p>
+<p>要创建水平线，请在一行上单独使用三个或更多星号 *** 、破折号 --- 或下划线 ____</p>
+</blockquote>
+<p><strong>代码示例</strong></p>
+<p>在Markdown中使用以下语法创建分割线：</p>
+<div class="codehilite"><pre><span></span><code><span class="gh">***</span>
+<span class="gh">---</span>
+___
+</code></pre></div>
+
+<p><strong>渲染输出如下所示：</strong></p>
+<hr />
+<hr />
+<hr />
+<h2 id="13">13、外链接<a class="headerlink" href="#13" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p><strong>TIP</strong></p>
+<p>要创建链接，请将链接文本括在括号中</p>
+<p>例如：[arry老师博客]，然后紧跟在括号中的 URL (例如，(<a href="https://www.arryblog.com/">https://www.arryblog.com</a>))</p>
+</blockquote>
+<p><strong>最适合 Web 前端学习的技术博客是 <a href="https://www.arryblog.com/">Arry 老师的博客</a></strong></p>
+<p><strong>渲染的输出如下所示：</strong></p>
+<p>最适合 Web 前端学习的技术博客是 <a href="https://www.arryblog.com/">Arry 老师的博客</a></p>
+<h3 id="131">13.1为链接添加标题<a class="headerlink" href="#131" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p><strong>TIP</strong></p>
+<ul>
+<li>
+<p>您可以选择为链接添加标题。当用户将鼠标悬停在链接上时，这将显示为工具提示。</p>
+</li>
+<li>
+<p>MarkDown 语法：<code>[标题文字](链接地址)</code></p>
+<p>注：要添加标题，请在 URL 后用引号将其括起来。
+</p>
+</li>
+</ul>
+</blockquote>
+<p><strong>Markdown 示例：</strong></p>
+<div class="codehilite"><pre><span></span><code>最适合 Web 前端学习的技术博客是 [Arry 老师的博客](https://www.arryblog.com &quot;最好的技术博客&quot;)
+</code></pre></div>
+
+<p><strong>渲染的输出如下所示:</strong></p>
+<p>最适合 Web 前端学习的技术博客是 <a href="https://www.arryblog.com/">Arry 老师的博客</a></p>
+<h3 id="132url">13.2、URL 和电子邮件地址<a class="headerlink" href="#132url" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p><strong>TIP</strong></p>
+<p>要将 URL 或电子邮件地址快速转换为链接，请将其括在尖括号中。</p>
+</blockquote>
+<p><strong>Markdown 语法如下：</strong></p>
+<div class="codehilite"><pre><span></span><code><span class="o">&lt;</span><span class="nl">https</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="p">.</span><span class="n">arryblog</span><span class="p">.</span><span class="n">com</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="n">icodingedu</span><span class="nv">@foxmail</span><span class="p">.</span><span class="n">com</span><span class="o">&gt;</span>
+</code></pre></div>
+
+<p><strong>渲染的输出如下所示：</strong></p>
+<p>&lt;<a href="https://www.arryblog.com/">https://www.arryblog.com</a>&gt;</p>
+<p><a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#105;&#99;&#111;&#100;&#105;&#110;&#103;&#101;&#100;&#117;&#64;&#102;&#111;&#120;&#109;&#97;&#105;&#108;&#46;&#99;&#111;&#109;">&#105;&#99;&#111;&#100;&#105;&#110;&#103;&#101;&#100;&#117;&#64;&#102;&#111;&#120;&#109;&#97;&#105;&#108;&#46;&#99;&#111;&#109;</a></p>
+<hr />
+<h3 id="133">13.3、格式化链接<a class="headerlink" href="#133" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p><strong>TIP</strong></p>
+<p>要强调链接，请在方括号和圆括号前后添加星号。要将链接表示为 code，请在括号中添加反引号。</p>
+</blockquote>
+<p><strong>Markdown 语法：</strong></p>
+<div class="codehilite"><pre><span></span><code>我最喜欢的技术博客是 **[arry 老师的博客](https://www.arryblog.com)**
+代码部分的具体使用：[`console.log(1)`](&lt;#console.log(1)&gt;)
+</code></pre></div>
+
+<p><strong>渲染的输出如下所示：</strong></p>
+<p>我最喜欢的技术博客是 <strong><a href="https://www.arryblog.com/">arry 老师的博客</a></strong>​</p>
+<p>代码部分的具体使用：<a href="https://tencent.yuanbao/chat?from=launch&amp;conversation=b9681cb6-0f17-45df-92db-4bd1306f9581&amp;project_id=&amp;project_name=&amp;create_chat_from=projectFolder&amp;HY82=2&amp;HY56=SlidePage#console.log(1)"><code>console.log(1)</code></a></p>
+<h2 id="14">14、插入图像<a class="headerlink" href="#14" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p><strong>TIP</strong></p>
+<p>插入图像的语法：<code>![描述](图片链接地址)</code></p>
+<p>注：图片链接地址，支持相对路径和绝对路径(网络地址)。</p>
+</blockquote>
+<p><strong>语法示例：</strong></p>
+<div class="codehilite"><pre><span></span><code>![图片](../图片/1.png)
+</code></pre></div>
+
+<p><img alt="图片" src="../图片/1.png" /></p>
+<p><strong>或者 使用 HTML 标签插入图片</strong></p>
+<div class="codehilite"><pre><span></span><code><span class="p">&lt;</span><span class="nt">img</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;图片地址&quot;</span> <span class="na">alt</span><span class="o">=</span><span class="s">&quot;图片说明&quot;</span> <span class="p">/&gt;</span>
+</code></pre></div>
+
+<p>根据您提供的图片信息，图片中的详细文字内容如下：</p>
+<hr />
+<h2 id="15"><strong>15、链接图像</strong><a class="headerlink" href="#15" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p><strong>TIP</strong></p>
+<p>要添加到图像的链接，请将图像的MarkDown括在括号中，然后将链接添加到括号中。</p>
+</blockquote>
+<p><strong>Markdown 语法如下：</strong></p>
+<div class="codehilite"><pre><span></span><code>[<span class="nt">![图片</span>](<span class="na">../图片/1.png</span>)](https://arryblog.com)
+</code></pre></div>
+
+<p><a href="https://arryblog.com"><img alt="图片" src="../图片/1.png" /></a></p>
+<h2 id="16">16、转义字符（显示特殊符号）<a class="headerlink" href="#16" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p><strong>TIP</strong></p>
+<p>如何在 MarkDown 文档中打出特殊字符？要显示原本用于在 Markdown 文档中格式化文本的文字字符，在字符前面添加反斜杠 ``。</p>
+</blockquote>
+<p><strong>示例：</strong></p>
+<div class="codehilite"><pre><span></span><code>\* 如果没有反斜杠，这将是无序列表中的项目符号
+</code></pre></div>
+
+<p><strong>渲染的输出如下所示：</strong></p>
+<p>*如果没有反斜杠，这将是无序列表中的项目符号</p>
+<hr />
+<p><strong>可转义字符列表：</strong></p>
+<table>
+<thead>
+<tr>
+<th>字符</th>
+<th>名称</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>``</td>
+<td>反斜杠</td>
+</tr>
+<tr>
+<td><code>`</code></td>
+<td>反引号</td>
+</tr>
+<tr>
+<td><code>*</code></td>
+<td>星号</td>
+</tr>
+<tr>
+<td><code>_</code></td>
+<td>下划线</td>
+</tr>
+<tr>
+<td><code>{ }</code></td>
+<td>大括号</td>
+</tr>
+<tr>
+<td><code>[ ]</code></td>
+<td>括号</td>
+</tr>
+<tr>
+<td><code>&lt; &gt;</code></td>
+<td>尖括号</td>
+</tr>
+<tr>
+<td><code>( )</code></td>
+<td>括号</td>
+</tr>
+<tr>
+<td><code>#</code></td>
+<td>英镑符号</td>
+</tr>
+<tr>
+<td><code>+</code></td>
+<td>加号</td>
+</tr>
+<tr>
+<td><code>-</code></td>
+<td>减号（连字符）</td>
+</tr>
+<tr>
+<td><code>.</code></td>
+<td>点</td>
+</tr>
+<tr>
+<td><code>!</code></td>
+<td>感叹号</td>
+</tr>
+<tr>
+<td><code>\\     |</code></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>以上表格中，是可使用反斜杠来转义的字符。</p>
+</blockquote>
+<h2 id="17">17、表格<a class="headerlink" href="#17" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p><strong>TIP</strong></p>
+<p>MarkDown 书写表格的具体语法</p>
+<p><strong>表头</strong></p>
+<ul>
+<li>
+<p>表头由一行文本组成，每个单元格的内容用 <code>|</code>符号分隔。</p>
+</li>
+<li>
+<p>表头下方需要一行分隔行，用于区分表头和表格内容。分隔行由 <code>-</code>符号组成，且 <code>-</code>的数量应与表头中的列数相匹配（但通常至少为 3 个 <code>-</code>）。分隔行的左侧和右侧可以省略 <code>|</code>符号。</p>
+</li>
+</ul>
+<p><strong>单元格内容</strong></p>
+<ul>
+<li>
+<p>单元格内容也使用 <code>|</code>符号分隔，每行代表表格中的一行数据。</p>
+</li>
+<li>
+<p>单元格内容可以包含文本、数字、链接等。</p>
+</li>
+</ul>
+<p><strong>对齐方式</strong></p>
+<ul>
+<li>
+<p>默认情况下，Markdown 表格的单元格内容居左对齐。</p>
+</li>
+<li>
+<p>可以通过在分隔行两侧的 <code>:</code>符号来调整对齐方式。例如，<code>:--:</code>表示居中对齐，<code>:--</code>表示左对齐（实际上是默认对齐方式，因此通常不需要显式指定），<code>--:</code>表示右对齐。
+</p>
+</li>
+</ul>
+</blockquote>
+<h2 id="21">2.1、基础表格<a class="headerlink" href="#21" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><code>| 表头列 1 | 表头列 2 | 表头列 3 |
+| ----- | ----- | ----- |
+| 数据 1  | 数据 2  | 数据 3  |
+| 数据 4  | 数据 5  | 数据 6  |
+</code></pre></div>
+
+<p><strong>渲染效果：</strong></p>
+<table>
+<thead>
+<tr>
+<th>表头列 1</th>
+<th>表头列 2</th>
+<th>表头列 3</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>数据 1</td>
+<td>数据 2</td>
+<td>数据 3</td>
+</tr>
+<tr>
+<td>数据 4</td>
+<td>数据 5</td>
+<td>数据 6</td>
+</tr>
+</tbody>
+</table>
+<h2 id="22">2.2、带对齐方式的表格<a class="headerlink" href="#22" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><code>|左对齐|居中对齐|右对齐|
+|---|---|---|
+|数据 1|数据 2|数据 3|
+|数据 4|数据 5|数据 6|
+</code></pre></div>
+
+<p><strong>渲染效果：</strong></p>
+<table>
+<thead>
+<tr>
+<th>左对齐</th>
+<th>居中对齐</th>
+<th>右对齐</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>数据 1</td>
+<td>数据 2</td>
+<td>数据 3</td>
+</tr>
+<tr>
+<td>数据 4</td>
+<td>数据 5</td>
+<td>数据 6</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>WARNING</strong></p>
+<p>注：在 Markdown 的某些解析器中，对齐方式的渲染可能略有不同，但上述语法是通用的。</p>
+</blockquote>
+<h2 id="23">2.3、复杂表格（需要合并单元格）<a class="headerlink" href="#23" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p><strong>TIP</strong></p>
+<p>MarkDown 本身并不直接支持合并单元格的功能，但可以通过兼容 HTML 的方式来实现。以下是一个包含合并单元格的表格示例</p>
+</blockquote>
+<div class="codehilite"><pre><span></span><code><span class="nt">&lt;table</span><span class="w"> </span><span class="na">border=</span><span class="s">&quot;1&quot;</span><span class="w"> </span><span class="na">width=</span><span class="s">&quot;800&quot;</span><span class="nt">&gt;</span>
+<span class="w">    </span><span class="nt">&lt;thead&gt;</span>
+<span class="w">        </span><span class="nt">&lt;tr&gt;</span>
+<span class="w">            </span><span class="nt">&lt;th</span><span class="w"> </span><span class="na">colspan=</span><span class="s">&quot;2&quot;</span><span class="nt">&gt;</span>需求：V0.3版本规划<span class="nt">&lt;/th&gt;</span>
+<span class="w">            </span><span class="nt">&lt;th&gt;</span>优先级<span class="nt">&lt;/th&gt;</span>
+<span class="w">            </span><span class="nt">&lt;th&gt;</span>任务分解<span class="nt">&lt;/th&gt;</span>
+<span class="w">            </span><span class="nt">&lt;th&gt;</span>产品负责人<span class="nt">&lt;/th&gt;</span>
+<span class="w">        </span><span class="nt">&lt;/tr&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/thead&gt;</span>
+<span class="w">    </span><span class="nt">&lt;tbody&gt;</span>
+<span class="w">        </span><span class="nt">&lt;tr&gt;</span>
+<span class="w">            </span><span class="nt">&lt;td</span><span class="w"> </span><span class="na">rowspan=</span><span class="s">&quot;3&quot;</span><span class="nt">&gt;</span>功能模块1<span class="nt">&lt;/td&gt;</span>
+<span class="w">            </span><span class="nt">&lt;td&gt;</span>具体事项1<span class="nt">&lt;/td&gt;</span>
+<span class="w">            </span><span class="nt">&lt;td&gt;</span>3<span class="nt">&lt;/td&gt;</span>
+<span class="w">            </span><span class="nt">&lt;td&gt;</span>任务1<span class="nt">&lt;/td&gt;</span>
+<span class="w">            </span><span class="nt">&lt;td</span><span class="w"> </span><span class="na">rowspan=</span><span class="s">&quot;3&quot;</span><span class="nt">&gt;</span>@翠花<span class="nt">&lt;/td&gt;</span>
+<span class="w">        </span><span class="nt">&lt;/tr&gt;</span>
+<span class="w">        </span><span class="nt">&lt;tr&gt;</span>
+<span class="w">            </span><span class="nt">&lt;td</span><span class="w"> </span><span class="na">rowspan=</span><span class="s">&quot;2&quot;</span><span class="nt">&gt;</span>具体事项2<span class="nt">&lt;/td&gt;</span>
+<span class="w">            </span><span class="nt">&lt;td&gt;</span>4<span class="nt">&lt;/td&gt;</span>
+<span class="w">            </span><span class="nt">&lt;td&gt;</span>任务2<span class="nt">&lt;/td&gt;</span>
+<span class="w">        </span><span class="nt">&lt;/tr&gt;</span>
+<span class="w">        </span><span class="nt">&lt;tr&gt;</span>
+<span class="w">            </span><span class="nt">&lt;td&gt;</span>1<span class="nt">&lt;/td&gt;</span>
+<span class="w">            </span><span class="nt">&lt;td&gt;</span>任务3<span class="nt">&lt;/td&gt;</span>
+<span class="w">        </span><span class="nt">&lt;/tr&gt;</span>
+<span class="w">        </span><span class="nt">&lt;tr&gt;</span>
+<span class="w">            </span><span class="nt">&lt;td</span><span class="w"> </span><span class="na">rowspan=</span><span class="s">&quot;6&quot;</span><span class="nt">&gt;</span>功能模块2<span class="nt">&lt;/td&gt;</span>
+<span class="w">            </span><span class="nt">&lt;td&gt;</span>具体事项1<span class="nt">&lt;/td&gt;</span>
+<span class="w">            </span><span class="nt">&lt;td&gt;</span>2<span class="nt">&lt;/td&gt;</span>
+<span class="w">            </span><span class="nt">&lt;td&gt;</span>任务1<span class="nt">&lt;/td&gt;</span>
+<span class="w">            </span><span class="nt">&lt;td</span><span class="w"> </span><span class="na">rowspan=</span><span class="s">&quot;6&quot;</span><span class="nt">&gt;</span>@美美<span class="nt">&lt;/td&gt;</span>
+<span class="w">        </span><span class="nt">&lt;/tr&gt;</span>
+<span class="w">        </span><span class="nt">&lt;tr&gt;</span>
+<span class="w">            </span><span class="nt">&lt;td</span><span class="w"> </span><span class="na">rowspan=</span><span class="s">&quot;4&quot;</span><span class="nt">&gt;</span>具体事项2<span class="nt">&lt;/td&gt;</span>
+<span class="w">            </span><span class="nt">&lt;td&gt;</span>3<span class="nt">&lt;/td&gt;</span>
+<span class="w">            </span><span class="nt">&lt;td&gt;</span>任务1<span class="nt">&lt;/td&gt;</span>
+<span class="w">        </span><span class="nt">&lt;/tr&gt;</span>
+<span class="w">        </span><span class="nt">&lt;tr&gt;</span>
+<span class="w">            </span><span class="nt">&lt;td&gt;</span>2<span class="nt">&lt;/td&gt;</span>
+<span class="w">            </span><span class="nt">&lt;td&gt;</span>任务2<span class="nt">&lt;/td&gt;</span>
+<span class="w">        </span><span class="nt">&lt;/tr&gt;</span>
+<span class="w">        </span><span class="nt">&lt;tr&gt;</span>
+<span class="w">            </span><span class="nt">&lt;td&gt;</span>1<span class="nt">&lt;/td&gt;</span>
+<span class="w">            </span><span class="nt">&lt;td&gt;</span>任务3<span class="nt">&lt;/td&gt;</span>
+<span class="w">        </span><span class="nt">&lt;/tr&gt;</span>
+<span class="w">        </span><span class="nt">&lt;tr&gt;</span>
+<span class="w">            </span><span class="nt">&lt;td&gt;</span>4<span class="nt">&lt;/td&gt;</span>
+<span class="w">            </span><span class="nt">&lt;td&gt;</span>任务4<span class="nt">&lt;/td&gt;</span>
+<span class="w">        </span><span class="nt">&lt;/tr&gt;</span>
+<span class="w">        </span><span class="nt">&lt;tr&gt;</span>
+<span class="w">            </span><span class="nt">&lt;td&gt;</span>具体事项3<span class="nt">&lt;/td&gt;</span>
+<span class="w">            </span><span class="nt">&lt;td&gt;</span>1<span class="nt">&lt;/td&gt;</span>
+<span class="w">            </span><span class="nt">&lt;td&gt;</span>任务1<span class="nt">&lt;/td&gt;</span>
+<span class="w">        </span><span class="nt">&lt;/tr&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/tbody&gt;</span>
+<span class="w">    </span><span class="nt">&lt;tfoot&gt;</span>
+<span class="w">        </span><span class="nt">&lt;tr&gt;</span>
+<span class="w">            </span><span class="nt">&lt;th</span><span class="w"> </span><span class="na">colspan=</span><span class="s">&quot;5&quot;</span><span class="nt">&gt;</span>备注信息<span class="nt">&lt;/th&gt;</span>
+<span class="w">        </span><span class="nt">&lt;/tr&gt;</span>
+<span class="w">        </span><span class="nt">&lt;tr&gt;</span>
+<span class="w">            </span><span class="nt">&lt;td</span><span class="w"> </span><span class="na">colspan=</span><span class="s">&quot;5&quot;</span><span class="nt">&gt;</span>...<span class="nt">&lt;/td&gt;</span>
+<span class="w">        </span><span class="nt">&lt;/tr&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/tfoot&gt;</span>
+<span class="nt">&lt;/table&gt;</span>
+</code></pre></div>
+
+<p><strong>渲染效果：</strong></p>
+<table border="1" width="800">
+
+<thead>
+
+<tr>
+
+<th colspan="2">需求：V0.3版本规划</th>
+
+<th>优先级</th>
+
+<th>任务分解</th>
+
+<th>产品负责人</th>
+
+</tr>
+
+</thead>
+
+<tbody>
+
+<tr>
+
+<td rowspan="3">功能模块1</td>
+
+<td>具体事项1</td>
+
+<td>3</td>
+
+<td>任务1</td>
+
+<td rowspan="3">@翠花</td>
+
+</tr>
+
+<tr>
+
+<td rowspan="2">具体事项2</td>
+
+<td>4</td>
+
+<td>任务2</td>
+
+</tr>
+
+<tr>
+
+<td>1</td>
+
+<td>任务3</td>
+
+</tr>
+
+<tr>
+
+<td rowspan="6">功能模块2</td>
+
+<td>具体事项1</td>
+
+<td>2</td>
+
+<td>任务1</td>
+
+<td rowspan="6">@美美</td>
+
+</tr>
+
+<tr>
+
+<td rowspan="4">具体事项2</td>
+
+<td>3</td>
+
+<td>任务1</td>
+
+</tr>
+
+<tr>
+
+<td>2</td>
+
+<td>任务2</td>
+
+</tr>
+
+<tr>
+
+<td>1</td>
+
+<td>任务3</td>
+
+</tr>
+
+<tr>
+
+<td>4</td>
+
+<td>任务4</td>
+
+</tr>
+
+<tr>
+
+<td>具体事项3</td>
+
+<td>1</td>
+
+<td>任务1</td>
+
+</tr>
+
+</tbody>
+
+<tfoot>
+
+<tr>
+
+<th colspan="5">备注信息</th>
+
+</tr>
+
+<tr>
+
+<td colspan="5">...</td>
+
+</tr>
+
+</tfoot>
+
+</table>
+
+<p><strong>注：</strong></p>
+<ul>
+<li>
+<p>不是所有的 Markdown 解析器都支持 HTML 标签，因此在编写 Markdown 文档时，最好先了解所使用的 Markdown 解析器是否支持 HTML 标签以及具体的支持程度。</p>
+</li>
+<li>
+<p>如果所使用的 Markdown 解析器不支持 HTML 标签，那么就无法实现合并单元格的功能。</p>
+</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.471ce7a9.min.js"></script>
+      
+    
+  </body>
+</html>
